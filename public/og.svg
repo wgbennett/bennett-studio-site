@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <!-- Background: workshop-warm bone -->
+  <rect width="1200" height="630" fill="#F5F1EA"/>
+
+  <!-- Subtle grid texture (matches Hero) -->
+  <defs>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 L 0 0 0 44" stroke="#1A1A1A" stroke-width="0.6" opacity="0.05" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Top-left wordmark eyebrow -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="18" letter-spacing="2.4" fill="#1A1A1A" opacity="0.55">
+    <circle cx="80" cy="76" r="4" fill="#B8451F" opacity="1"/>
+    <text x="100" y="83">MARGINPRINT</text>
+    <text x="285" y="83" opacity="0.35">·</text>
+    <text x="305" y="83">V0.4.2</text>
+    <text x="392" y="83" opacity="0.35">·</text>
+    <text x="412" y="83">IN BETA</text>
+  </g>
+
+  <!-- Headline -->
+  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif" fill="#1A1A1A">
+    <text x="80" y="280" font-size="124" font-weight="700" letter-spacing="-4">The queue is</text>
+    <text x="80" y="410" font-size="124" font-weight="500" font-style="italic" letter-spacing="-4" fill="#1A1A1A" opacity="0.8">the app.</text>
+  </g>
+
+  <!-- Subhead -->
+  <text x="80" y="510" font-family="Inter, sans-serif" font-size="26" fill="#1A1A1A" opacity="0.65">
+    Mobile-first operations for small 3D print sellers.
+  </text>
+
+  <!-- Bottom-right byline -->
+  <g font-family="ui-monospace, 'JetBrains Mono', monospace" font-size="20" letter-spacing="2" fill="#1A1A1A">
+    <text x="1120" y="588" text-anchor="end" opacity="0.45">BY</text>
+    <text x="1150" y="588" text-anchor="end">BENNETT STUDIO</text>
+  </g>
+
+  <!-- Layered print stack on right (subtle, matches hero motif) -->
+  <g transform="translate(880, 130)" stroke="#1A1A1A" stroke-width="1.6">
+    <!-- 22 horizontal layers forming a vase silhouette -->
+    <line x1="100" y1="0" x2="180" y2="0" opacity="0.35"/>
+    <line x1="80" y1="14" x2="200" y2="14" opacity="0.42"/>
+    <line x1="60" y1="28" x2="220" y2="28" opacity="0.48"/>
+    <line x1="44" y1="42" x2="236" y2="42" opacity="0.55"/>
+    <line x1="32" y1="56" x2="248" y2="56" opacity="0.6"/>
+    <line x1="22" y1="70" x2="258" y2="70" opacity="0.65"/>
+    <line x1="14" y1="84" x2="266" y2="84" opacity="0.7"/>
+    <line x1="8" y1="98" x2="272" y2="98" opacity="0.72"/>
+    <line x1="4" y1="112" x2="276" y2="112" opacity="0.75"/>
+    <line x1="2" y1="126" x2="278" y2="126" opacity="0.78"/>
+    <line x1="0" y1="140" x2="280" y2="140" opacity="0.8"/>
+    <line x1="2" y1="154" x2="278" y2="154" opacity="0.78"/>
+    <line x1="4" y1="168" x2="276" y2="168" opacity="0.75"/>
+    <line x1="8" y1="182" x2="272" y2="182" opacity="0.72"/>
+    <line x1="14" y1="196" x2="266" y2="196" opacity="0.7"/>
+    <line x1="22" y1="210" x2="258" y2="210" opacity="0.65"/>
+    <line x1="32" y1="224" x2="248" y2="224" opacity="0.6"/>
+    <line x1="44" y1="238" x2="236" y2="238" opacity="0.55"/>
+    <line x1="60" y1="252" x2="220" y2="252" opacity="0.48"/>
+    <line x1="80" y1="266" x2="200" y2="266" opacity="0.42"/>
+    <line x1="100" y1="280" x2="180" y2="280" opacity="0.35"/>
+  </g>
+</svg>

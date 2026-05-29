@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy &amp; your data — MarginPrint</title>
+    <meta name="description" content="MarginPrint is local-first: your shop data stays on your device. We run no server and collect no business data. Here's exactly how it works." />
+    <meta name="theme-color" content="#B8451F" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bone: #f5f1ea;
+        --ink: #1a1a1a;
+        --copper: #b8451f;
+        --charcoal: #1f1b17;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--charcoal);
+        color: var(--bone);
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.65;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 64px 24px 96px;
+      }
+
+      /* Header / wordmark */
+      .top {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 56px;
+      }
+      .mark { display: block; }
+      .wordmark {
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        font-size: 15px;
+      }
+      .wordmark .dot { color: var(--copper); }
+      .by {
+        margin-left: 4px;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: rgba(245, 241, 234, 0.45);
+      }
+
+      h1 {
+        font-size: clamp(30px, 6vw, 42px);
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        font-weight: 700;
+        margin: 0 0 12px;
+      }
+      .updated {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(245, 241, 234, 0.4);
+        margin: 0 0 40px;
+      }
+
+      /* TL;DR card */
+      .tldr {
+        border: 1px solid rgba(184, 69, 31, 0.4);
+        border-left: 3px solid var(--copper);
+        background: rgba(184, 69, 31, 0.07);
+        border-radius: 10px;
+        padding: 22px 24px;
+        margin: 0 0 48px;
+      }
+      .tldr-label {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--copper);
+        margin: 0 0 10px;
+      }
+      .tldr p { margin: 0; font-size: 16px; }
+
+      h2 {
+        font-size: 20px;
+        letter-spacing: -0.01em;
+        font-weight: 600;
+        margin: 44px 0 14px;
+      }
+      p { margin: 0 0 16px; color: rgba(245, 241, 234, 0.82); }
+      strong { color: var(--bone); font-weight: 600; }
+      a { color: var(--copper); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      ul { margin: 0 0 16px; padding-left: 20px; color: rgba(245, 241, 234, 0.82); }
+      li { margin-bottom: 8px; }
+      li::marker { color: var(--copper); }
+
+      .divider {
+        border: 0;
+        border-top: 1px solid rgba(245, 241, 234, 0.1);
+        margin: 56px 0 28px;
+      }
+      .foot {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: rgba(245, 241, 234, 0.4);
+      }
+      .foot a { color: rgba(245, 241, 234, 0.6); }
+      .back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 12px;
+        color: rgba(245, 241, 234, 0.7);
+        margin-bottom: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="/">&larr; Back to MarginPrint</a>
+
+      <div class="top">
+        <svg class="mark" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="0" y="2" width="16" height="1.6" fill="#F5F1EA" />
+          <rect x="0" y="7.2" width="16" height="1.6" fill="#F5F1EA" />
+          <rect x="0" y="12.4" width="16" height="1.6" fill="#F5F1EA" />
+        </svg>
+        <span class="wordmark">MARGIN<span class="dot">.</span>PRINT</span>
+        <span class="by">by Bennett Studio</span>
+      </div>
+
+      <h1>Privacy &amp; your data</h1>
+      <p class="updated">Last updated 29 May 2026</p>
+
+      <div class="tldr">
+        <p class="tldr-label">The short version</p>
+        <p>
+          MarginPrint runs entirely on your device. Your shop data &mdash; jobs,
+          customers, prices, costs &mdash; never leaves it and is never sent to us.
+          We run no server and keep no database of your business. We can't see your
+          numbers, and there's no central pile of customer data for anyone to breach.
+        </p>
+      </div>
+
+      <h2>What we collect</h2>
+      <p>
+        From the app itself: <strong>nothing</strong>. MarginPrint is a
+        <strong>local-first</strong> app. Everything you enter is stored in your
+        own browser (via IndexedDB, with localStorage as a fallback) on the device
+        you're using. It is not transmitted to Bennett Studio, and there is no
+        account to create and no login.
+      </p>
+
+      <h2>Where your data lives</h2>
+      <p>
+        On your device, under your control. Because it's local:
+      </p>
+      <ul>
+        <li>The app works offline &mdash; useful next to a printer with bad Wi-Fi.</li>
+        <li>You can export a full JSON backup at any time from Settings, and import it on another device.</li>
+        <li>Clearing your browser's site data, or uninstalling the app, deletes your data. Keep a backup first.</li>
+        <li>Your data is tied to the device and browser you use it in. We don't sync it for you, so we never hold a copy.</li>
+      </ul>
+
+      <h2>Payments</h2>
+      <p>
+        Purchases are handled by <strong>Lemon Squeezy</strong>, which acts as the
+        Merchant of Record. That means your card details go to Lemon Squeezy &mdash;
+        never to us &mdash; and they handle payment processing, receipts, and sales
+        tax/VAT. We receive only what we need to recognize your license (such as a
+        license key and the email you bought with). Lemon Squeezy's handling of your
+        payment information is covered by
+        <a href="https://www.lemonsqueezy.com/privacy" rel="noopener" target="_blank">their privacy policy</a>.
+      </p>
+
+      <h2>The optional AI feature</h2>
+      <p>
+        MarginPrint's pricing analysis uses Anthropic's Claude API and is
+        <strong>bring-your-own-key</strong>: you supply your own Anthropic API key.
+        That key is stored only on your device and is used to send requests directly
+        from your browser to Anthropic &mdash; it never passes through us, and we
+        never see it. It is deliberately excluded from your JSON backups so a backup
+        file can't leak your key. When you run an analysis, the cost figures for that
+        product are sent to Anthropic to generate advice, under
+        <a href="https://www.anthropic.com/legal/privacy" rel="noopener" target="_blank">Anthropic's privacy policy</a>.
+        If you never enter a key, the feature stays off and nothing is sent anywhere.
+      </p>
+
+      <h2>This website</h2>
+      <p>
+        The marketing site you're reading may use privacy-friendly, cookieless
+        analytics to count visits (no personal profiles, no cross-site tracking, no
+        advertising cookies). If you email us, we'll have whatever you put in that
+        email. That's the extent of it.
+      </p>
+
+      <h2>What we never do</h2>
+      <ul>
+        <li>Sell or share your data &mdash; we don't have it to sell.</li>
+        <li>Run third-party advertising or tracking pixels in the app.</li>
+        <li>Require an account or hold your business data on our servers.</li>
+      </ul>
+
+      <h2>Your control</h2>
+      <p>
+        Because your data lives on your device, you control it directly: export it,
+        move it, or delete it whenever you want, without asking us. If you have a
+        question about any of this, or want help, get in touch.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        If MarginPrint ever adds a feature that changes how data is handled &mdash;
+        for example optional cloud sync &mdash; we'll update this page and note the
+        date above before that feature ships. The local-first default isn't going
+        away; anything that leaves your device will be opt-in.
+      </p>
+
+      <hr class="divider" />
+      <p class="foot">
+        Questions? <a href="mailto:will@bennett.studio">will@bennett.studio</a>
+        &nbsp;·&nbsp; &copy; 2026 Bennett Studio
+      </p>
+    </div>
+  </body>
+</html>
