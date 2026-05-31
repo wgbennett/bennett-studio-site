@@ -1,0 +1,91 @@
+// "Meet MarginPrint" — inverted (ink) transitional band that opens the
+// flagship deep-dive. Carries id="marginprint" (hero + apps band link here).
+// Doubles as the device-frame showcase for the three real app screenshots
+// (captured to /public/screenshots/). The §01–§04 sections below are
+// MarginPrint's chapters.
+const SHOTS = [
+  { src: '/screenshots/queue.png',             label: 'The queue',   note: "What's printing, queued, owed" },
+  { src: '/screenshots/calculator-result.png', label: 'True cost',   note: 'Profit, margin, full breakdown' },
+  { src: '/screenshots/ai-analysis.png',       label: 'AI analysis', note: 'Pricing advice from Claude' },
+]
+
+export default function MarginPrintIntro() {
+  return (
+    <section
+      id="marginprint"
+      className="relative overflow-hidden border-t border-ink/10 bg-charcoal px-8 py-28 text-bone lg:py-32"
+    >
+      {/* warm copper glow behind the phones */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        style={{
+          background:
+            'radial-gradient(circle, rgba(184,69,31,0.18), rgba(184,69,31,0) 62%)',
+        }}
+      />
+
+      <div className="relative mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+            <span className="h-1.5 w-1.5 rounded-full bg-copper" />
+            <span>The flagship &nbsp;—&nbsp; app 01</span>
+          </div>
+          <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
+            Meet{' '}
+            <span className="text-bone">
+              Margin<span className="text-copper">.</span>Print
+            </span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
+            Mission control for small 3D-print sellers. The production queue,
+            true costs, and your customers on one mobile screen.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+            <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper" />
+              In development &nbsp;·&nbsp; private beta
+            </span>
+            <a
+              href="#contact"
+              className="font-mono text-[12px] uppercase tracking-wider text-bone/80 underline-offset-4 hover:text-bone hover:underline"
+            >
+              Join the beta →
+            </a>
+          </div>
+        </div>
+
+        {/* Phones — real screenshots */}
+        <div className="mt-16 flex flex-wrap items-end justify-center gap-6 lg:gap-10">
+          {SHOTS.map((s, i) => (
+            <figure
+              key={s.src}
+              className={`flex flex-col items-center ${i === 1 ? 'lg:-translate-y-5' : ''}`}
+            >
+              <div className="rounded-[28px] border border-bone/15 bg-[#0d0d10] p-2 shadow-[0_30px_60px_-24px_rgba(0,0,0,0.7)]">
+                <img
+                  src={s.src}
+                  alt={`MarginPrint — ${s.label}`}
+                  loading="lazy"
+                  className="block w-[180px] rounded-[22px] sm:w-[210px]"
+                />
+              </div>
+              <figcaption className="mt-4 text-center">
+                <div className="font-mono text-[11px] uppercase tracking-wider text-bone">
+                  {s.label}
+                </div>
+                <div className="mt-1 text-[12px] text-bone/50">{s.note}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        {/* lead-in to the deep dive */}
+        <div className="mt-16 text-center font-mono text-[10px] uppercase tracking-wider text-bone/40">
+          — The full tour below
+        </div>
+      </div>
+    </section>
+  )
+}

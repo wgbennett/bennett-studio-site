@@ -1,4 +1,6 @@
 import Hero from './components/Hero.jsx'
+import Apps from './components/sections/Apps.jsx'
+import MarginPrintIntro from './components/sections/MarginPrintIntro.jsx'
 import WhatItDoes from './components/sections/WhatItDoes.jsx'
 import Flow from './components/sections/Flow.jsx'
 import Features from './components/sections/Features.jsx'
@@ -13,6 +15,10 @@ export default function App() {
     <main className="min-h-screen bg-bone text-ink antialiased">
       <ScrollVignette />
       <Hero />
+      {/* Studio-level: the honest apps band */}
+      <Apps />
+      {/* Flagship deep-dive starts here (id=marginprint) */}
+      <MarginPrintIntro />
       <WhatItDoes />
       <Flow />
       <Features />

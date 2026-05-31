@@ -13,8 +13,8 @@ const TIERS = [
     price: '$0',
     interval: 'forever',
     tagline: 'Everything you need to price one printer.',
-    cta: 'Get started',
-    href: '#',
+    cta: 'Join the beta',
+    href: '#contact',
     highlight: false,
     features: [
       '1 printer',
@@ -30,8 +30,8 @@ const TIERS = [
     interval: 'per year',
     secondary: 'or $9.99 billed monthly',
     tagline: 'The full app, paid yearly. Most chosen.',
-    cta: 'Start free trial',
-    href: '#',
+    cta: 'Get early access',
+    href: '#contact',
     highlight: true,
     features: [
       'Unlimited printers',
@@ -47,8 +47,8 @@ const TIERS = [
     price: '$199',
     interval: 'one-time',
     tagline: 'Buy it once. Updates forever.',
-    cta: 'Buy lifetime',
-    href: '#',
+    cta: 'Reserve founding price',
+    href: '#contact',
     highlight: false,
     features: [
       'Everything in Annual',
@@ -79,6 +79,10 @@ export default function Pricing() {
         <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ink/65">
           Free works forever for one printer. Paid is the full app — everything
           you saw above, no asterisks. Pick the cadence that fits your shop.
+        </p>
+        <p className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-copper">
+          <span className="h-1.5 w-1.5 rounded-full bg-copper" />
+          Launch pricing — join the beta now to lock the founding lifetime deal
         </p>
       </div>
 

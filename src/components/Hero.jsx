@@ -26,20 +26,20 @@ export default function Hero() {
       <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6 font-mono text-[11px] uppercase tracking-wider text-ink/70">
         <a href="#" className="flex items-center gap-2.5">
           <Mark />
-          <span className="font-semibold text-ink">
-            MARGIN<span className="text-copper">.</span>PRINT
-          </span>
+          <span className="font-semibold text-ink">BENNETT STUDIO</span>
         </a>
         <nav className="hidden gap-8 md:flex">
-          <a href="#what" className="hover:text-ink">What it does</a>
-          <a href="#flow" className="hover:text-ink">The flow</a>
+          <a href="#apps" className="hover:text-ink">Apps</a>
+          <a href="#marginprint" className="hover:text-ink">MarginPrint</a>
           <a href="#pricing" className="hover:text-ink">Pricing</a>
           <a href="#about" className="hover:text-ink">About</a>
         </nav>
-        <div className="hidden text-right md:block">
-          <span className="text-ink/40">by</span>{' '}
-          <span className="text-ink">Bennett Studio</span>
-        </div>
+        <a
+          href="#contact"
+          className="hidden text-ink/70 underline-offset-4 hover:text-ink hover:underline md:block"
+        >
+          Join the beta →
+        </a>
       </header>
 
       {/* Main content grid */}
@@ -48,33 +48,35 @@ export default function Hero() {
         <div className="max-w-2xl">
           <div className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-ink/55">
             <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-            <span>MarginPrint · v0.4.2 · in beta</span>
+            <span>Bennett Studio · independent software for makers</span>
           </div>
 
           <h1 className="text-[clamp(2.5rem,7vw,5.5rem)] font-bold leading-[0.95] tracking-tightest text-ink">
-            The queue is{' '}
-            <span className="italic font-medium">the app.</span>
+            The business side{' '}
+            <span className="italic font-medium">of making,</span> handled.
           </h1>
 
           <p className="mt-8 max-w-md text-lg leading-relaxed text-ink/70">
-            MarginPrint runs the queue, the costs, and the customer list from
-            one screen. Mobile-first. Built solo. It opens 5–15 times a day.
-            That's the bar.
+            One maker building focused, mobile-first tools for people who sell
+            what they make — one app at a time. First up:{' '}
+            <span className="font-semibold text-ink">MarginPrint</span>, mission
+            control for small 3D-print sellers.{' '}
+            <span className="text-copper">In development now.</span>
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
             <a
-              href="#"
+              href="#marginprint"
               className="group inline-flex items-center gap-2.5 bg-ink px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-copper"
             >
-              Try Free
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+              Meet MarginPrint
+              <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
             </a>
             <a
-              href="#what"
+              href="#contact"
               className="font-mono text-[12px] uppercase tracking-wider text-ink/70 underline-offset-4 hover:text-ink hover:underline"
             >
-              See what it does ↓
+              Join the beta →
             </a>
           </div>
         </div>
@@ -87,14 +89,14 @@ export default function Hero() {
           {/* HUD callout — upper right, above the stack */}
           <div className="absolute right-0 top-2 font-mono text-[10px] uppercase leading-relaxed tracking-wider text-ink/50">
             <div className="h-px w-12 bg-ink/30 mb-2" />
-            <div>now printing</div>
+            <div>now building</div>
             <div>
               layer <span className="text-ink">247</span>{' '}
               <span className="text-ink/30">/</span> 247
               <span className="ml-1.5 inline-block h-2 w-2 align-middle bg-copper" />
             </div>
-            <div>MarginPrint · v0.4.2</div>
-            <div>job #A-1142 · PLA · 0.20mm</div>
+            <div>MarginPrint · in development</div>
+            <div>Bennett Studio · app 01</div>
           </div>
 
           <PrintStack />
@@ -106,10 +108,10 @@ export default function Hero() {
         <div className="mx-auto flex max-w-7xl items-center justify-between font-mono text-[10px] uppercase tracking-wider text-ink/50">
           <span>— Scroll · learn more below</span>
           <div className="hidden gap-7 md:flex">
-            <span><span className="text-ink/25">01</span>&nbsp;&nbsp;What it does</span>
-            <span><span className="text-ink/25">02</span>&nbsp;&nbsp;The flow</span>
-            <span><span className="text-ink/25">03</span>&nbsp;&nbsp;Features</span>
-            <span><span className="text-ink/25">04</span>&nbsp;&nbsp;Pricing</span>
+            <span><span className="text-ink/25">01</span>&nbsp;&nbsp;The apps</span>
+            <span><span className="text-ink/25">02</span>&nbsp;&nbsp;MarginPrint</span>
+            <span><span className="text-ink/25">03</span>&nbsp;&nbsp;Pricing</span>
+            <span><span className="text-ink/25">04</span>&nbsp;&nbsp;About</span>
           </div>
         </div>
       </div>
