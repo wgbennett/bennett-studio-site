@@ -1,9 +1,13 @@
-const FOOTER_NAV = [
+const FOOTER_STUDIO = [
+  { label: 'The apps', href: '#apps' },
+  { label: 'About the maker', href: '#about' },
+  { label: 'Join the beta', href: '#contact' },
+]
+
+const FOOTER_MARGINPRINT = [
+  { label: 'Overview', href: '#marginprint' },
   { label: 'What it does', href: '#what' },
-  { label: 'The flow', href: '#flow' },
-  { label: 'Features', href: '#features' },
   { label: 'Pricing', href: '#pricing' },
-  { label: 'About', href: '#about' },
 ]
 
 // Replace the placeholder URLs with the real handles before deploy.
@@ -23,34 +27,29 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         {/* Top row — wordmark + nav */}
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_2fr]">
-          {/* Wordmark + studio attribution */}
+          {/* Wordmark — studio-first */}
           <div>
             <div className="flex items-center gap-2.5">
               <Mark />
               <span className="font-semibold tracking-tight text-bone">
-                MARGIN<span className="text-copper">.</span>PRINT
+                BENNETT STUDIO
               </span>
             </div>
             <div className="mt-2 font-mono text-[11px] uppercase tracking-wider text-bone/45">
-              by Bennett Studio
+              Independent software for makers
             </div>
             <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/55">
-              Software for people who sell handmade and 3D-printed things.
-              Built solo, one app at a time.
+              One maker building focused, mobile-first tools for people who sell
+              what they make. Built solo, one app at a time. First app:{' '}
+              <span className="text-bone/80">MarginPrint</span>.
             </p>
           </div>
 
           {/* Link columns */}
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-            <FooterColumn title="Product" links={FOOTER_NAV} />
+            <FooterColumn title="Studio" links={FOOTER_STUDIO} />
+            <FooterColumn title="MarginPrint" links={FOOTER_MARGINPRINT} />
             <FooterColumn title="Connect" links={FOOTER_SOCIAL} external />
-            <FooterColumn
-              title="Studio"
-              links={[
-                { label: 'About the maker', href: '#about' },
-                { label: 'Try MarginPrint', href: '#contact' },
-              ]}
-            />
           </div>
         </div>
 
