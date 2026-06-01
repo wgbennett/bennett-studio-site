@@ -5,6 +5,7 @@ import WhatItDoes from './components/sections/WhatItDoes.jsx'
 import Flow from './components/sections/Flow.jsx'
 import Features from './components/sections/Features.jsx'
 import Pricing from './components/sections/Pricing.jsx'
+import Faq from './components/sections/Faq.jsx'
 import About from './components/sections/About.jsx'
 import Contact from './components/sections/Contact.jsx'
 import Footer from './components/sections/Footer.jsx'
@@ -23,6 +24,7 @@ export default function App() {
       <Flow />
       <Features />
       <Pricing />
+      <Faq />
       <About />
       <Contact />
       <Footer />

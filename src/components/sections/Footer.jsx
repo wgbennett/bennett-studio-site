@@ -8,6 +8,7 @@ const FOOTER_MARGINPRINT = [
   { label: 'Overview', href: '#marginprint' },
   { label: 'What it does', href: '#what' },
   { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 // Replace the placeholder URLs with the real handles before deploy.

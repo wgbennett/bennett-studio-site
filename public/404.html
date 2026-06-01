@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Not found — Bennett Studio</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#F5F1EA" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=JetBrains+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root { --bone:#F5F1EA; --ink:#1A1A1A; --copper:#B8451F; }
+      * { box-sizing: border-box; margin: 0; }
+      body {
+        min-height: 100vh; display: grid; place-items: center;
+        background: var(--bone); color: var(--ink);
+        font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+        background-image:
+          linear-gradient(to right, rgba(26,26,26,0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(26,26,26,0.05) 1px, transparent 1px);
+        background-size: 44px 44px;
+      }
+      .wrap { text-align: center; padding: 32px; }
+      .mark { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 40px;
+        font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;
+        text-transform: uppercase; color: rgba(26,26,26,0.6); }
+      .code { font-size: clamp(64px, 16vw, 132px); font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
+      .code .dot { color: var(--copper); }
+      h1 { margin-top: 16px; font-size: clamp(20px, 4vw, 28px); font-weight: 700; letter-spacing: -0.01em; }
+      p { margin-top: 14px; color: rgba(26,26,26,0.6); font-size: 16px; }
+      a.home { display: inline-block; margin-top: 32px; background: var(--ink); color: var(--bone);
+        padding: 14px 28px; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+        text-transform: uppercase; letter-spacing: 0.08em; text-decoration: none;
+        transition: background 0.15s; }
+      a.home:hover { background: var(--copper); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="mark">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="0" y="2" width="16" height="1.6" fill="#1A1A1A" />
+          <rect x="0" y="7.2" width="16" height="1.6" fill="#1A1A1A" />
+          <rect x="0" y="12.4" width="16" height="1.6" fill="#1A1A1A" />
+        </svg>
+        Bennett Studio
+      </div>
+      <div class="code">404<span class="dot">.</span></div>
+      <h1>This page didn&rsquo;t make the cut.</h1>
+      <p>The link&rsquo;s broken or the page moved. Let&rsquo;s get you back.</p>
+      <a class="home" href="/">← Back to Bennett Studio</a>
+    </div>
+  </body>
+</html>
