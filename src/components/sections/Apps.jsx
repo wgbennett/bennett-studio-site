@@ -44,7 +44,7 @@ export default function Apps() {
             <div className="flex items-center gap-2.5">
               <Mark />
               <span className="text-2xl font-bold tracking-tight text-ink">
-                MARGIN<span className="text-copper">.</span>PRINT
+                MarginPrint
               </span>
             </div>
 
