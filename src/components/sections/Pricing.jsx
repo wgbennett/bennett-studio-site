@@ -9,26 +9,27 @@ import CardEdgeHighlight from '../effects/CardEdgeHighlight.jsx'
 // and the live Lemon Squeezy product prices. See LAUNCH_PLAN.md.
 const TIERS = [
   {
-    name: 'Free',
-    price: '$0',
-    interval: 'forever',
-    tagline: 'Everything you need to price one printer.',
-    cta: 'Join the beta',
+    name: 'Monthly',
+    price: '$9.99',
+    interval: 'per month',
+    tagline: 'The full app, month to month. Cancel anytime.',
+    cta: 'Get early access',
     href: '#contact',
     highlight: false,
     features: [
-      '1 printer',
-      'Manual cost math',
-      'Basic queue · up to 5 active jobs',
-      'CSV export',
-      'Local data, works offline',
+      'Unlimited printers',
+      'Slicer file ingestion (.gcode / .3mf)',
+      'Unlimited queue · auto-archive',
+      'AI pricing analysis · bring your own key',
+      'Backup / restore · device sync',
+      'All future updates',
     ],
   },
   {
     name: 'Annual',
     price: '$99',
     interval: 'per year',
-    secondary: 'or $9.99 billed monthly',
+    secondary: '$8.25/mo, billed annually · save 17%',
     tagline: 'The full app, paid yearly. Most chosen.',
     cta: 'Get early access',
     href: '#contact',
@@ -77,8 +78,9 @@ export default function Pricing() {
           <span className="italic font-medium text-ink/55">that hide a feature.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ink/65">
-          Free works forever for one printer. Paid is the full app — everything
-          you saw above, no asterisks. Pick the cadence that fits your shop.
+          Start free with one printer; the plans below unlock the full app —
+          everything you saw above, no asterisks. Pick the cadence that fits
+          your shop.
         </p>
         <p className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
