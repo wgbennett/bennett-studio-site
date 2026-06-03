@@ -9,6 +9,22 @@ import CardEdgeHighlight from '../effects/CardEdgeHighlight.jsx'
 // and the live Lemon Squeezy product prices. See LAUNCH_PLAN.md.
 const TIERS = [
   {
+    name: 'Free',
+    price: '$0',
+    interval: 'forever',
+    tagline: 'Everything you need to price one printer.',
+    cta: 'Join the beta',
+    href: '#contact',
+    highlight: false,
+    features: [
+      '1 printer',
+      'Manual cost math',
+      'Basic queue · up to 5 active jobs',
+      'CSV export',
+      'Local data, works offline',
+    ],
+  },
+  {
     name: 'Monthly',
     price: '$9.99',
     interval: 'per month',
@@ -78,9 +94,8 @@ export default function Pricing() {
           <span className="italic font-medium text-ink/55">that hide a feature.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ink/65">
-          Start free with one printer; the plans below unlock the full app —
-          everything you saw above, no asterisks. Pick the cadence that fits
-          your shop.
+          Start free with one printer. Upgrade for the full app whenever you're
+          ready — no asterisks. Pick the cadence that fits your shop.
         </p>
         <p className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
@@ -89,7 +104,7 @@ export default function Pricing() {
       </div>
 
       {/* Tier grid */}
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-7">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
         {TIERS.map((tier) => (
           <TierCard key={tier.name} tier={tier} />
         ))}
