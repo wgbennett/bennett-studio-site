@@ -4,7 +4,7 @@ import { useState } from 'react'
 // reachable (local `vite dev`, or before the KV/webhook sink is configured on
 // Cloudflare Pages). Works once Cloudflare Email Routing for the domain is live.
 const MAILTO =
-  'mailto:will@bennett.studio?subject=MarginPrint%20beta&body=I%27d%20like%20to%20join%20the%20MarginPrint%20private%20beta.'
+  'mailto:will@bennettstudio.dev?subject=MarginPrint%20beta&body=I%27d%20like%20to%20join%20the%20MarginPrint%20private%20beta.'
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 

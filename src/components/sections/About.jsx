@@ -5,7 +5,7 @@ const PHOTO_SRC = null
 const SOCIAL = [
   { label: 'GitHub', href: 'https://github.com/' },
   { label: 'X', href: 'https://x.com/' },
-  { label: 'Email', href: 'mailto:will@bennett.studio' },
+  { label: 'Email', href: 'mailto:will@bennettstudio.dev' },
 ]
 
 export default function About() {

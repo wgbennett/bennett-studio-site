@@ -12,12 +12,12 @@ const FOOTER_MARGINPRINT = [
 ]
 
 // Replace the placeholder URLs with the real handles before deploy.
-// `mailto:will@bennett.studio` assumes the bennett.studio domain is set up
+// `mailto:will@bennettstudio.dev` assumes the bennettstudio.dev domain is set up
 // with email forwarding (Cloudflare Email Routing, Fastmail, etc.).
 const FOOTER_SOCIAL = [
   { label: 'GitHub', href: 'https://github.com/' },
   { label: 'X', href: 'https://x.com/' },
-  { label: 'Email', href: 'mailto:will@bennett.studio' },
+  { label: 'Email', href: 'mailto:will@bennettstudio.dev' },
 ]
 
 const YEAR = new Date().getFullYear()
