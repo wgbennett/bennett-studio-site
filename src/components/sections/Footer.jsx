@@ -106,10 +106,10 @@ function FooterColumn({ title, links, external = false }) {
 
 function Mark() {
   return (
-    <svg width="16" height="16" viewBox="0 0 16 16" className="text-bone">
-      <rect x="0" y="2" width="16" height="1.6" fill="currentColor" />
-      <rect x="0" y="7.2" width="16" height="1.6" fill="currentColor" />
-      <rect x="0" y="12.4" width="16" height="1.6" fill="currentColor" />
+    <svg width="16" height="16" viewBox="0 0 20 20" className="text-bone">
+      <rect x="0" y="3" width="10" height="3" rx="1.4" fill="currentColor" />
+      <rect x="0" y="8.5" width="14" height="3" rx="1.4" fill="currentColor" />
+      <rect x="0" y="14" width="18" height="3" rx="1.4" fill="#B8451F" />
     </svg>
   )
 }
