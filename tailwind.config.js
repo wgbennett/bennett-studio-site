@@ -16,6 +16,15 @@ export default {
       letterSpacing: {
         tightest: '-0.04em',
       },
+      keyframes: {
+        // Each row duplicates its cards, so translating by -50% loops seamlessly.
+        'marquee-left':  { from: { transform: 'translateX(0)' },      to: { transform: 'translateX(-50%)' } },
+        'marquee-right': { from: { transform: 'translateX(-50%)' },   to: { transform: 'translateX(0)' } },
+      },
+      animation: {
+        'marquee-left':  'marquee-left 60s linear infinite',
+        'marquee-right': 'marquee-right 60s linear infinite',
+      },
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
-// Replace the photo placeholder src with the real headshot once available.
-// Suggested dimensions: 4:5 ratio, ~1000×1250px, neutral background.
-const PHOTO_SRC = null
+// Workshop anchor — Will's actual print room (4:5, in public/). A real working
+// space does the "real maker" credibility job better than a posed headshot.
+const PHOTO_SRC = '/about-workshop.jpg'
 
 const SOCIAL = [
   { label: 'Instagram', href: 'https://instagram.com/bennettstudio.dev' },
@@ -32,7 +32,8 @@ export default function About() {
           {PHOTO_SRC ? (
             <img
               src={PHOTO_SRC}
-              alt="Will Bennett"
+              alt="Will Bennett's 3D-printing workshop — print bench, filament shelves, and printers"
+              loading="lazy"
               className="h-full w-full object-cover"
             />
           ) : (

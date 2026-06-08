@@ -7,6 +7,7 @@ import Features from './components/sections/Features.jsx'
 import Pricing from './components/sections/Pricing.jsx'
 import Faq from './components/sections/Faq.jsx'
 import About from './components/sections/About.jsx'
+import PrintShowcase from './components/sections/PrintShowcase.jsx'
 import Contact from './components/sections/Contact.jsx'
 import Footer from './components/sections/Footer.jsx'
 import ScrollVignette from './components/effects/ScrollVignette.jsx'
@@ -26,6 +27,7 @@ export default function App() {
       <Pricing />
       <Faq />
       <About />
+      <PrintShowcase />
       <Contact />
       <Footer />
     </main>
