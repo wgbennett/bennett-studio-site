@@ -11,12 +11,9 @@ const FOOTER_MARGINPRINT = [
   { label: 'FAQ', href: '#faq' },
 ]
 
-// Replace the placeholder URLs with the real handles before deploy.
-// `mailto:will@bennettstudio.dev` assumes the bennettstudio.dev domain is set up
-// with email forwarding (Cloudflare Email Routing, Fastmail, etc.).
+// `mailto:will@bennettstudio.dev` resolves via Cloudflare Email Routing (live).
 const FOOTER_SOCIAL = [
-  { label: 'GitHub', href: 'https://github.com/' },
-  { label: 'X', href: 'https://x.com/' },
+  { label: 'Instagram', href: 'https://instagram.com/bennettstudio.dev' },
   { label: 'Email', href: 'mailto:will@bennettstudio.dev' },
 ]
 

@@ -3,8 +3,7 @@
 const PHOTO_SRC = null
 
 const SOCIAL = [
-  { label: 'GitHub', href: 'https://github.com/' },
-  { label: 'X', href: 'https://x.com/' },
+  { label: 'Instagram', href: 'https://instagram.com/bennettstudio.dev' },
   { label: 'Email', href: 'mailto:will@bennettstudio.dev' },
 ]
 
