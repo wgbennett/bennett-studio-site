@@ -27,8 +27,8 @@ export default function MarginPrintIntro() {
       <div className="relative mx-auto max-w-7xl">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper" />
+          <div className="mb-5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+            <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>The flagship &nbsp;—&nbsp; app 01</span>
           </div>
           <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
@@ -40,8 +40,8 @@ export default function MarginPrintIntro() {
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
-            <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper" />
+            <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper-light">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-light" />
               In development &nbsp;·&nbsp; private beta
             </span>
             <a

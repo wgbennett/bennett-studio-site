@@ -126,8 +126,8 @@ export default function Features() {
     >
       {/* Header */}
       <div className="relative mx-auto mb-20 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
-          <span className="h-1.5 w-1.5 rounded-full bg-copper" />
+        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+          <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
           <span>§03 &nbsp;—&nbsp; What's inside</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-bone">
@@ -146,7 +146,7 @@ export default function Features() {
       {/* AI deep-dive */}
       <div className="relative mx-auto mt-28 grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <div className="max-w-lg">
-          <div className="mb-4 font-mono text-[11px] uppercase tracking-wider text-copper">
+          <div className="mb-4 font-mono text-[11px] uppercase tracking-wider text-copper-light">
             Try it · the AI feature
           </div>
           <h3 className="text-[clamp(1.75rem,3vw,2.75rem)] font-semibold leading-[1.1] tracking-tight text-bone">
@@ -193,7 +193,7 @@ function FeatureCard({ feature, index }) {
 
       {/* Spec footer — adds a concrete factual layer + visual rhythm */}
       <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/35 transition-colors group-hover:text-bone/60">
-        <span className="text-copper/70 group-hover:text-copper">▸</span>
+        <span className="text-copper-light/70 group-hover:text-copper-light">▸</span>
         <span>{feature.spec}</span>
       </div>
     </div>

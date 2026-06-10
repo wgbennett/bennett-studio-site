@@ -198,7 +198,7 @@ function TierCard({ tier }) {
               isHighlight ? 'text-bone/80' : 'text-ink/70'
             }`}
           >
-            <span className={isHighlight ? 'text-copper' : 'text-copper/85'}>
+            <span className={isHighlight ? 'text-copper-light' : 'text-copper/85'}>
               —
             </span>
             <span>{f}</span>

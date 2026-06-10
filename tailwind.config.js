@@ -7,6 +7,11 @@ export default {
         bone: '#F5F1EA',
         ink: '#1A1A1A',
         copper: '#B8451F',
+        // Copper for small text on charcoal/ink bands. Brand copper is 3.2:1
+        // on charcoal (fails WCAG AA's 4.5:1 for body-size text); this tint
+        // hits 5.7:1 while staying in the copper family. Bone-background text
+        // keeps using `copper` (4.8:1 there).
+        'copper-light': '#DD7C45',
         charcoal: '#1F1B17',
       },
       fontFamily: {

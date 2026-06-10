@@ -125,7 +125,7 @@ function WaitlistForm() {
         </button>
       </form>
 
-      <div className="mt-4 min-h-[20px] font-mono text-[12px] tracking-wide">
+      <div className="mt-4 min-h-[20px] font-mono text-[12px] tracking-wide" aria-live="polite">
         {status === 'invalid' && (
           <p className="text-copper">Enter a valid email address.</p>
         )}
