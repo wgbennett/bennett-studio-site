@@ -73,6 +73,15 @@ export default function Hero() {
               <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
             </a>
             <a
+              href="https://app.bennettstudio.dev/?demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2.5 border border-ink/25 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
+            >
+              Try the live demo
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
               href="#contact"
               className="font-mono text-[12px] uppercase tracking-wider text-ink/70 underline-offset-4 hover:text-ink hover:underline"
             >

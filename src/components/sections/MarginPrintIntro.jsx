@@ -45,6 +45,15 @@ export default function MarginPrintIntro() {
               In development &nbsp;·&nbsp; private beta
             </span>
             <a
+              href="https://app.bennettstudio.dev/?demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light"
+            >
+              Try the live demo
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
               href="#contact"
               className="font-mono text-[12px] uppercase tracking-wider text-bone/80 underline-offset-4 hover:text-bone hover:underline"
             >
