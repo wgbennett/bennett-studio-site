@@ -3,6 +3,13 @@ export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        // Desktop-width but short viewport — iPad landscape (1024×768,
+        // 1180×820), small laptops (1280×800). The hero's full-height
+        // composition needs ~880px to breathe; below that the HUD callout
+        // and print stack collide with the fixed header.
+        short: { raw: '(min-width: 1024px) and (max-height: 880px)' },
+      },
       colors: {
         bone: '#F5F1EA',
         ink: '#1A1A1A',

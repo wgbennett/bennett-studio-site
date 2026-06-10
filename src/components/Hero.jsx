@@ -43,7 +43,7 @@ export default function Hero() {
       </header>
 
       {/* Main content grid */}
-      <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pt-0">
+      <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pt-0 short:pt-14">
         {/* Left — copy */}
         <div className="max-w-2xl">
           <div className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-ink/55">
@@ -96,7 +96,7 @@ export default function Hero() {
           className="relative hidden h-[86vh] items-center justify-center lg:flex"
         >
           {/* HUD callout — upper right, above the stack */}
-          <div className="absolute right-0 top-2 font-mono text-[10px] uppercase leading-relaxed tracking-wider text-ink/50">
+          <div className="absolute right-0 top-2 short:top-16 font-mono text-[10px] uppercase leading-relaxed tracking-wider text-ink/50">
             <div className="h-px w-12 bg-ink/30 mb-2" />
             <div>now building</div>
             <div>
@@ -108,7 +108,11 @@ export default function Hero() {
             <div>Bennett Studio · app 01</div>
           </div>
 
-          <PrintStack />
+          {/* Scale (not resize) on short viewports: the stack is a fixed
+              ~680px of layer lines; transform keeps the silhouette crisp. */}
+          <div className="w-full max-w-[640px] short:scale-75">
+            <PrintStack />
+          </div>
         </motion.div>
       </div>
 
