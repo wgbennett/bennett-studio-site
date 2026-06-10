@@ -11,8 +11,8 @@ const FAQS = [
     a: 'No. The app works offline — useful when you’re standing next to a printer with bad Wi-Fi. Everything runs on your device; there’s nothing to wait on.',
   },
   {
-    q: 'What’s the AI analysis — do I need an API key?',
-    a: 'The AI pricing advice is optional and bring-your-own-key: you supply your own Anthropic API key, it stays on your device, and requests go straight from your browser to Anthropic. Skip it entirely and the queue, costs, and everything else still work.',
+    q: 'What’s the AI analysis — and what’s Claude?',
+    a: 'Claude is an AI assistant similar to ChatGPT, made by a company called Anthropic. MarginPrint can send it your cost numbers and get back short, specific pricing advice. To turn it on, you create a free Anthropic account and paste a “key” (a password-like code from that account) into MarginPrint once — about two minutes, and new accounts include $5 of credit, enough for hundreds of analyses. The key stays on your device, requests go straight from your browser to Anthropic, and we never see them or charge a markup. Skip it entirely and the queue, costs, and everything else still work.',
   },
   {
     q: 'Which printers and slicers does it work with?',

@@ -156,7 +156,7 @@ export default function Features() {
             The AI feature reads your numbers — material, fees, margin, platform, even the failure rate you put in — and writes a few short paragraphs on what to change. Not a pitch deck. A pair of eyes from someone who has seen a thousand listings.
           </p>
           <p className="mt-4 font-mono text-[12px] leading-relaxed text-bone/45">
-            Bring your own Anthropic key. New accounts get $5 of free credit — enough for hundreds of analyses. Your numbers stay local; only the analysis prompt is sent.
+            Written by Claude, an AI assistant from Anthropic (think ChatGPT). You connect your own free Anthropic account — a two-minute setup, with $5 of starter credit good for hundreds of analyses. Your numbers stay on your device; only the analysis request is sent.
           </p>
         </div>
         <div className="flex justify-center lg:justify-end">
