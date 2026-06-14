@@ -51,8 +51,9 @@ export default function Apps() {
         </p>
       </div>
 
-      {/* Two equal app cards */}
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-2">
+      {/* Two equal app cards + the honest "on the bench" placeholder */}
+      <div className="relative mx-auto max-w-7xl space-y-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {APPS.map((app) => (
           <Link
             key={app.name}
@@ -91,15 +92,55 @@ export default function Apps() {
             </div>
           </Link>
         ))}
+        </div>
+
+        {/* On the bench — deliberately unnamed: the next app in development.
+            Names nothing on purpose. It graduates to a real card with its own
+            page only once it's working software, not a render and a promise —
+            the same honest treatment MarketDay got before it shipped. */}
+        <div className="relative grid grid-cols-1 gap-6 border border-dashed border-ink/20 bg-bone/40 p-8 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:gap-10 lg:p-10">
+          <div>
+            <div className="mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
+              <span className="text-ink/35">App 03 &nbsp;·&nbsp; On the bench</span>
+              <StatusPill tone="muted">Early concept</StatusPill>
+            </div>
+            <div className="flex items-center gap-2.5 opacity-40">
+              <Mark />
+              <span className="text-2xl font-bold tracking-tight text-ink">
+                Not named yet
+              </span>
+            </div>
+          </div>
+          <div>
+            <p className="max-w-xl text-[15px] leading-relaxed text-ink/55">
+              The next Bennett Studio app is taking shape. More focused tools for
+              people who sell what they make are in the works &mdash; they&rsquo;ll
+              appear here, with a page of their own, once they&rsquo;re real
+              software with a working app, not a render and a promise. Until then,
+              this space stays honest.
+            </p>
+            <div className="mt-6 font-mono text-[11px] uppercase tracking-wider text-ink/35">
+              Coming when it&rsquo;s ready
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
 
-function StatusPill({ children }) {
+function StatusPill({ tone = 'live', children }) {
+  const styles =
+    tone === 'live'
+      ? 'border-copper/40 bg-copper/10 text-copper'
+      : 'border-ink/20 bg-ink/[0.03] text-ink/45'
   return (
-    <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-copper">
-      <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper" />
+    <span
+      className={`inline-flex items-center gap-1.5 border px-2.5 py-1 text-[9px] font-semibold tracking-wider ${styles}`}
+    >
+      {tone === 'live' && (
+        <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper" />
+      )}
       {children}
     </span>
   )
