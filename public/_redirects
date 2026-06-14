@@ -1,0 +1,5 @@
+# Cloudflare Pages SPA fallback — Bennett Studio.
+# Pages Functions (/api/*) are evaluated BEFORE this file, so the waitlist
+# function still handles its own route. Everything else that isn't a real
+# static asset falls through to the client-side router in index.html.
+/*    /index.html    200

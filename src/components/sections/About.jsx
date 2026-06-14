@@ -20,7 +20,7 @@ export default function About() {
           <span>§05 &nbsp;—&nbsp; About the maker</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
-          One person, behind one app.{' '}
+          One person, behind two apps.{' '}
           <span className="italic font-medium text-ink/55">For now.</span>
         </h2>
       </div>
@@ -50,19 +50,22 @@ export default function About() {
           <p className="text-[18px] leading-relaxed text-ink/85">
             I'm <span className="font-semibold text-ink">Will Bennett</span> —
             an indie maker who codes, designs websites, and 3D-prints things
-            for sale. I built MarginPrint because I needed it for my own shop.
-            A calculator alone was never enough. I wanted the queue, the
-            costs, the customer list, and the dashboard all on my phone, next
-            to my printer.
+            for sale. I build the tools I needed for my own shop. A calculator
+            alone was never enough — I wanted the queue, the costs, the
+            customers, and the day's takings on my phone, next to the printer
+            and behind the table.
           </p>
 
           <p className="mt-6 text-[15px] leading-relaxed text-ink/65">
-            MarginPrint is the first app under{' '}
-            <span className="font-semibold text-ink">Bennett Studio</span>.
-            More will come, but only when they are ready. I'd rather ship one
-            daily-driver tool that solves a real problem than ten half-built
-            apps that solve nothing. If you sell handmade or 3D-printed things
-            and want to follow along, subscribe below.
+            That's two apps under{' '}
+            <span className="font-semibold text-ink">Bennett Studio</span>:{' '}
+            <span className="font-semibold text-ink">MarginPrint</span> for
+            costing and queueing what you make, and{' '}
+            <span className="font-semibold text-ink">MarketDay</span> for
+            selling it in person. Both built in the open, both in development.
+            I'd rather ship two daily-driver tools that solve real problems
+            than ten half-built apps that solve nothing. If you sell handmade
+            or 3D-printed things, subscribe below to follow along.
           </p>
 
           {/* Studio note */}

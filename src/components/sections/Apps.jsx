@@ -1,7 +1,30 @@
+import { Link } from 'react-router-dom'
+
 // The honest "apps" band. Studio-level, sits right under the hero.
-// ONE real flagship (MarginPrint, in development) + ONE muted "on the bench"
-// placeholder that deliberately names nothing — the line between an honest
-// portfolio and vaporware. Do not add fake/unbuilt app names here.
+// TWO real apps, both in development, shown at equal weight — each links to
+// its own dedicated page (/marginprint, /marketday). Neither is positioned
+// above the other. Do not add fake/unbuilt app names here.
+const APPS = [
+  {
+    index: 'App 01',
+    name: 'MarginPrint',
+    to: '/marginprint',
+    blurb:
+      'Mission control for small 3D-print sellers — the production queue, live costs, and the customer list on one mobile screen. The app you open 5–15 times a day, not once per print.',
+    points: ['Production queue', 'Slicer file import', 'True cost & pricing', 'AI analysis'],
+    cta: 'Explore MarginPrint',
+  },
+  {
+    index: 'App 02',
+    name: 'MarketDay',
+    to: '/marketday',
+    blurb:
+      'The offline-first booth companion for market vendors — pack smarter, sell faster, and know exactly what every show earned you. Built for craft fairs, farmers markets, and pop-ups.',
+    points: ['Pack list', 'One-tap checkout', 'Offline-first PWA', 'Profit summary'],
+    cta: 'Explore MarketDay',
+  },
+]
+
 export default function Apps() {
   return (
     <section
@@ -17,101 +40,66 @@ export default function Apps() {
           <span>Bennett Studio &nbsp;—&nbsp; what&rsquo;s on the bench</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest text-ink">
-          One app, built in the open.{' '}
-          <span className="italic font-medium text-ink/55">More on the bench.</span>
+          Two apps, built in the open.{' '}
+          <span className="italic font-medium text-ink/55">Pick your bench.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[16px] leading-relaxed text-ink/65">
-          Bennett Studio is one maker shipping focused software, one app at a
-          time. What&rsquo;s real shows up here. What isn&rsquo;t, doesn&rsquo;t.
+          Bennett Studio is one maker shipping focused software for people who
+          sell what they make. Two apps are in development — each gets its own
+          page below. What&rsquo;s real shows up here. What isn&rsquo;t,
+          doesn&rsquo;t.
         </p>
       </div>
 
-      {/* Two cards — flagship + on-the-bench */}
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-[1.3fr_1fr]">
-        {/* Flagship — MarginPrint */}
-        <a
-          href="#marginprint"
-          className="group relative flex flex-col justify-between overflow-hidden border border-ink/15 bg-bone p-8 transition-colors hover:border-copper/60 lg:p-10"
-        >
-          {/* copper rail on the left edge */}
-          <span className="absolute inset-y-0 left-0 w-1 bg-copper" />
-          <div>
-            <div className="mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
-              <span className="text-ink/45">App 01 &nbsp;·&nbsp; Flagship</span>
-              <StatusPill tone="live">In development</StatusPill>
+      {/* Two equal app cards */}
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-2">
+        {APPS.map((app) => (
+          <Link
+            key={app.name}
+            to={app.to}
+            className="group relative flex flex-col justify-between overflow-hidden border border-ink/15 bg-bone p-8 transition-colors hover:border-copper/60 lg:p-10"
+          >
+            {/* copper rail on the left edge */}
+            <span className="absolute inset-y-0 left-0 w-1 bg-copper" />
+            <div>
+              <div className="mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
+                <span className="text-ink/45">{app.index}</span>
+                <StatusPill>In development</StatusPill>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Mark />
+                <span className="text-2xl font-bold tracking-tight text-ink">
+                  {app.name}
+                </span>
+              </div>
+
+              <p className="mt-5 max-w-md text-[16px] leading-relaxed text-ink/75">
+                {app.blurb}
+              </p>
+
+              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink/55">
+                {app.points.map((p) => (
+                  <li key={p}>— {p}</li>
+                ))}
+              </ul>
             </div>
 
-            <div className="flex items-center gap-2.5">
-              <Mark />
-              <span className="text-2xl font-bold tracking-tight text-ink">
-                MarginPrint
-              </span>
+            <div className="mt-9 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors group-hover:text-copper">
+              {app.cta}
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </div>
-
-            <p className="mt-5 max-w-md text-[16px] leading-relaxed text-ink/75">
-              Mission control for small 3D-print sellers — the production queue,
-              live costs, and the customer list on one mobile screen. The app
-              you open 5&ndash;15 times a day, not once per print.
-            </p>
-
-            <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink/55">
-              <li>— Production queue</li>
-              <li>— Slicer file import</li>
-              <li>— True cost &amp; pricing</li>
-              <li>— AI analysis</li>
-            </ul>
-          </div>
-
-          <div className="mt-9 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors group-hover:text-copper">
-            Meet MarginPrint
-            <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
-          </div>
-        </a>
-
-        {/* On the bench — deliberately unnamed */}
-        <div className="relative flex flex-col justify-between border border-dashed border-ink/20 bg-bone/40 p-8 lg:p-10">
-          <div>
-            <div className="mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
-              <span className="text-ink/35">App 02 &nbsp;·&nbsp; On the bench</span>
-              <StatusPill tone="muted">Early concept</StatusPill>
-            </div>
-
-            <div className="flex items-center gap-2.5 opacity-40">
-              <Mark />
-              <span className="text-2xl font-bold tracking-tight text-ink">
-                Not named yet
-              </span>
-            </div>
-
-            <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-ink/55">
-              More focused tools for people who sell what they make are in the
-              works. They&rsquo;ll appear here when they&rsquo;re real software
-              with a working app &mdash; not a render and a promise. Until then,
-              this space stays honest.
-            </p>
-          </div>
-
-          <div className="mt-9 font-mono text-[11px] uppercase tracking-wider text-ink/35">
-            Coming when it&rsquo;s ready
-          </div>
-        </div>
+          </Link>
+        ))}
       </div>
     </section>
   )
 }
 
-function StatusPill({ tone = 'live', children }) {
-  const styles =
-    tone === 'live'
-      ? 'border-copper/40 bg-copper/10 text-copper'
-      : 'border-ink/20 bg-ink/[0.03] text-ink/45'
+function StatusPill({ children }) {
   return (
-    <span
-      className={`inline-flex items-center gap-1.5 border px-2.5 py-1 text-[9px] font-semibold tracking-wider ${styles}`}
-    >
-      {tone === 'live' && (
-        <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper" />
-      )}
+    <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 text-[9px] font-semibold tracking-wider text-copper">
+      <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper" />
       {children}
     </span>
   )

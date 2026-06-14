@@ -1,14 +1,25 @@
 import { useState } from 'react'
 
-// Direct mailto fallback — used whenever the /api/waitlist function isn't
-// reachable (local `vite dev`, or before the KV/webhook sink is configured on
-// Cloudflare Pages). Works once Cloudflare Email Routing for the domain is live.
-const MAILTO =
-  'mailto:will@bennettstudio.dev?subject=MarginPrint%20beta&body=I%27d%20like%20to%20join%20the%20MarginPrint%20private%20beta.'
-
+// Shared beta-signup block. Defaults to studio-level copy; each app page passes
+// its own `app` slug + copy so the signup is attributed correctly (and the
+// mailto fallback is pre-filled for the right app).
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
-export default function Contact() {
+const DEFAULTS = {
+  app: '',
+  eyebrow: 'Private beta — now open',
+  title: (
+    <>
+      Run your shop from{' '}
+      <span className="italic font-medium">one screen.</span>
+    </>
+  ),
+  body: 'Bennett Studio is building two focused, mobile-first apps for people who sell what they make. Join the private beta to get early access and help shape what ships.',
+  reassurance: ['Local-first · works offline', 'Founding lifetime price', 'No data sold, ever', 'Built solo, by a maker'],
+}
+
+export default function Contact(props) {
+  const { app, eyebrow, title, body, reassurance } = { ...DEFAULTS, ...props }
   return (
     <section
       id="contact"
@@ -17,42 +28,44 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl text-center">
         <div className="mb-6 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-          <span>Private beta — now open</span>
+          <span>{eyebrow}</span>
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
         </div>
 
         <h2 className="text-[clamp(2.25rem,6vw,5.5rem)] font-bold leading-[0.98] tracking-tightest text-ink">
-          Be first to run your shop{' '}
-          <span className="italic font-medium">from one screen.</span>
+          {title}
         </h2>
 
         <p className="mx-auto mt-8 max-w-xl text-[17px] leading-relaxed text-ink/65">
-          MarginPrint is in active development. Join the private beta to get
-          early access, help shape what ships, and lock the founding lifetime
-          price before it goes up.
+          {body}
         </p>
 
-        <WaitlistForm />
+        <WaitlistForm app={app} />
 
         {/* Tiny reassurance row */}
         <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-wider text-ink/40">
-          <span>Local-first · works offline</span>
-          <span>·</span>
-          <span>Founding lifetime price</span>
-          <span>·</span>
-          <span>No data sold, ever</span>
-          <span>·</span>
-          <span>Built solo, by a maker</span>
+          {reassurance.map((r, i) => (
+            <span key={r} className="flex items-center gap-6">
+              {i > 0 && <span aria-hidden>·</span>}
+              <span>{r}</span>
+            </span>
+          ))}
         </div>
       </div>
     </section>
   )
 }
 
-function WaitlistForm() {
+function WaitlistForm({ app = '' }) {
   const [email, setEmail] = useState('')
   // idle | submitting | success | invalid | fallback
   const [status, setStatus] = useState('idle')
+
+  // Direct mailto fallback — used whenever the /api/waitlist function isn't
+  // reachable (local `vite dev`, or before the sink is configured). Works once
+  // Cloudflare Email Routing for the domain is live.
+  const subject = app ? `${app} beta` : 'Bennett Studio beta'
+  const mailto = `mailto:will@bennettstudio.dev?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`I'd like to join the ${subject}.`)}`
 
   async function submit(e) {
     e.preventDefault()
@@ -66,7 +79,7 @@ function WaitlistForm() {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: value }),
+        body: JSON.stringify({ email: value, app: app.toLowerCase() }),
       })
       if (res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -132,7 +145,7 @@ function WaitlistForm() {
         {status === 'fallback' && (
           <p className="text-ink/60">
             Couldn&rsquo;t reach the signup just now —{' '}
-            <a href={MAILTO} className="text-copper underline underline-offset-4">
+            <a href={mailto} className="text-copper underline underline-offset-4">
               email me to join →
             </a>
           </p>

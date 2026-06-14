@@ -1,5 +1,7 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import SiteNav from './SiteNav.jsx'
 
 export default function Hero() {
   const ref = useRef(null)
@@ -22,25 +24,8 @@ export default function Hero() {
     >
       <GridBackdrop />
 
-      {/* Top nav */}
-      <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-8 py-6 font-mono text-[11px] uppercase tracking-wider text-ink/70">
-        <a href="#" className="flex items-center gap-2.5">
-          <Mark />
-          <span className="font-semibold text-ink">BENNETT STUDIO</span>
-        </a>
-        <nav className="hidden gap-8 md:flex">
-          <a href="#apps" className="hover:text-ink">Apps</a>
-          <a href="#marginprint" className="hover:text-ink">MarginPrint</a>
-          <a href="#pricing" className="hover:text-ink">Pricing</a>
-          <a href="#about" className="hover:text-ink">About</a>
-        </nav>
-        <a
-          href="#contact"
-          className="hidden text-ink/70 underline-offset-4 hover:text-ink hover:underline md:block"
-        >
-          Join the beta →
-        </a>
-      </header>
+      {/* Studio-level overlay nav */}
+      <SiteNav variant="overlay" cta={{ label: 'Join the beta →', href: '#contact' }} />
 
       {/* Main content grid */}
       <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pt-0 short:pt-14">
@@ -58,35 +43,36 @@ export default function Hero() {
 
           <p className="mt-8 max-w-md text-lg leading-relaxed text-ink/70">
             One maker building focused, mobile-first tools for people who sell
-            what they make — one app at a time. First up:{' '}
-            <span className="font-semibold text-ink">MarginPrint</span>, mission
-            control for small 3D-print sellers.{' '}
-            <span className="text-copper">In development now.</span>
+            what they make — one app at a time. Two are in development now:{' '}
+            <span className="font-semibold text-ink">MarginPrint</span> for
+            3D-print shops, and{' '}
+            <span className="font-semibold text-ink">MarketDay</span> for
+            in-person sellers.{' '}
+            <span className="text-copper">Both in development.</span>
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
             <a
-              href="#marginprint"
+              href="#apps"
               className="group inline-flex items-center gap-2.5 bg-ink px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-copper"
             >
-              Meet MarginPrint
+              Explore the apps
               <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
             </a>
-            <a
-              href="https://app.bennettstudio.dev/?demo"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/marginprint"
               className="group inline-flex items-center gap-2.5 border border-ink/25 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
             >
-              Try the live demo
+              MarginPrint
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a
-              href="#contact"
-              className="font-mono text-[12px] uppercase tracking-wider text-ink/70 underline-offset-4 hover:text-ink hover:underline"
+            </Link>
+            <Link
+              to="/marketday"
+              className="group inline-flex items-center gap-2.5 border border-ink/25 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
             >
-              Join the beta →
-            </a>
+              MarketDay
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </Link>
           </div>
         </div>
 
@@ -104,8 +90,8 @@ export default function Hero() {
               <span className="text-ink/30">/</span> 247
               <span className="ml-1.5 inline-block h-2 w-2 align-middle bg-copper" />
             </div>
-            <div>MarginPrint · in development</div>
-            <div>Bennett Studio · app 01</div>
+            <div>Bennett Studio · two apps</div>
+            <div>both in development</div>
           </div>
 
           {/* Scale (not resize) on short viewports: the stack is a fixed
@@ -123,7 +109,7 @@ export default function Hero() {
           <div className="hidden gap-7 md:flex">
             <span><span className="text-ink/25">01</span>&nbsp;&nbsp;The apps</span>
             <span><span className="text-ink/25">02</span>&nbsp;&nbsp;MarginPrint</span>
-            <span><span className="text-ink/25">03</span>&nbsp;&nbsp;Pricing</span>
+            <span><span className="text-ink/25">03</span>&nbsp;&nbsp;MarketDay</span>
             <span><span className="text-ink/25">04</span>&nbsp;&nbsp;About</span>
           </div>
         </div>
@@ -169,15 +155,5 @@ function GridBackdrop() {
         backgroundSize: '44px 44px',
       }}
     />
-  )
-}
-
-function Mark() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 20 20" className="text-ink">
-      <rect x="0" y="3" width="10" height="3" rx="1.4" fill="currentColor" />
-      <rect x="0" y="8.5" width="14" height="3" rx="1.4" fill="currentColor" />
-      <rect x="0" y="14" width="18" height="3" rx="1.4" fill="#B8451F" />
-    </svg>
   )
 }

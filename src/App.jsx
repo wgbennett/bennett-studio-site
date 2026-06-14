@@ -1,35 +1,29 @@
-import Hero from './components/Hero.jsx'
-import Apps from './components/sections/Apps.jsx'
-import MarginPrintIntro from './components/sections/MarginPrintIntro.jsx'
-import WhatItDoes from './components/sections/WhatItDoes.jsx'
-import Flow from './components/sections/Flow.jsx'
-import Features from './components/sections/Features.jsx'
-import Pricing from './components/sections/Pricing.jsx'
-import Faq from './components/sections/Faq.jsx'
-import About from './components/sections/About.jsx'
-import PrintShowcase from './components/sections/PrintShowcase.jsx'
-import Contact from './components/sections/Contact.jsx'
-import Footer from './components/sections/Footer.jsx'
+import { lazy, Suspense } from 'react'
+import { Routes, Route, Navigate } from 'react-router-dom'
+import ScrollManager from './components/ScrollManager.jsx'
 import ScrollVignette from './components/effects/ScrollVignette.jsx'
+import Landing from './pages/Landing.jsx'
+
+// Landing is the entry point, so it loads eagerly. The two app deep-dives
+// (each pulling in framer-motion demos) are split into their own chunks and
+// fetched only when their route is visited.
+const MarginPrintPage = lazy(() => import('./pages/MarginPrintPage.jsx'))
+const MarketDayPage = lazy(() => import('./pages/MarketDayPage.jsx'))
 
 export default function App() {
   return (
     <main className="min-h-screen bg-bone text-ink antialiased">
       <ScrollVignette />
-      <Hero />
-      {/* Studio-level: the honest apps band */}
-      <Apps />
-      {/* Flagship deep-dive starts here (id=marginprint) */}
-      <MarginPrintIntro />
-      <WhatItDoes />
-      <Flow />
-      <Features />
-      <Pricing />
-      <Faq />
-      <About />
-      <PrintShowcase />
-      <Contact />
-      <Footer />
+      <ScrollManager />
+      <Suspense fallback={<div className="min-h-screen bg-bone" />}>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/marginprint" element={<MarginPrintPage />} />
+          <Route path="/marketday" element={<MarketDayPage />} />
+          {/* Unknown paths fall back to the studio landing. */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
     </main>
   )
 }

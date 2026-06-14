@@ -1,14 +1,14 @@
+import { Link } from 'react-router-dom'
+
 const FOOTER_STUDIO = [
-  { label: 'The apps', href: '#apps' },
-  { label: 'About the maker', href: '#about' },
-  { label: 'Join the beta', href: '#contact' },
+  { label: 'The apps', href: '/#apps' },
+  { label: 'About the maker', href: '/#about' },
+  { label: 'Join the beta', href: '/#contact' },
 ]
 
-const FOOTER_MARGINPRINT = [
-  { label: 'Overview', href: '#marginprint' },
-  { label: 'What it does', href: '#what' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'FAQ', href: '#faq' },
+const FOOTER_APPS = [
+  { label: 'MarginPrint', href: '/marginprint' },
+  { label: 'MarketDay', href: '/marketday' },
 ]
 
 // `mailto:will@bennettstudio.dev` resolves via Cloudflare Email Routing (live).
@@ -27,26 +27,27 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_2fr]">
           {/* Wordmark — studio-first */}
           <div>
-            <div className="flex items-center gap-2.5">
+            <Link to="/" className="flex items-center gap-2.5">
               <Mark />
               <span className="font-semibold tracking-tight text-bone">
                 BENNETT STUDIO
               </span>
-            </div>
+            </Link>
             <div className="mt-2 font-mono text-[11px] uppercase tracking-wider text-bone/45">
               Independent software for makers
             </div>
             <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/55">
               One maker building focused, mobile-first tools for people who sell
-              what they make. Built solo, one app at a time. First app:{' '}
-              <span className="text-bone/80">MarginPrint</span>.
+              what they make. Built solo, one app at a time. In development:{' '}
+              <span className="text-bone/80">MarginPrint</span> and{' '}
+              <span className="text-bone/80">MarketDay</span>.
             </p>
           </div>
 
           {/* Link columns */}
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
             <FooterColumn title="Studio" links={FOOTER_STUDIO} />
-            <FooterColumn title="MarginPrint" links={FOOTER_MARGINPRINT} />
+            <FooterColumn title="Apps" links={FOOTER_APPS} />
             <FooterColumn title="Connect" links={FOOTER_SOCIAL} external />
           </div>
         </div>
@@ -57,7 +58,7 @@ export default function Footer() {
             policy link Lemon Squeezy checkout asks for. */}
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/40 md:flex-row md:items-center">
           <div>
-            © {YEAR} Bennett Studio · MarginPrint is in beta · v0.4.2
+            © {YEAR} Bennett Studio · Two apps in development
           </div>
           <div className="flex flex-wrap items-center gap-5">
             <a
@@ -83,24 +84,39 @@ function FooterColumn({ title, links, external = false }) {
       <ul className="space-y-2.5">
         {links.map((link) => (
           <li key={link.label}>
-            <a
-              href={link.href}
-              className="group inline-flex items-center gap-1.5 font-mono text-[12px] text-bone/70 transition-colors hover:text-bone"
-            >
-              {link.label}
-              {external && (
-                <span
-                  aria-hidden
-                  className="text-[9px] text-bone/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                >
-                  ↗
-                </span>
-              )}
-            </a>
+            <FooterLink link={link} external={external} />
           </li>
         ))}
       </ul>
     </div>
+  )
+}
+
+function FooterLink({ link, external }) {
+  const cls =
+    'group inline-flex items-center gap-1.5 font-mono text-[12px] text-bone/70 transition-colors hover:text-bone'
+  // Internal route (no hash, no protocol) → client-side Link; everything else
+  // (hash anchors, mailto, external) stays a plain anchor.
+  const isRoute = link.href.startsWith('/') && !link.href.includes('#') && !link.href.endsWith('.html')
+
+  const inner = (
+    <>
+      {link.label}
+      {external && (
+        <span
+          aria-hidden
+          className="text-[9px] text-bone/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        >
+          ↗
+        </span>
+      )}
+    </>
+  )
+
+  return isRoute ? (
+    <Link to={link.href} className={cls}>{inner}</Link>
+  ) : (
+    <a href={link.href} className={cls}>{inner}</a>
   )
 }
 

@@ -66,8 +66,8 @@ export default function PrintShowcase() {
           A few things I&rsquo;ve printed.
         </h2>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/55">
-          Real prints off my own printers — the kind of work MarginPrint was
-          built to cost, queue, and keep track of.
+          Real prints off my own printers — the kind of work Bennett Studio's
+          apps were built to cost, queue, sell, and keep track of.
         </p>
       </div>
 

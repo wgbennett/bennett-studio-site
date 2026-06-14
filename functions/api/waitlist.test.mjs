@@ -79,6 +79,27 @@ await test('fires the webhook when configured, with email in payload', async () 
   } finally { globalThis.fetch = realFetch }
 })
 
+await test('attributes a known app and ignores an unknown one', async () => {
+  const kv = makeKV()
+  await onRequestPost({ request: makeRequest({ email: 'a@b.com', app: 'MarketDay' }), env: { WAITLIST: kv } })
+  assert.equal(JSON.parse(kv.store.get('wl:a@b.com')).app, 'MarketDay')
+  await onRequestPost({ request: makeRequest({ email: 'c@d.com', app: 'evil<script>' }), env: { WAITLIST: kv } })
+  assert.equal(JSON.parse(kv.store.get('wl:c@d.com')).app, '', 'unknown app must be dropped, not stored verbatim')
+})
+
+await test('app name appears in the webhook message', async () => {
+  const calls = []
+  const realFetch = globalThis.fetch
+  globalThis.fetch = async (url, opts) => { calls.push({ url, body: opts?.body }); return new Response('{}') }
+  try {
+    await onRequestPost({
+      request: makeRequest({ email: 'mp@test.com', app: 'marginprint' }),
+      env: { WAITLIST_WEBHOOK_URL: 'https://example.com/hook' },
+    })
+    assert.ok(calls[0].body.includes('MarginPrint beta signup'))
+  } finally { globalThis.fetch = realFetch }
+})
+
 await test('webhook failure does not fail the signup (best-effort)', async () => {
   const realFetch = globalThis.fetch
   globalThis.fetch = async () => { throw new Error('network down') }

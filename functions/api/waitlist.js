@@ -1,6 +1,8 @@
-// Cloudflare Pages Function — POST /api/waitlist  { email }
+// Cloudflare Pages Function — POST /api/waitlist  { email, app? }
 //
-// Captures MarginPrint beta signups. Two optional sinks (configure either or
+// Captures Bennett Studio beta signups (MarginPrint + MarketDay). The optional
+// `app` field attributes the signup to a specific app; anything unrecognised is
+// dropped rather than trusted. Two optional sinks (configure either or
 // both in the Pages project → Settings → Functions):
 //   • KV namespace binding named `WAITLIST` — durable store of every signup
 //     (key `wl:<email>`, value JSON). De-duped by email.
@@ -17,11 +19,17 @@
 
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
+// Only attribute to apps we actually publish. Untrusted input never reaches the
+// store or the webhook message verbatim — it's mapped through this allow-list.
+const APPS = { marginprint: 'MarginPrint', marketday: 'MarketDay' }
+
 export async function onRequestPost({ request, env }) {
   let email = ''
+  let app = ''
   try {
     const body = await request.json()
     email = String(body?.email ?? '').trim().toLowerCase()
+    app = APPS[String(body?.app ?? '').trim().toLowerCase()] || ''
   } catch {
     return json({ ok: false, error: 'bad_request' }, 400)
   }
@@ -38,6 +46,7 @@ export async function onRequestPost({ request, env }) {
 
   const record = {
     email,
+    app,
     ts: new Date().toISOString(),
     ref: request.headers.get('referer') || '',
     ua: request.headers.get('user-agent') || '',
@@ -53,7 +62,8 @@ export async function onRequestPost({ request, env }) {
 
   // Fire-and-forget notification. Don't fail the signup if the webhook errors.
   if (haveHook) {
-    const msg = `🟠 MarginPrint beta signup: ${email}${record.country ? ` (${record.country})` : ''}`
+    const label = app ? `${app} beta signup` : 'Bennett Studio beta signup'
+    const msg = `🟠 ${label}: ${email}${record.country ? ` (${record.country})` : ''}`
     try {
       await fetch(env.WAITLIST_WEBHOOK_URL, {
         method: 'POST',
