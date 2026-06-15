@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Sparkles, Square } from 'lucide-react'
 
 // Canned analysis text. Mirrors the structure of what
 // print-calc/src/utils/ai.js streams from Claude in the real app —
@@ -65,8 +66,8 @@ export default function AIAnalysisDemo() {
       {/* Header */}
       <div className="flex items-center justify-between border-b border-ink/10 px-5 py-3">
         <div className="flex items-center gap-2.5">
-          <span className="flex h-6 w-6 items-center justify-center bg-copper text-bone font-mono text-[12px]">
-            ✦
+          <span className="flex h-6 w-6 items-center justify-center bg-copper text-bone">
+            <Sparkles size={13} />
           </span>
           <div>
             <div className="text-[13px] font-semibold leading-tight text-ink">
@@ -92,7 +93,7 @@ export default function AIAnalysisDemo() {
             onClick={stop}
             className="font-mono text-[10px] uppercase tracking-wider text-ink/50 hover:text-ink"
           >
-            ■ stop
+            <span className="inline-flex items-center gap-1"><Square size={10} /> stop</span>
           </button>
         )}
       </div>
@@ -109,8 +110,8 @@ export default function AIAnalysisDemo() {
               transition={{ duration: 0.18 }}
               className="flex flex-col items-center justify-center py-10 text-center"
             >
-              <div className="flex h-12 w-12 items-center justify-center bg-copper/10 text-copper font-mono text-xl">
-                ✦
+              <div className="flex h-12 w-12 items-center justify-center bg-copper/10 text-copper">
+                <Sparkles size={22} />
               </div>
               <div className="mt-4 max-w-sm text-[14px] leading-relaxed text-ink/65">
                 Bring your own Anthropic key. The app reads your numbers, your
@@ -122,7 +123,7 @@ export default function AIAnalysisDemo() {
                 onClick={start}
                 className="mt-6 inline-flex items-center gap-2 bg-ink px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-bone hover:bg-copper transition-colors"
               >
-                ✦ Run AI analysis
+                <Sparkles size={12} /> Run AI analysis
               </button>
               <div className="mt-3 font-mono text-[10px] uppercase tracking-wider text-ink/35">
                 demo · canned response · no key needed

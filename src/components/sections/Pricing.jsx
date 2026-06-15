@@ -1,4 +1,5 @@
 import CardEdgeHighlight from '../effects/CardEdgeHighlight.jsx'
+import { Star } from 'lucide-react'
 
 // Pricing tier copy. Confirmed for launch (2026-05-29):
 //   Monthly $9.99 · Annual $99 · Lifetime $199 (founding price).
@@ -134,7 +135,7 @@ function TierCard({ tier }) {
       <CardEdgeHighlight />
       {isHighlight && (
         <div className="absolute -top-3 left-8 inline-flex items-center gap-1.5 bg-copper px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-bone">
-          <span>★</span>
+          <Star size={11} className="fill-current" aria-hidden />
           <span>Most chosen</span>
         </div>
       )}

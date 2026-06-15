@@ -1,4 +1,5 @@
 import AIAnalysisDemo from '../demos/AIAnalysisDemo.jsx'
+import { ChevronRight } from 'lucide-react'
 import CardEdgeHighlight from '../effects/CardEdgeHighlight.jsx'
 
 // Small line-art icons sized for the 36px feature-card slot. All use
@@ -193,7 +194,7 @@ function FeatureCard({ feature, index }) {
 
       {/* Spec footer — adds a concrete factual layer + visual rhythm */}
       <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/35 transition-colors group-hover:text-bone/60">
-        <span className="text-copper-light/70 group-hover:text-copper-light">▸</span>
+        <ChevronRight size={13} className="text-copper-light/70 group-hover:text-copper-light" />
         <span>{feature.spec}</span>
       </div>
     </div>

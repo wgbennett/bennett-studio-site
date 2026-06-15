@@ -1,4 +1,5 @@
 import CardEdgeHighlight from '../effects/CardEdgeHighlight.jsx'
+import { ChevronRight } from 'lucide-react'
 
 // MarketDay feature grid — mirrors MarginPrint's Features section (charcoal,
 // six cards) so the two app pages carry equal weight. Copy sourced from the
@@ -174,7 +175,7 @@ function FeatureCard({ feature, index }) {
       </div>
 
       <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/35 transition-colors group-hover:text-bone/60">
-        <span className="text-copper-light/70 group-hover:text-copper-light">▸</span>
+        <ChevronRight size={13} className="text-copper-light/70 group-hover:text-copper-light" />
         <span>{feature.spec}</span>
       </div>
     </div>

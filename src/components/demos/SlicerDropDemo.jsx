@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react'
+import { Printer, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { parseSlicerFile } from '../../utils/slicerImport.js'
 
@@ -293,7 +294,7 @@ function ResultView({ result, onReset }) {
               className="h-full w-full object-cover"
             />
           ) : (
-            <span className="text-xl">🖨️</span>
+            <Printer size={22} className="text-ink/40" />
           )}
         </div>
         <div className="min-w-0 flex-1">
@@ -314,7 +315,7 @@ function ResultView({ result, onReset }) {
           }}
           className="font-mono text-[10px] uppercase tracking-wider text-ink/45 hover:text-ink"
         >
-          ✕ reset
+          <span className="inline-flex items-center gap-1"><X size={11} /> reset</span>
         </button>
       </div>
 

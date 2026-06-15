@@ -1,4 +1,5 @@
 import JobCardDemo from './JobCardDemo.jsx'
+import { ChevronDown } from 'lucide-react'
 
 // A static "today's queue" composition — three jobs in different states.
 // Used in the "What it does" section as the visual centerpiece. Cards are
@@ -84,7 +85,7 @@ function QueueFooter() {
   return (
     <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-t border-ink/10 pt-3 font-mono text-[10px] uppercase tracking-wider text-ink/45">
       <span>3 active · $134.50 owed</span>
-      <span>filter ▾</span>
+      <span className="inline-flex items-center gap-1">filter <ChevronDown size={11} /></span>
     </div>
   )
 }

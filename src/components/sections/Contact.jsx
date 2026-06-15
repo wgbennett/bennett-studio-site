@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Check } from 'lucide-react'
 
 // Shared beta-signup block. Defaults to studio-level copy; each app page passes
 // its own `app` slug + copy so the signup is attributed correctly (and the
@@ -103,7 +104,7 @@ function WaitlistForm({ app = '' }) {
     return (
       <div className="mx-auto mt-12 max-w-md border border-copper/40 bg-copper/[0.06] px-6 py-5">
         <div className="font-mono text-[13px] uppercase tracking-wider text-copper">
-          ✓ You&rsquo;re on the list
+          <span className="inline-flex items-center gap-1.5"><Check size={13} /> You&rsquo;re on the list</span>
         </div>
         <p className="mt-2 text-[14px] text-ink/70">
           I&rsquo;ll email you the moment the beta opens. Thanks for being early.

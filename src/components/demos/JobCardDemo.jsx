@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Printer, Check } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // Mirrors the real PRIMARY_ACTIONS chain in
@@ -127,7 +128,7 @@ export default function JobCardDemo({
         <div className="flex items-start gap-3.5">
           {/* Thumb placeholder. Real app shows a product photo if attached. */}
           <div className="flex h-12 w-12 shrink-0 items-center justify-center bg-ink/[0.04] border border-ink/5 text-lg">
-            🖨️
+            <Printer size={20} className="text-ink/30" />
           </div>
 
           {/* Info column */}
@@ -166,7 +167,7 @@ export default function JobCardDemo({
               ${job.price.toFixed(2)}
             </div>
             <div className="mt-1 font-mono text-[9px] uppercase tracking-wider text-ink/30">
-              {job.paid ? '✓ paid' : 'unpaid'}
+              {job.paid ? <span className="inline-flex items-center gap-1"><Check size={11} /> paid</span> : 'unpaid'}
             </div>
           </div>
         </div>

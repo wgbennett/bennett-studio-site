@@ -8,6 +8,7 @@
 // one). Charcoal band = colorful prints pop.
 
 import { useState } from 'react'
+import { Play, Pause } from 'lucide-react'
 
 const PRINTS = Array.from({ length: 16 }, (_, i) =>
   `/prints/print-${String(i + 1).padStart(2, '0')}.jpg`
@@ -59,7 +60,7 @@ export default function PrintShowcase() {
             aria-pressed={paused}
             className="relative z-20 border border-bone/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-bone/70 transition-colors hover:border-bone/40 hover:text-bone"
           >
-            {paused ? '▶ Play' : '❚❚ Pause'}
+            <span className="inline-flex items-center gap-1.5">{paused ? <><Play size={11} /> Play</> : <><Pause size={11} /> Pause</>}</span>
           </button>
         </div>
         <h2 className="max-w-3xl text-[clamp(1.6rem,4vw,3rem)] font-bold leading-[1.05] tracking-tightest text-bone">
