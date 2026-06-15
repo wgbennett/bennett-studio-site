@@ -1,12 +1,12 @@
 // "Meet MarketDay" — inverted (charcoal) band that opens the MarketDay
 // deep-dive, deliberately mirroring MarginPrintIntro so the two apps read at
-// equal weight. No shipped screenshots are wired in yet, so the device trio
-// shows honest "screen coming" placeholders that trace the core loop:
-// pack the night before → ring up sales offline → close to a profit summary.
+// equal weight. The device trio shows the three real app screenshots
+// (captured to /public/screenshots/) tracing the core loop: pack the night
+// before → ring up sales offline → close to a profit summary.
 const SLOTS = [
-  { label: 'Pack list',    note: 'Built the night before' },
-  { label: 'Quick sale',   note: 'One tap — cash or card' },
-  { label: 'Show summary', note: 'What the day earned' },
+  { src: '/screenshots/marketday-pack.png',    label: 'Pack list',    note: 'Built the night before' },
+  { src: '/screenshots/marketday-sell.png',    label: 'Quick sale',   note: 'One tap — cash or card' },
+  { src: '/screenshots/marketday-summary.png', label: 'Show summary', note: 'What the day earned' },
 ]
 
 export default function MarketDayIntro() {
@@ -54,20 +54,20 @@ export default function MarketDayIntro() {
           </div>
         </div>
 
-        {/* Device trio — honest placeholders until real screens are wired in */}
+        {/* Device trio — real screenshots */}
         <div className="mt-16 flex flex-wrap items-end justify-center gap-6 lg:gap-10">
           {SLOTS.map((s, i) => (
             <figure
-              key={s.label}
+              key={s.src}
               className={`flex flex-col items-center ${i === 1 ? 'lg:-translate-y-5' : ''}`}
             >
               <div className="rounded-[28px] border border-bone/15 bg-[#0d0d10] p-2 shadow-[0_30px_60px_-24px_rgba(0,0,0,0.7)]">
-                <div className="flex w-[180px] flex-col items-center justify-center rounded-[22px] border border-dashed border-bone/15 bg-bone/[0.03] py-24 sm:w-[210px]">
-                  <div className="h-9 w-9 border border-bone/20" />
-                  <div className="mt-4 font-mono text-[10px] uppercase tracking-wider text-bone/40">
-                    Screen coming
-                  </div>
-                </div>
+                <img
+                  src={s.src}
+                  alt={`MarketDay — ${s.label}`}
+                  loading="lazy"
+                  className="block w-[180px] rounded-[22px] sm:w-[210px]"
+                />
               </div>
               <figcaption className="mt-4 text-center">
                 <div className="font-mono text-[11px] uppercase tracking-wider text-bone">
