@@ -45,6 +45,18 @@ export default function MarketDayIntro() {
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-light" />
               Free tier ready &nbsp;·&nbsp; paid coming soon
             </span>
+            {/* NOTE: marketday.bennettstudio.dev must be a live Cloudflare Pages
+                deploy of the market-day repo for this to work — see the deploy
+                notes. Change the host here if you deploy MarketDay elsewhere. */}
+            <a
+              href="https://marketday.bennettstudio.dev/?demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light"
+            >
+              Try the live demo
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
             <a
               href="#contact"
               className="font-mono text-[12px] uppercase tracking-wider text-bone/80 underline-offset-4 hover:text-bone hover:underline"
