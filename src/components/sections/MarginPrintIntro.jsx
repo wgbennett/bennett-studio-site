@@ -42,8 +42,17 @@ export default function MarginPrintIntro() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
             <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper-light">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-light" />
-              In development &nbsp;·&nbsp; private beta
+              Available now
             </span>
+            <a
+              href="https://app.bennettstudio.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink"
+            >
+              Start free
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
             <a
               href="https://app.bennettstudio.dev/?demo"
               target="_blank"
@@ -52,12 +61,6 @@ export default function MarginPrintIntro() {
             >
               Try the live demo
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a
-              href="#contact"
-              className="font-mono text-[12px] uppercase tracking-wider text-bone/80 underline-offset-4 hover:text-bone hover:underline"
-            >
-              Join the beta →
             </a>
           </div>
         </div>

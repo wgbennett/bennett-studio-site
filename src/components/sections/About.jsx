@@ -62,7 +62,8 @@ export default function About() {
             <span className="font-semibold text-ink">MarginPrint</span> for
             costing and queueing what you make, and{' '}
             <span className="font-semibold text-ink">MarketDay</span> for
-            selling it in person. Both built in the open, both in development.
+            selling it in person. Both built in the open — MarginPrint's shipping
+            now, MarketDay close behind.
             I'd rather ship two daily-driver tools that solve real problems
             than ten half-built apps that solve nothing. If you sell handmade
             or 3D-printed things, subscribe below to follow along.

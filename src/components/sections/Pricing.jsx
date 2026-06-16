@@ -14,8 +14,8 @@ const TIERS = [
     price: '$0',
     interval: 'forever',
     tagline: 'Everything you need to price one printer.',
-    cta: 'Join the beta',
-    href: '#contact',
+    cta: 'Start free',
+    href: 'https://app.bennettstudio.dev',
     highlight: false,
     features: [
       '1 printer',
@@ -30,8 +30,8 @@ const TIERS = [
     price: '$9.99',
     interval: 'per month',
     tagline: 'The full app, month to month. Cancel anytime.',
-    cta: 'Get early access',
-    href: '#contact',
+    cta: 'Get MarginPrint',
+    href: 'https://app.bennettstudio.dev',
     highlight: false,
     features: [
       'Unlimited printers',
@@ -48,8 +48,8 @@ const TIERS = [
     interval: 'per year',
     secondary: '$8.25/mo, billed annually · save 17%',
     tagline: 'The full app, paid yearly. Most chosen.',
-    cta: 'Get early access',
-    href: '#contact',
+    cta: 'Get MarginPrint',
+    href: 'https://app.bennettstudio.dev',
     highlight: true,
     features: [
       'Unlimited printers',
@@ -65,8 +65,8 @@ const TIERS = [
     price: '$199',
     interval: 'one-time',
     tagline: 'Buy it once. Updates forever.',
-    cta: 'Reserve founding price',
-    href: '#contact',
+    cta: 'Get the lifetime deal',
+    href: 'https://app.bennettstudio.dev',
     highlight: false,
     features: [
       'Everything in Annual',
@@ -100,7 +100,7 @@ export default function Pricing() {
         </p>
         <p className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-          Launch pricing — join the beta now to lock the founding lifetime deal
+          Launch pricing — lock the founding lifetime price before it goes up
         </p>
       </div>
 

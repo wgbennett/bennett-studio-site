@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 
 // The honest "apps" band. Studio-level, sits right under the hero.
-// TWO real apps, both in development, shown at equal weight — each links to
+// TWO real apps (MarginPrint available now, MarketDay close behind), shown at
+// equal weight — each links to
 // its own dedicated page (/marginprint, /marketday). Neither is positioned
 // above the other. Do not add fake/unbuilt app names here.
 const APPS = [
@@ -9,6 +10,7 @@ const APPS = [
     index: 'App 01',
     name: 'MarginPrint',
     to: '/marginprint',
+    status: 'Available now',
     blurb:
       'Mission control for small 3D-print sellers — the production queue, live costs, and the customer list on one mobile screen. The app you open 5–15 times a day, not once per print.',
     points: ['Production queue', 'Slicer file import', 'True cost & pricing', 'AI analysis'],
@@ -18,6 +20,7 @@ const APPS = [
     index: 'App 02',
     name: 'MarketDay',
     to: '/marketday',
+    status: 'Free now · paid soon',
     blurb:
       'The offline-first booth companion for market vendors — pack smarter, sell faster, and know exactly what every show earned you. Built for craft fairs, farmers markets, and pop-ups.',
     points: ['Pack list', 'One-tap checkout', 'Offline-first PWA', 'Profit summary'],
@@ -45,9 +48,9 @@ export default function Apps() {
         </h2>
         <p className="mt-7 max-w-xl text-[16px] leading-relaxed text-ink/65">
           Bennett Studio is one maker shipping focused software for people who
-          sell what they make. Two apps are in development — each gets its own
-          page below. What&rsquo;s real shows up here. What isn&rsquo;t,
-          doesn&rsquo;t.
+          sell what they make. MarginPrint is available now and MarketDay is
+          close behind — each gets its own page below. What&rsquo;s real shows up
+          here. What isn&rsquo;t, doesn&rsquo;t.
         </p>
       </div>
 
@@ -65,7 +68,7 @@ export default function Apps() {
             <div>
               <div className="mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
                 <span className="text-ink/45">{app.index}</span>
-                <StatusPill>In development</StatusPill>
+                <StatusPill>{app.status}</StatusPill>
               </div>
 
               <div className="flex items-center gap-2.5">

@@ -43,12 +43,12 @@ export default function Hero() {
 
           <p className="mt-8 max-w-md text-lg leading-relaxed text-ink/70">
             One maker building focused, mobile-first tools for people who sell
-            what they make — one app at a time. Two are in development now:{' '}
-            <span className="font-semibold text-ink">MarginPrint</span> for
-            3D-print shops, and{' '}
-            <span className="font-semibold text-ink">MarketDay</span> for
-            in-person sellers.{' '}
-            <span className="text-copper">Both in development.</span>
+            what they make — one app at a time.{' '}
+            <span className="font-semibold text-ink">MarginPrint</span>, for
+            3D-print shops, is{' '}
+            <span className="text-copper">available now</span>;{' '}
+            <span className="font-semibold text-ink">MarketDay</span>, for
+            in-person sellers, is close behind.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
@@ -90,8 +90,8 @@ export default function Hero() {
               <span className="text-ink/30">/</span> 247
               <span className="ml-1.5 inline-block h-2 w-2 align-middle bg-copper" />
             </div>
-            <div>Bennett Studio · two apps</div>
-            <div>both in development</div>
+            <div>MarginPrint · available now</div>
+            <div>MarketDay · close behind</div>
           </div>
 
           {/* Scale (not resize) on short viewports: the stack is a fixed

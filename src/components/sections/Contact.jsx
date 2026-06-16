@@ -8,19 +8,21 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/
 
 const DEFAULTS = {
   app: '',
-  eyebrow: 'Private beta — now open',
+  eyebrow: 'Now shipping',
   title: (
     <>
       Run your shop from{' '}
       <span className="italic font-medium">one screen.</span>
     </>
   ),
-  body: 'Bennett Studio is building two focused, mobile-first apps for people who sell what they make. Join the private beta to get early access and help shape what ships.',
+  body: "MarginPrint is available now, free to start. MarketDay's free tier is open too, with paid upgrades coming soon. Leave your email and I'll tell you about new releases and the founding lifetime price before it goes up.",
   reassurance: ['Local-first · works offline', 'Founding lifetime price', 'No data sold, ever', 'Built solo, by a maker'],
 }
 
 export default function Contact(props) {
-  const { app, eyebrow, title, body, reassurance } = { ...DEFAULTS, ...props }
+  // `actions` (optional): when provided, render these CTAs instead of the
+  // waitlist form — used by the MarginPrint page now that it's available.
+  const { app, eyebrow, title, body, reassurance, actions } = { ...DEFAULTS, ...props }
   return (
     <section
       id="contact"
@@ -41,7 +43,7 @@ export default function Contact(props) {
           {body}
         </p>
 
-        <WaitlistForm app={app} />
+        {actions ?? <WaitlistForm app={app} />}
 
         {/* Tiny reassurance row */}
         <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-wider text-ink/40">
@@ -110,7 +112,7 @@ function WaitlistForm({ app = '' }) {
           <span className="inline-flex items-center gap-1.5"><Check size={13} /> You&rsquo;re on the list</span>
         </div>
         <p className="mt-2 text-[14px] text-ink/70">
-          I&rsquo;ll email you the moment the beta opens. Thanks for being early.
+          I&rsquo;ll email you about new releases and early access. Thanks for being early.
         </p>
       </div>
     )
@@ -149,7 +151,7 @@ function WaitlistForm({ app = '' }) {
           disabled={status === 'submitting'}
           className="group inline-flex items-center justify-center gap-2.5 bg-ink px-7 py-3.5 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-copper disabled:opacity-60"
         >
-          {status === 'submitting' ? 'Joining…' : 'Join the beta'}
+          {status === 'submitting' ? 'Sending…' : 'Keep me posted'}
           <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
         </button>
       </form>
@@ -167,7 +169,7 @@ function WaitlistForm({ app = '' }) {
           </p>
         )}
         {status === 'idle' && (
-          <p className="text-ink/40">No spam. One email when the beta opens.</p>
+          <p className="text-ink/40">No spam. Just the occasional release note.</p>
         )}
       </div>
     </div>

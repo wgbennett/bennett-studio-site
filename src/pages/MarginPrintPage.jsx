@@ -15,7 +15,7 @@ export default function MarginPrintPage() {
   usePageTitle('MarginPrint — mission control for 3D-print sellers · Bennett Studio')
   return (
     <>
-      <SiteNav />
+      <SiteNav cta={{ label: 'Start free →', href: 'https://app.bennettstudio.dev' }} />
       <MarginPrintIntro />
       <WhatItDoes />
       <Flow />
@@ -24,14 +24,34 @@ export default function MarginPrintPage() {
       <Faq />
       <Contact
         app="MarginPrint"
-        eyebrow="MarginPrint · private beta"
+        eyebrow="MarginPrint · available now"
         title={
           <>
-            Be first to run your shop{' '}
+            Run your shop{' '}
             <span className="italic font-medium">from one screen.</span>
           </>
         }
-        body="MarginPrint is in active development. Join the private beta to get early access, help shape what ships, and lock the founding lifetime price before it goes up."
+        body="MarginPrint is available now — start free, no account, no login. Upgrade to the full app whenever you're ready; lock the founding lifetime price before it goes up."
+        reassurance={['Local-first · works offline', 'No account, no login', 'Founding lifetime price', 'No data sold, ever']}
+        actions={
+          <div className="mx-auto mt-12 flex max-w-md flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="https://app.bennettstudio.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center justify-center gap-2.5 bg-ink px-7 py-3.5 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-copper"
+            >
+              Start free
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="#pricing"
+              className="inline-flex items-center justify-center gap-2 border border-ink/25 px-7 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
+            >
+              See pricing
+            </a>
+          </div>
+        }
       />
       <Footer />
     </>

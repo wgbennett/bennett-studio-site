@@ -27,8 +27,8 @@ const FAQS = [
     a: 'Cancel anytime — the free tier keeps working for one printer, forever. Payments are handled by Lemon Squeezy (your card details never touch us), and refunds go through them.',
   },
   {
-    q: 'It says “in development” — what does that mean?',
-    a: 'MarginPrint is real and working, but still in active development ahead of public launch. Joining the beta gets you early access, a direct line to shape what ships next, and the founding lifetime price before it goes up.',
+    q: 'Is MarginPrint finished, or still changing?',
+    a: "MarginPrint is live — you can start free today, no account needed. It's a young v1 from a solo maker, so it keeps improving fast, and the founding lifetime price is the lowest it'll ever be before it goes up.",
   },
 ]
 
