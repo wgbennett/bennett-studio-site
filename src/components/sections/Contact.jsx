@@ -59,6 +59,9 @@ export default function Contact(props) {
 
 function WaitlistForm({ app = '' }) {
   const [email, setEmail] = useState('')
+  // Honeypot: a hidden field humans never fill. The /api/waitlist function
+  // silently drops any submission where it's non-empty (bot spam mitigation).
+  const [hp, setHp] = useState('')
   // idle | submitting | success | invalid | fallback
   const [status, setStatus] = useState('idle')
 
@@ -80,7 +83,7 @@ function WaitlistForm({ app = '' }) {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ email: value, app: app.toLowerCase() }),
+        body: JSON.stringify({ email: value, app: app.toLowerCase(), company: hp }),
       })
       if (res.ok) {
         const data = await res.json().catch(() => ({}))
@@ -116,6 +119,18 @@ function WaitlistForm({ app = '' }) {
   return (
     <div className="mx-auto mt-12 max-w-md">
       <form onSubmit={submit} className="flex flex-col gap-3 sm:flex-row" noValidate>
+        {/* Honeypot — visually hidden, off the tab order, hidden from a11y tree.
+            Bots fill it; humans don't. The server drops any filled submission. */}
+        <input
+          type="text"
+          name="company"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          value={hp}
+          onChange={(e) => setHp(e.target.value)}
+          style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, opacity: 0 }}
+        />
         <input
           type="email"
           inputMode="email"

@@ -26,10 +26,12 @@ const APPS = { marginprint: 'MarginPrint', marketday: 'MarketDay' }
 export async function onRequestPost({ request, env }) {
   let email = ''
   let app = ''
+  let hp = ''
   try {
     const body = await request.json()
     email = String(body?.email ?? '').trim().toLowerCase()
     app = APPS[String(body?.app ?? '').trim().toLowerCase()] || ''
+    hp = String(body?.company ?? '').trim() // honeypot — see below
   } catch {
     return json({ ok: false, error: 'bad_request' }, 400)
   }
@@ -38,10 +40,29 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: 'invalid_email' }, 422)
   }
 
+  // Honeypot: the form ships a hidden `company` field a human never sees or
+  // fills. A non-empty value means a bot — return success so it moves on, but
+  // store and notify nothing.
+  if (hp) return json({ ok: true })
+
   const haveKV = Boolean(env.WAITLIST)
   const haveHook = Boolean(env.WAITLIST_WEBHOOK_URL)
   if (!haveKV && !haveHook) {
     return json({ ok: false, error: 'not_configured' }, 503)
+  }
+
+  // Per-IP throttle (best-effort, needs KV): one accepted signup per IP per
+  // minute. Bounds abuse-driven invocations/KV writes; honest users won't hit
+  // it. A stronger upgrade is Cloudflare Turnstile or a WAF rate-limit rule.
+  if (haveKV) {
+    const ip = request.headers.get('cf-connecting-ip') || ''
+    if (ip) {
+      const rlKey = `rl:${ip}`
+      if (await env.WAITLIST.get(rlKey)) {
+        return json({ ok: false, error: 'rate_limited' }, 429)
+      }
+      await env.WAITLIST.put(rlKey, '1', { expirationTtl: 60 })
+    }
   }
 
   const record = {
