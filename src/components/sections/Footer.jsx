@@ -67,6 +67,12 @@ export default function Footer() {
             >
               Privacy &amp; data
             </a>
+            <a
+              href="/terms.html"
+              className="transition-colors hover:text-bone/70"
+            >
+              Terms
+            </a>
             <span>Made with care, not haste.</span>
           </div>
         </div>
