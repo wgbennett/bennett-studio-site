@@ -11,11 +11,11 @@ const DEFAULTS = {
   eyebrow: 'Now shipping',
   title: (
     <>
-      Run your shop from{' '}
-      <span className="italic font-medium">one screen.</span>
+      Two apps.{' '}
+      <span className="italic font-medium">Pick your bench.</span>
     </>
   ),
-  body: "MarginPrint is available now, free to start. MarketDay's free tier is open too, with paid upgrades coming soon. Leave your email and I'll tell you about new releases and the founding lifetime price before it goes up.",
+  body: "MarginPrint is live — start free, no account, no login. MarketDay's free tier is ready now, with paid upgrades coming; leave your email and I'll tell you the moment they land.",
   reassurance: ['Local-first · works offline', 'Founding lifetime price', 'No data sold, ever', 'Built solo, by a maker'],
 }
 
@@ -59,7 +59,7 @@ export default function Contact(props) {
   )
 }
 
-function WaitlistForm({ app = '' }) {
+export function WaitlistForm({ app = '', wrapperClass = 'mx-auto mt-12 max-w-md' }) {
   const [email, setEmail] = useState('')
   // Honeypot: a hidden field humans never fill. The /api/waitlist function
   // silently drops any submission where it's non-empty (bot spam mitigation).
@@ -107,7 +107,7 @@ function WaitlistForm({ app = '' }) {
 
   if (status === 'success') {
     return (
-      <div className="mx-auto mt-12 max-w-md border border-copper/40 bg-copper/[0.06] px-6 py-5">
+      <div className={`${wrapperClass} border border-copper/40 bg-copper/[0.06] px-6 py-5`}>
         <div className="font-mono text-[13px] uppercase tracking-wider text-copper">
           <span className="inline-flex items-center gap-1.5"><Check size={13} /> You&rsquo;re on the list</span>
         </div>
@@ -119,7 +119,7 @@ function WaitlistForm({ app = '' }) {
   }
 
   return (
-    <div className="mx-auto mt-12 max-w-md">
+    <div className={wrapperClass}>
       <form onSubmit={submit} className="flex flex-col gap-3 sm:flex-row" noValidate>
         {/* Honeypot — visually hidden, off the tab order, hidden from a11y tree.
             Bots fill it; humans don't. The server drops any filled submission. */}
