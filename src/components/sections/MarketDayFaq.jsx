@@ -40,7 +40,7 @@ export default function MarketDayFaq() {
       <div className="relative mx-auto max-w-3xl">
         <div className="mb-12 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-          <span>§03 &nbsp;—&nbsp; Questions</span>
+          <span>§04 &nbsp;—&nbsp; Questions</span>
         </div>
 
         <h2 className="mb-12 max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.05] tracking-tightest text-ink">
