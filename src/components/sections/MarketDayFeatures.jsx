@@ -145,8 +145,9 @@ export default function MarketDayFeatures() {
       {/* Honest status note */}
       <div className="relative mx-auto mt-20 max-w-2xl border-l-2 border-copper/40 pl-6 text-center sm:text-left">
         <p className="font-mono text-[12px] leading-relaxed text-bone/55">
-          The free tier is fully built and tested today. Paid upgrades are
-          coming soon — join the beta to be first in when they land.
+          The free tier is fully built and tested today — and the paid upgrades
+          (unlimited shows, season analytics, CSV, multi-day events) are live now.
+          Start free; upgrade only when a show outgrows it.
         </p>
       </div>
     </section>

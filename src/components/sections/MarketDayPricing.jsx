@@ -114,8 +114,9 @@ export default function MarketDayPricing() {
 
       {/* Footnote */}
       <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/45">
-        Offline-first — record sales with no signal and they sync nothing to anyone.
-        Your numbers stay on your device. No data sold. No ads. Ever.
+        Cancel anytime · no account, no login. Payments run through Lemon Squeezy —
+        your card details never touch us, and refunds go through them. Offline-first:
+        your sales data stays on your device. No data sold. No ads. Ever.
       </div>
     </section>
   )

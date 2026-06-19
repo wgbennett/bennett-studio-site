@@ -25,7 +25,7 @@ export default function Hero() {
       <GridBackdrop />
 
       {/* Studio-level overlay nav */}
-      <SiteNav variant="overlay" cta={{ label: 'Join the beta →', href: '#contact' }} />
+      <SiteNav variant="overlay" cta={{ label: 'Explore the apps →', href: '#apps' }} />
 
       {/* Main content grid */}
       <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pt-0 short:pt-14">
@@ -48,7 +48,8 @@ export default function Hero() {
             3D-print shops, is{' '}
             <span className="text-copper">available now</span>;{' '}
             <span className="font-semibold text-ink">MarketDay</span>, for
-            in-person sellers, is close behind.
+            in-person sellers, is{' '}
+            <span className="text-copper">live too</span>.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
@@ -91,7 +92,7 @@ export default function Hero() {
               <span className="ml-1.5 inline-block h-2 w-2 align-middle bg-copper" />
             </div>
             <div>MarginPrint · available now</div>
-            <div>MarketDay · close behind</div>
+            <div>MarketDay · available now</div>
           </div>
 
           {/* Scale (not resize) on short viewports: the stack is a fixed

@@ -113,9 +113,10 @@ export default function Pricing() {
 
       {/* Footnote */}
       <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/45">
-        AI pricing analysis uses Claude via your own Anthropic key. New accounts
-        get $5 of free credit — enough for hundreds of analyses. Your numbers
-        stay on your device. No data sold. No ads. Ever.
+        Cancel anytime · payments run through Lemon Squeezy (your card never touches
+        us), refunds honored. AI pricing analysis uses Claude via your own Anthropic
+        key — new accounts get $5 of free credit, enough for hundreds of analyses.
+        Your numbers stay on your device. No data sold. No ads. Ever.
       </div>
     </section>
   )

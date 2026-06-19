@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 const FOOTER_STUDIO = [
   { label: 'The apps', href: '/#apps' },
   { label: 'About the maker', href: '/#about' },
-  { label: 'Join the beta', href: '/#contact' },
 ]
 
 const FOOTER_APPS = [
@@ -39,8 +38,8 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/55">
               One maker building focused, mobile-first tools for people who sell
               what they make. Built solo, one app at a time.{' '}
-              <span className="text-bone/80">MarginPrint</span> is out now;{' '}
-              <span className="text-bone/80">MarketDay</span> is close behind.
+              <span className="text-bone/80">MarginPrint</span> and{' '}
+              <span className="text-bone/80">MarketDay</span> are both out now.
             </p>
           </div>
 

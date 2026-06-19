@@ -1,7 +1,7 @@
 // MarketDay FAQ — mirrors MarginPrint's Faq section so the two app pages stay
 // symmetrical. Native <details>/<summary> accordion (accessible, no JS).
 // Answers reflect the real product: client-side PWA, offline-first, on-device
-// data, free tier now with paid coming soon.
+// data, free tier plus paid tiers live.
 const FAQS = [
   {
     q: 'Where does my data live? Is it safe?',
@@ -21,7 +21,7 @@ const FAQS = [
   },
   {
     q: 'What does it cost?',
-    a: 'The free tier is fully functional today — pack lists, one-tap sales, and show summaries all work at no cost. Paid upgrades are coming soon; join the beta to get early access and lock the founding lifetime price before it goes up.',
+    a: 'Start free — a couple of shows a month, 25 products, and the full Sell screen, forever. The full app is $5/month, $48/year, or $79 once (the founding lifetime price, before it goes up). Cancel anytime; payments run through Lemon Squeezy, so your card details never touch us, and refunds go through them.',
   },
   {
     q: 'Do I need MarginPrint too?',

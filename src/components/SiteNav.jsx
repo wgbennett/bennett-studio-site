@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { label: 'About', to: '/#about' },
 ]
 
-export default function SiteNav({ variant = 'solid', cta = { label: 'Join the beta →', href: '#contact' } }) {
+export default function SiteNav({ variant = 'solid', cta = { label: 'Explore the apps →', href: '#apps' } }) {
   const overlay = variant === 'overlay'
 
   const wrap = overlay

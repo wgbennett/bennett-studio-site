@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 // The honest "apps" band. Studio-level, sits right under the hero.
-// TWO real apps (MarginPrint available now, MarketDay close behind), shown at
+// TWO real apps (MarginPrint and MarketDay, both available now), shown at
 // equal weight — each links to
 // its own dedicated page (/marginprint, /marketday). Neither is positioned
 // above the other. Do not add fake/unbuilt app names here.
@@ -20,7 +20,7 @@ const APPS = [
     index: 'App 02',
     name: 'MarketDay',
     to: '/marketday',
-    status: 'Free now · paid soon',
+    status: 'Available now',
     blurb:
       'The offline-first booth companion for market vendors — pack smarter, sell faster, and know exactly what every show earned you. Built for craft fairs, farmers markets, and pop-ups.',
     points: ['Pack list', 'One-tap checkout', 'Offline-first PWA', 'Profit summary'],
@@ -48,9 +48,9 @@ export default function Apps() {
         </h2>
         <p className="mt-7 max-w-xl text-[16px] leading-relaxed text-ink/65">
           Bennett Studio is one maker shipping focused software for people who
-          sell what they make. MarginPrint is available now and MarketDay is
-          close behind — each gets its own page below. What&rsquo;s real shows up
-          here. What isn&rsquo;t, doesn&rsquo;t.
+          sell what they make. MarginPrint and MarketDay are both available now —
+          each gets its own page below. What&rsquo;s real shows up here. What
+          isn&rsquo;t, doesn&rsquo;t.
         </p>
       </div>
 
