@@ -26,6 +26,26 @@ const APPS = [
     points: ['Pack list', 'One-tap checkout', 'Offline-first PWA', 'Profit summary'],
     cta: 'Explore MarketDay',
   },
+  {
+    index: 'App 03',
+    name: 'Benchstock',
+    to: '/benchstock',
+    status: 'Available now',
+    blurb:
+      'Materials inventory and true-cost for makers — know what every product actually costs to make, what to charge, and never run out of materials mid-order. The costing brain for any maker, not just 3D.',
+    points: ['Materials & stock', 'BOM true cost', 'Production planner', 'Buy in lb, use in oz'],
+    cta: 'Explore Benchstock',
+  },
+  {
+    index: 'App 04',
+    name: 'Maker Books',
+    to: '/maker-books',
+    status: 'Available now',
+    blurb:
+      'Dead-simple bookkeeping and tax readiness for makers — log income and expenses, see your real profit, set aside for taxes, and keep Schedule-C-ready records. Never dread tax season again.',
+    points: ['Income & expenses', 'Real profit dashboard', 'Tax set-aside', 'Schedule C ready'],
+    cta: 'Explore Maker Books',
+  },
 ]
 
 export default function Apps() {
@@ -43,14 +63,14 @@ export default function Apps() {
           <span>Bennett Studio &nbsp;—&nbsp; what&rsquo;s on the bench</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest text-ink">
-          Two apps, built in the open.{' '}
+          Four apps, built in the open.{' '}
           <span className="italic font-medium text-ink/55">Pick your bench.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[16px] leading-relaxed text-ink/65">
           Bennett Studio is one maker shipping focused software for people who
-          sell what they make. MarginPrint and MarketDay are both available now —
-          each gets its own page below. What&rsquo;s real shows up here. What
-          isn&rsquo;t, doesn&rsquo;t.
+          sell what they make — pricing, selling, costing, and the books. All four
+          are available now, each with its own page below. What&rsquo;s real shows
+          up here. What isn&rsquo;t, doesn&rsquo;t.
         </p>
       </div>
 

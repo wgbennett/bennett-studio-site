@@ -9,6 +9,8 @@ import Landing from './pages/Landing.jsx'
 // fetched only when their route is visited.
 const MarginPrintPage = lazy(() => import('./pages/MarginPrintPage.jsx'))
 const MarketDayPage = lazy(() => import('./pages/MarketDayPage.jsx'))
+const BenchstockPage = lazy(() => import('./pages/BenchstockPage.jsx'))
+const MakerBooksPage = lazy(() => import('./pages/MakerBooksPage.jsx'))
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/marginprint" element={<MarginPrintPage />} />
           <Route path="/marketday" element={<MarketDayPage />} />
+          <Route path="/benchstock" element={<BenchstockPage />} />
+          <Route path="/maker-books" element={<MakerBooksPage />} />
           {/* Unknown paths fall back to the studio landing. */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
