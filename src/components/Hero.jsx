@@ -1,5 +1,4 @@
 import { useRef } from 'react'
-import { Link } from 'react-router-dom'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import SiteNav from './SiteNav.jsx'
 
@@ -42,14 +41,20 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-md text-lg leading-relaxed text-ink/70">
-            One maker building focused, mobile-first tools for people who sell
-            what they make — one app at a time.{' '}
-            <span className="font-semibold text-ink">MarginPrint</span>, for
-            3D-print shops, is{' '}
-            <span className="text-copper">available now</span>;{' '}
-            <span className="font-semibold text-ink">MarketDay</span>, for
-            in-person sellers, is{' '}
-            <span className="text-copper">live too</span>.
+            Bennett Studio is four focused, mobile-first apps for people who
+            sell what they make — <span className="font-semibold text-ink">MarginPrint</span> for
+            3D-print shops, <span className="font-semibold text-ink">MarketDay</span> for
+            in-person selling, <span className="font-semibold text-ink">Benchstock</span> for
+            materials &amp; true cost, and{' '}
+            <span className="font-semibold text-ink">Maker Books</span> for the
+            books. All four are{' '}
+            <span className="text-copper">available now</span>.
+          </p>
+
+          {/* Honest studio-level trust signal — no metrics, no logos. */}
+          <p className="mt-5 max-w-md font-mono text-[11px] leading-relaxed text-ink/50">
+            Built by a working maker running a real 3D-print shop — the same
+            tools I use behind my own table.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
@@ -60,20 +65,21 @@ export default function Hero() {
               Explore the apps
               <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
             </a>
-            <Link
-              to="/marginprint"
+            <a
+              href="#about"
               className="group inline-flex items-center gap-2.5 border border-ink/25 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
             >
-              MarginPrint
+              About the maker
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </Link>
-            <Link
-              to="/marketday"
-              className="group inline-flex items-center gap-2.5 border border-ink/25 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
-            >
-              MarketDay
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </Link>
+            </a>
+          </div>
+
+          {/* Mobile-only print stack — keeps the hero from feeling empty on
+              phones, where the large animated column is hidden. CSS-only. */}
+          <div className="mt-14 flex justify-center lg:hidden">
+            <div className="w-full max-w-[260px] opacity-90">
+              <PrintStack />
+            </div>
           </div>
         </div>
 
@@ -91,8 +97,8 @@ export default function Hero() {
               <span className="text-ink/30">/</span> 247
               <span className="ml-1.5 inline-block h-2 w-2 align-middle bg-copper" />
             </div>
-            <div>MarginPrint · available now</div>
-            <div>MarketDay · available now</div>
+            <div>MarginPrint · MarketDay</div>
+            <div>Benchstock · Maker Books</div>
           </div>
 
           {/* Scale (not resize) on short viewports: the stack is a fixed
@@ -108,10 +114,9 @@ export default function Hero() {
         <div className="mx-auto flex max-w-7xl items-center justify-between font-mono text-[10px] uppercase tracking-wider text-ink/50">
           <span>— Scroll · learn more below</span>
           <div className="hidden gap-7 md:flex">
-            <span><span className="text-ink/25">01</span>&nbsp;&nbsp;The apps</span>
-            <span><span className="text-ink/25">02</span>&nbsp;&nbsp;MarginPrint</span>
-            <span><span className="text-ink/25">03</span>&nbsp;&nbsp;MarketDay</span>
-            <span><span className="text-ink/25">04</span>&nbsp;&nbsp;About</span>
+            <a href="#apps" className="hover:text-ink"><span className="text-ink/25">01</span>&nbsp;&nbsp;The apps</a>
+            <a href="#about" className="hover:text-ink"><span className="text-ink/25">02</span>&nbsp;&nbsp;About</a>
+            <a href="#contact" className="hover:text-ink"><span className="text-ink/25">03</span>&nbsp;&nbsp;From the bench</a>
           </div>
         </div>
       </div>

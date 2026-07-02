@@ -39,9 +39,8 @@ export default function Footer() {
             </div>
             <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/55">
               One maker building focused, mobile-first tools for people who sell
-              what they make. Built solo, one app at a time.{' '}
-              <span className="text-bone/80">MarginPrint</span> and{' '}
-              <span className="text-bone/80">MarketDay</span> are both out now.
+              what they make. Built solo, one app at a time —{' '}
+              <span className="text-bone/80">four apps</span> are out now.
             </p>
           </div>
 
@@ -59,7 +58,7 @@ export default function Footer() {
             policy link Lemon Squeezy checkout asks for. */}
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/40 md:flex-row md:items-center">
           <div>
-            © {YEAR} Bennett Studio · MarginPrint &amp; MarketDay
+            © {YEAR} Bennett Studio · Independent software for makers
           </div>
           <div className="flex flex-wrap items-center gap-5">
             <a

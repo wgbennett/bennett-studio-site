@@ -17,11 +17,11 @@ export default function About() {
       <div className="mx-auto mb-20 max-w-7xl">
         <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-          <span>§05 &nbsp;—&nbsp; About the maker</span>
+          <span>02 &nbsp;—&nbsp; About the maker</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
-          One person, behind two apps.{' '}
-          <span className="italic font-medium text-ink/55">For now.</span>
+          One person, behind four apps.{' '}
+          <span className="italic font-medium text-ink/55">All of them.</span>
         </h2>
       </div>
 
@@ -57,15 +57,13 @@ export default function About() {
           </p>
 
           <p className="mt-6 text-[15px] leading-relaxed text-ink/65">
-            That's two apps under{' '}
-            <span className="font-semibold text-ink">Bennett Studio</span>:{' '}
-            <span className="font-semibold text-ink">MarginPrint</span> for
-            costing and queueing what you make, and{' '}
-            <span className="font-semibold text-ink">MarketDay</span> for
-            selling it in person. Both are built in the open and shipping now.
-            I'd rather ship two daily-driver tools that solve real problems
-            than ten half-built apps that solve nothing. If you sell handmade
-            or 3D-printed things, there's a tool here for you — start free below.
+            That grew into{' '}
+            <span className="font-semibold text-ink">Bennett Studio</span> — a
+            small family of focused apps for costing, selling, stocking, and the
+            books, each built in the open and shipping now. I'd rather ship
+            daily-driver tools that solve real problems than a pile of half-built
+            apps that solve nothing. If you sell handmade or 3D-printed things,
+            there's a tool here for you — start free below.
           </p>
 
           {/* Studio note */}

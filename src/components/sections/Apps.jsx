@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
 
 // The honest "apps" band. Studio-level, sits right under the hero.
-// TWO real apps (MarginPrint and MarketDay, both available now), shown at
-// equal weight — each links to
-// its own dedicated page (/marginprint, /marketday). Neither is positioned
-// above the other. Do not add fake/unbuilt app names here.
+// FOUR real apps (MarginPrint, MarketDay, Benchstock, Maker Books — all
+// available now), shown at equal weight — each links to its own dedicated
+// page. None is positioned above the others. Do not add unbuilt app names here.
 const APPS = [
   {
     index: 'App 01',
@@ -60,7 +59,7 @@ export default function Apps() {
       <div className="relative mx-auto mb-16 max-w-7xl">
         <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-          <span>Bennett Studio &nbsp;—&nbsp; what&rsquo;s on the bench</span>
+          <span>01 &nbsp;—&nbsp; What&rsquo;s on the bench</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest text-ink">
           Four apps, built in the open.{' '}
@@ -74,7 +73,7 @@ export default function Apps() {
         </p>
       </div>
 
-      {/* Two equal app cards + the honest "on the bench" placeholder */}
+      {/* Four equal app cards — all live, each linking to its own page. */}
       <div className="relative mx-auto max-w-7xl space-y-6">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {APPS.map((app) => (
@@ -115,37 +114,6 @@ export default function Apps() {
             </div>
           </Link>
         ))}
-        </div>
-
-        {/* On the bench — deliberately unnamed: the next app in development.
-            Names nothing on purpose. It graduates to a real card with its own
-            page only once it's working software, not a render and a promise —
-            the same honest treatment MarketDay got before it shipped. */}
-        <div className="relative grid grid-cols-1 gap-6 border border-dashed border-ink/20 bg-bone/40 p-8 lg:grid-cols-[1fr_1.4fr] lg:items-center lg:gap-10 lg:p-10">
-          <div>
-            <div className="mb-6 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
-              <span className="text-ink/35">App 03 &nbsp;·&nbsp; On the bench</span>
-              <StatusPill tone="muted">Early concept</StatusPill>
-            </div>
-            <div className="flex items-center gap-2.5 opacity-40">
-              <Mark />
-              <span className="text-2xl font-bold tracking-tight text-ink">
-                Not named yet
-              </span>
-            </div>
-          </div>
-          <div>
-            <p className="max-w-xl text-[15px] leading-relaxed text-ink/55">
-              The next Bennett Studio app is taking shape. More focused tools for
-              people who sell what they make are in the works &mdash; they&rsquo;ll
-              appear here, with a page of their own, once they&rsquo;re real
-              software with a working app, not a render and a promise. Until then,
-              this space stays honest.
-            </p>
-            <div className="mt-6 font-mono text-[11px] uppercase tracking-wider text-ink/35">
-              Coming when it&rsquo;s ready
-            </div>
-          </div>
         </div>
       </div>
     </section>

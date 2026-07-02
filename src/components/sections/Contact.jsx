@@ -11,11 +11,11 @@ const DEFAULTS = {
   eyebrow: 'Now shipping',
   title: (
     <>
-      Two apps.{' '}
+      Four apps.{' '}
       <span className="italic font-medium">Pick your bench.</span>
     </>
   ),
-  body: "MarginPrint is live — start free, no account, no login. MarketDay's free tier is ready now, with paid upgrades coming; leave your email and I'll tell you the moment they land.",
+  body: "All four apps are live — start free, no account, no login. Pick the bench that fits how you sell and run your next order, show, or month from your phone.",
   reassurance: ['Local-first · works offline', 'Founding lifetime price', 'No data sold, ever', 'Built solo, by a maker'],
 }
 

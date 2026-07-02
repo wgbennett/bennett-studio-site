@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
+import { Menu, X } from 'lucide-react'
 
 // Shared top navigation for the whole studio site.
 //   variant="overlay" → transparent, sits over the hero (landing page)
@@ -13,6 +15,7 @@ const NAV_LINKS = [
 
 export default function SiteNav({ variant = 'solid', cta = { label: 'Explore the apps →', href: '#apps' } }) {
   const overlay = variant === 'overlay'
+  const [open, setOpen] = useState(false)
 
   const wrap = overlay
     ? 'absolute inset-x-0 top-0 z-20'
@@ -54,7 +57,45 @@ export default function SiteNav({ variant = 'solid', cta = { label: 'Explore the
             {cta.label}
           </a>
         )}
+
+        {/* Mobile hamburger — the nav links + CTA are hidden below md. */}
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          className="text-ink transition-colors hover:text-copper md:hidden"
+        >
+          {open ? <X size={20} /> : <Menu size={20} />}
+        </button>
       </div>
+
+      {/* Mobile drawer — solid bg so it reads over the hero (overlay variant). */}
+      {open && (
+        <div className="border-t border-ink/10 bg-bone md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-8 py-4 font-mono text-[12px] uppercase tracking-wider text-ink/70">
+            {NAV_LINKS.map((l) => (
+              <Link
+                key={l.label}
+                to={l.to}
+                onClick={() => setOpen(false)}
+                className="py-2 hover:text-ink"
+              >
+                {l.label}
+              </Link>
+            ))}
+            {cta && (
+              <a
+                href={cta.href}
+                onClick={() => setOpen(false)}
+                className="py-2 text-copper hover:text-ink"
+              >
+                {cta.label}
+              </a>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   )
 }
