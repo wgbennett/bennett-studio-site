@@ -23,8 +23,10 @@ export default function Hero() {
     >
       <GridBackdrop />
 
-      {/* Studio-level overlay nav */}
-      <SiteNav variant="overlay" cta={{ label: 'Explore the apps →', href: '#apps' }} />
+      {/* Studio-level overlay nav. CTA leads with the benefit ("start free")
+          rather than repeating the hero's "Explore the apps" button; it still
+          drops to #apps where you pick which of the four to start. */}
+      <SiteNav variant="overlay" cta={{ label: 'Start free →', href: '#apps' }} />
 
       {/* Main content grid */}
       <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pt-0 short:pt-14">
