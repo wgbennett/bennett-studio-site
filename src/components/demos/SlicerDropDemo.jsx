@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { Printer, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { parseSlicerFile } from '../../utils/slicerImport.js'
 
 // Visitor states:
@@ -269,12 +269,15 @@ function DropIcon({ active }) {
 }
 
 function ParseSpinner() {
+  // Respect prefers-reduced-motion: hold a static square instead of the
+  // infinite pulse loop.
+  const reduce = useReducedMotion()
   return (
     <div className="flex h-14 w-14 items-center justify-center">
       <motion.div
         className="h-3 w-3 bg-copper"
-        animate={{ scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
-        transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+        animate={reduce ? { scale: 1, opacity: 1 } : { scale: [1, 1.6, 1], opacity: [1, 0.4, 1] }}
+        transition={reduce ? { duration: 0 } : { duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
       />
     </div>
   )

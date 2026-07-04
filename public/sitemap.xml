@@ -17,7 +17,22 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://bennettstudio.dev/benchstock</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://bennettstudio.dev/maker-books</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://bennettstudio.dev/privacy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://bennettstudio.dev/terms.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>

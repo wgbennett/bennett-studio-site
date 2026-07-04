@@ -31,9 +31,9 @@ export default function MarginPrintIntro() {
             <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>The flagship &nbsp;—&nbsp; app 01</span>
           </div>
-          <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
+          <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
             Meet <span className="text-bone">MarginPrint</span>
-          </h2>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
             Mission control for small 3D-print sellers. The production queue,
             true costs, and your customers on one mobile screen.

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Printer, Check } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 
 // Mirrors the real PRIMARY_ACTIONS chain in
 // print-calc/src/components/Queue/JobCard.jsx — when the user taps the
@@ -92,14 +92,17 @@ export default function JobCardDemo({
   const [stateIndex, setStateIndex] = useState(
     Math.max(0, STATE_CYCLE.indexOf(startAt)),
   )
+  // Respect prefers-reduced-motion: don't auto-cycle or pulse — show a static
+  // card frozen at startAt.
+  const reduce = useReducedMotion()
 
   useEffect(() => {
-    if (!cycleMs || forcedState) return
+    if (!cycleMs || forcedState || reduce) return
     const id = setInterval(() => {
       setStateIndex((i) => (i + 1) % STATE_CYCLE.length)
     }, cycleMs)
     return () => clearInterval(id)
-  }, [cycleMs, forcedState])
+  }, [cycleMs, forcedState, reduce])
 
   const state = forcedState ?? STATE_CYCLE[stateIndex]
   const meta = STATE_META[state]
@@ -120,8 +123,8 @@ export default function JobCardDemo({
         // real JobCard when the primary action fires.
         key={`pulse-${state}`}
         initial={{ scale: 1 }}
-        animate={{ scale: [1, 1.012, 1] }}
-        transition={{ duration: 0.4, ease: 'easeOut' }}
+        animate={{ scale: reduce ? 1 : [1, 1.012, 1] }}
+        transition={reduce ? { duration: 0 } : { duration: 0.4, ease: 'easeOut' }}
         className="bg-bone border border-ink/10 pl-5 pr-4 py-4 shadow-[0_1px_0_rgba(26,26,26,0.04)]"
       >
         {/* Top row — thumb / info / price */}

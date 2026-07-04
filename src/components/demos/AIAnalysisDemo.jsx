@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { Sparkles, Square } from 'lucide-react'
 
 // Canned analysis text. Mirrors the structure of what
@@ -30,9 +30,18 @@ export default function AIAnalysisDemo() {
   const [status, setStatus] = useState('idle') // idle | streaming | done
   const [revealed, setRevealed] = useState('')
   const indexRef = useRef(0)
+  // Respect prefers-reduced-motion: skip the word-by-word stream and reveal the
+  // full analysis immediately.
+  const reduce = useReducedMotion()
 
   useEffect(() => {
     if (status !== 'streaming') return
+
+    if (reduce) {
+      setRevealed(ANALYSIS)
+      setStatus('done')
+      return
+    }
 
     // Word-by-word reveal — split on whitespace but keep the separators so
     // the recombined string preserves line breaks and spacing exactly.
@@ -48,7 +57,7 @@ export default function AIAnalysisDemo() {
       setRevealed(tokens.slice(0, indexRef.current).join(''))
     }, STREAM_INTERVAL_MS)
     return () => clearInterval(id)
-  }, [status])
+  }, [status, reduce])
 
   function start() {
     indexRef.current = 0
@@ -135,6 +144,7 @@ export default function AIAnalysisDemo() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2 }}
+              aria-live="polite"
               className="text-[14px] leading-relaxed text-ink/85"
             >
               <Markdown text={revealed} />

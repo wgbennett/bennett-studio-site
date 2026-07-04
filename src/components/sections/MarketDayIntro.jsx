@@ -31,9 +31,9 @@ export default function MarketDayIntro() {
             <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>The booth companion &nbsp;—&nbsp; app 02</span>
           </div>
-          <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
+          <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
             Meet <span className="text-bone">MarketDay</span>
-          </h2>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
             The offline-first booth companion for market vendors. Pack smarter,
             sell faster, and know exactly what every show earned you — all on
@@ -49,21 +49,21 @@ export default function MarketDayIntro() {
                 deploy of the market-day repo for this to work — see the deploy
                 notes. Change the host here if you deploy MarketDay elsewhere. */}
             <a
-              href="https://marketday.bennettstudio.dev/?demo"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light"
-            >
-              Try the live demo
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a
               href="https://marketday.bennettstudio.dev"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink"
             >
               Start free
+              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a
+              href="https://marketday.bennettstudio.dev/?demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light"
+            >
+              Try the live demo
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
           </div>

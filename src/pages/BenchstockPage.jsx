@@ -41,9 +41,9 @@ export default function BenchstockPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>Materials &amp; true cost &nbsp;—&nbsp; app 03</span>
           </div>
-          <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
+          <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
             This <span className="text-copper-light">$24 candle</span> costs you <span className="text-copper-light">$9.80</span> to make.
-          </h2>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
             Benchstock is the materials + true-cost app for makers. Know what every product
             actually costs, what to charge, and never run out of materials mid-order.
@@ -52,11 +52,11 @@ export default function BenchstockPage() {
             <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper-light">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-light" /> Available now
             </span>
-            <a href={`${APP}/?demo`} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light">
-              Try the live demo<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a href={APP} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink">
+            <a href={APP} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[44px] items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink">
               Start free<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a href={`${APP}/?demo`} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[44px] items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light">
+              Try the live demo<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
           </div>
         </div>

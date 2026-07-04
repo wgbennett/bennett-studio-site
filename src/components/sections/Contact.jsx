@@ -46,7 +46,7 @@ export default function Contact(props) {
         {actions ?? <WaitlistForm app={app} />}
 
         {/* Tiny reassurance row */}
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-wider text-ink/40">
+        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-wider text-ink/60">
           {reassurance.map((r, i) => (
             <span key={r} className="flex items-center gap-6">
               {i > 0 && <span aria-hidden>·</span>}
@@ -169,7 +169,7 @@ export function WaitlistForm({ app = '', wrapperClass = 'mx-auto mt-12 max-w-md'
           </p>
         )}
         {status === 'idle' && (
-          <p className="text-ink/40">No spam. Just the occasional release note.</p>
+          <p className="text-ink/60">No spam. Just the occasional release note.</p>
         )}
       </div>
     </div>

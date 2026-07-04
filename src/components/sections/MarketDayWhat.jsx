@@ -61,18 +61,18 @@ export default function MarketDayWhat() {
           </p>
         </div>
 
-        {/* Companion note — ties the two apps together without ranking them */}
+        {/* Companion note — places MarketDay within the studio without ranking apps */}
         <div className="flex justify-center lg:justify-end">
           <div className="w-full lg:max-w-[480px]">
             <div className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ink/40">
-              Two apps, one shop
+              One of four Bennett Studio apps
             </div>
             <div className="border border-ink/10 bg-bone p-7 shadow-[0_2px_0_rgba(26,26,26,0.04)]">
               <p className="text-[15px] leading-relaxed text-ink/75">
-                MarginPrint costs and queues what you make. MarketDay sells it
-                at the booth. Same maker, same studio — they share the same
-                local-first storage, backup, and offline foundations, so use
-                either on its own or both together.
+                MarketDay is the in-person selling piece of Bennett Studio —
+                alongside MarginPrint, Benchstock, and Maker Books. Every app
+                shares the same local-first storage, backup, and offline
+                foundations, so use MarketDay on its own or with the rest.
               </p>
               <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink/55">
                 <span>— Pack list</span>

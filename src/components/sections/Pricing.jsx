@@ -112,7 +112,7 @@ export default function Pricing() {
       </div>
 
       {/* Footnote */}
-      <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/45">
+      <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/60">
         Cancel anytime · payments run through Lemon Squeezy (your card never touches
         us), refunds honored. AI pricing analysis uses Claude via your own Anthropic
         key — new accounts get $5 of free credit, enough for hundreds of analyses.

@@ -63,7 +63,7 @@ export default function WhatItDoes() {
         <div className="flex justify-center lg:justify-end">
           <div className="w-full lg:max-w-[480px]">
             <div className="mb-3 flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-ink/40">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-ink/60">
                 Live preview · static snapshot
               </span>
             </div>

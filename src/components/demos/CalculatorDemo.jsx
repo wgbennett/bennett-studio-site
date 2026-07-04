@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { calcAll } from '../../utils/calculations.js'
 
 // Frozen demo form. Numbers feed the *real* calcAll() from the app — so
@@ -73,6 +73,9 @@ export default function CalculatorDemo() {
   // otherwise it fires invisibly while the page loads. Re-fires on re-entry.
   const ref = useRef(null)
   const inView = useInView(ref, { once: false, margin: '-80px' })
+  // Respect prefers-reduced-motion: skip count-ups / growing bars and show the
+  // resolved end state immediately.
+  const reduce = useReducedMotion()
 
   return (
     <div
@@ -98,7 +101,7 @@ export default function CalculatorDemo() {
               Profit per unit
             </div>
             <div className="mt-1 font-mono text-[44px] font-semibold leading-none tracking-tight text-ink tabular-nums">
-              $<AnimatedNumber target={result.profit} active={inView} decimals={2} />
+              $<AnimatedNumber target={result.profit} active={inView} decimals={2} reduce={reduce} />
             </div>
           </div>
           <div className="text-right">
@@ -106,7 +109,7 @@ export default function CalculatorDemo() {
               Margin
             </div>
             <div className="mt-1 inline-flex items-baseline gap-0.5 bg-copper px-2.5 py-1 font-mono text-[18px] font-semibold leading-none tracking-tight text-bone tabular-nums">
-              <AnimatedNumber target={result.margin} active={inView} decimals={0} />
+              <AnimatedNumber target={result.margin} active={inView} decimals={0} reduce={reduce} />
               <span>%</span>
             </div>
           </div>
@@ -116,9 +119,9 @@ export default function CalculatorDemo() {
         <div className="mt-5 h-1 w-full bg-ink/10 overflow-hidden">
           <motion.div
             className="h-full bg-copper origin-left"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: inView ? result.margin / 100 : 0 }}
-            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
+            initial={{ scaleX: reduce ? result.margin / 100 : 0 }}
+            animate={{ scaleX: reduce || inView ? result.margin / 100 : 0 }}
+            transition={reduce ? { duration: 0 } : { duration: 0.9, ease: 'easeOut', delay: 0.2 }}
             style={{ width: '100%' }}
           />
         </div>
@@ -144,7 +147,7 @@ export default function CalculatorDemo() {
 
         <ul className="space-y-2.5">
           {result.lines.map((cost, i) => (
-            <CostRow key={cost.label} cost={cost} index={i} active={inView} />
+            <CostRow key={cost.label} cost={cost} index={i} active={inView} reduce={reduce} />
           ))}
         </ul>
       </div>
@@ -152,7 +155,7 @@ export default function CalculatorDemo() {
   )
 }
 
-function CostRow({ cost, index, active }) {
+function CostRow({ cost, index, active, reduce }) {
   const delay = 0.25 + index * 0.06
   return (
     <li className="grid grid-cols-[110px_1fr_56px] items-center gap-3 font-mono text-[11px]">
@@ -164,9 +167,9 @@ function CostRow({ cost, index, active }) {
           className={`h-full origin-left ${
             cost.highlight ? 'bg-copper/80' : 'bg-ink/55'
           }`}
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: active ? cost.percent / 100 : 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut', delay }}
+          initial={{ scaleX: reduce ? cost.percent / 100 : 0 }}
+          animate={{ scaleX: reduce || active ? cost.percent / 100 : 0 }}
+          transition={reduce ? { duration: 0 } : { duration: 0.8, ease: 'easeOut', delay }}
           style={{ width: '100%' }}
         />
       </div>
@@ -180,11 +183,15 @@ function CostRow({ cost, index, active }) {
 // Eased count-up from 0 to target. Restarts whenever `active` flips true,
 // so scrolling back into view replays the tick — visitors who scroll up to
 // re-look see the same animated reveal a second time.
-function AnimatedNumber({ target, active, decimals = 2, durationMs = 800 }) {
+function AnimatedNumber({ target, active, decimals = 2, durationMs = 800, reduce = false }) {
   const [value, setValue] = useState(0)
   const startedAtRef = useRef(0)
 
   useEffect(() => {
+    if (reduce) {
+      setValue(target)
+      return
+    }
     if (!active) {
       setValue(0)
       return
@@ -201,7 +208,7 @@ function AnimatedNumber({ target, active, decimals = 2, durationMs = 800 }) {
     }
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
-  }, [target, active, durationMs])
+  }, [target, active, durationMs, reduce])
 
   return <>{value.toFixed(decimals)}</>
 }

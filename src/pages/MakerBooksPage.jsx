@@ -40,9 +40,9 @@ export default function MakerBooksPage() {
             <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>Bookkeeping &amp; taxes &nbsp;—&nbsp; app 04</span>
           </div>
-          <h2 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
+          <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
             Is your maker business <span className="text-copper-light">actually making money?</span>
-          </h2>
+          </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
             Maker Books is dead-simple bookkeeping for makers. Log income and expenses,
             see your real profit, set aside for taxes — and never dread tax season again.
@@ -51,11 +51,11 @@ export default function MakerBooksPage() {
             <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper-light">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-light" /> Available now
             </span>
-            <a href={`${APP}/?demo`} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light">
-              Try the live demo<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a href={APP} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink">
+            <a href={APP} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[44px] items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink">
               Start free<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            </a>
+            <a href={`${APP}/?demo`} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[44px] items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light">
+              Try the live demo<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
           </div>
         </div>

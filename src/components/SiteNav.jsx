@@ -10,6 +10,8 @@ import { Menu, X } from 'lucide-react'
 const NAV_LINKS = [
   { label: 'MarginPrint', to: '/marginprint' },
   { label: 'MarketDay', to: '/marketday' },
+  { label: 'Benchstock', to: '/benchstock' },
+  { label: 'Maker Books', to: '/maker-books' },
   { label: 'About', to: '/#about' },
 ]
 
@@ -64,7 +66,7 @@ export default function SiteNav({ variant = 'solid', cta = { label: 'Explore the
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-label={open ? 'Close menu' : 'Open menu'}
-          className="text-ink transition-colors hover:text-copper md:hidden"
+          className="-mr-2 inline-flex h-11 w-11 items-center justify-center text-ink transition-colors hover:text-copper md:hidden"
         >
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
