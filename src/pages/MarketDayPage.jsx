@@ -5,6 +5,7 @@ import MarketDayFeatures from '../components/sections/MarketDayFeatures.jsx'
 import MarketDayPricing from '../components/sections/MarketDayPricing.jsx'
 import MarketDayFaq from '../components/sections/MarketDayFaq.jsx'
 import Contact from '../components/sections/Contact.jsx'
+import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 
@@ -52,6 +53,7 @@ export default function MarketDayPage() {
           </div>
         }
       />
+      <BackToStudio />
       <Footer />
     </>
   )

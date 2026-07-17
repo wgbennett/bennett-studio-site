@@ -6,6 +6,7 @@ import Features from '../components/sections/Features.jsx'
 import Pricing from '../components/sections/Pricing.jsx'
 import Faq from '../components/sections/Faq.jsx'
 import Contact from '../components/sections/Contact.jsx'
+import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 
@@ -53,6 +54,7 @@ export default function MarginPrintPage() {
           </div>
         }
       />
+      <BackToStudio />
       <Footer />
     </>
   )

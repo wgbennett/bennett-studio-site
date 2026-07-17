@@ -1,5 +1,6 @@
 import SiteNav from '../components/SiteNav.jsx'
 import Contact from '../components/sections/Contact.jsx'
+import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import { Star } from 'lucide-react'
 import usePageTitle from '../hooks/usePageTitle.js'
@@ -112,6 +113,7 @@ export default function MakerBooksPage() {
           </div>
         }
       />
+      <BackToStudio />
       <Footer />
     </>
   )
