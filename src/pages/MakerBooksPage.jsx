@@ -16,20 +16,20 @@ const FEATURES = [
 
 const TIERS = [
   { name: 'Free', price: '$0', interval: 'forever', tagline: 'Get your books current.', cta: 'Start free', features: ['50 transactions', 'Profit dashboard', 'Tax set-aside', 'Works offline'] },
-  { name: 'Monthly', price: '$9', interval: 'per month', tagline: 'The full app, month to month.', cta: 'Get Maker Books', features: ['Unlimited transactions', 'Multi-year history', 'Schedule C report', 'CSV export'] },
-  { name: 'Annual', price: '$79', interval: 'per year', secondary: '~$6.58/mo · save 27%', tagline: 'Most chosen.', cta: 'Get Maker Books', highlight: true, features: ['Unlimited transactions', 'Multi-year history', 'Schedule C report', 'CSV export'] },
+  { name: 'Monthly', price: '$9', interval: 'per month', tagline: 'The full app, month to month.', cta: 'Get MakerBooks', features: ['Unlimited transactions', 'Multi-year history', 'Schedule C report', 'CSV export'] },
+  { name: 'Annual', price: '$79', interval: 'per year', secondary: '~$6.58/mo · save 27%', tagline: 'Most chosen.', cta: 'Get MakerBooks', highlight: true, features: ['Unlimited transactions', 'Multi-year history', 'Schedule C report', 'CSV export'] },
   { name: 'Lifetime', price: '$149', interval: 'one-time', tagline: 'Buy it once. Updates forever.', cta: 'Get the lifetime deal', features: ['Everything in Annual', 'Pay once, no renewals', 'Founding-user pricing', 'A thank-you from a maker'] },
 ]
 
 const FAQS = [
-  { q: 'Is this tax advice?', a: 'No. Maker Books organizes your income and expenses and maps them to Schedule C lines so they’re ready for your accountant. It never files anything and never gives tax advice — it’s a record-keeper, not a CPA.' },
-  { q: 'How is it different from QuickBooks?', a: 'QuickBooks is powerful, general-purpose, and overwhelming for a one-person maker shop. Maker Books speaks your language (materials, booth fees, mileage), runs on your phone, and costs a fraction of the price.' },
+  { q: 'Is this tax advice?', a: 'No. MakerBooks organizes your income and expenses and maps them to Schedule C lines so they’re ready for your accountant. It never files anything and never gives tax advice — it’s a record-keeper, not a CPA.' },
+  { q: 'How is it different from QuickBooks?', a: 'QuickBooks is powerful, general-purpose, and overwhelming for a one-person maker shop. MakerBooks speaks your language (materials, booth fees, mileage), runs on your phone, and costs a fraction of the price.' },
   { q: 'Where does my data live?', a: 'On your device — full stop. No account, no server. Your finances never leave your phone. Export a JSON backup anytime (and especially at tax time).' },
-  { q: 'Does it move my money?', a: 'Never. Maker Books only records money in and out. It never connects to your bank or processes a payment.' },
+  { q: 'Does it move my money?', a: 'Never. MakerBooks only records money in and out. It never connects to your bank or processes a payment.' },
 ]
 
 export default function MakerBooksPage() {
-  usePageTitle('Maker Books — bookkeeping & tax readiness for makers · Bennett Studio')
+  usePageTitle('MakerBooks — bookkeeping & tax readiness for makers · Bennett Studio')
   return (
     <>
       <SiteNav cta={{ label: 'Start free →', href: APP }} />
@@ -45,7 +45,7 @@ export default function MakerBooksPage() {
             Is your maker business <span className="text-copper-light">actually making money?</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
-            Maker Books is dead-simple bookkeeping for makers. Log income and expenses,
+            MakerBooks is dead-simple bookkeeping for makers. Log income and expenses,
             see your real profit, set aside for taxes — and never dread tax season again.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
@@ -99,10 +99,10 @@ export default function MakerBooksPage() {
       </section>
 
       <Contact
-        app="Maker Books"
-        eyebrow="Maker Books · available now"
+        app="MakerBooks"
+        eyebrow="MakerBooks · available now"
         title={<>Stop dreading{' '}<span className="italic font-medium">tax season.</span></>}
-        body="Maker Books is available now — start free, no account. Log income and expenses, see your real profit, and keep records ready for your accountant."
+        body="MakerBooks is available now — start free, no account. Log income and expenses, see your real profit, and keep records ready for your accountant."
         reassurance={['Offline-first', 'No account, no login', 'Not tax advice · records only', 'No data sold, ever']}
         actions={
           <div className="mx-auto mt-12 flex max-w-md flex-col items-center justify-center gap-3 sm:flex-row">
@@ -159,7 +159,7 @@ function Pricing() {
         ))}
       </div>
       <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/45">
-        Cancel anytime · no account. Payments run through Lemon Squeezy — your card never touches us. Maker Books organizes your records; it’s not tax advice and never moves money. No data sold. Ever.
+        Cancel anytime · no account. Payments run through Lemon Squeezy — your card never touches us. MakerBooks organizes your records; it’s not tax advice and never moves money. No data sold. Ever.
       </div>
     </section>
   )

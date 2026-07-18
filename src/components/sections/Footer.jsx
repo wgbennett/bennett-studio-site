@@ -8,8 +8,8 @@ const FOOTER_STUDIO = [
 const FOOTER_APPS = [
   { label: 'MarginPrint', href: '/marginprint' },
   { label: 'MarketDay', href: '/marketday' },
-  { label: 'Benchstock', href: '/benchstock' },
-  { label: 'Maker Books', href: '/maker-books' },
+  { label: 'BenchStock', href: '/benchstock' },
+  { label: 'MakerBooks', href: '/maker-books' },
 ]
 
 // `mailto:will@bennettstudio.dev` resolves via Cloudflare Email Routing (live).

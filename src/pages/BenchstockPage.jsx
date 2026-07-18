@@ -8,28 +8,28 @@ import usePageTitle from '../hooks/usePageTitle.js'
 const APP = 'https://benchstock.bennettstudio.dev'
 
 const FEATURES = [
-  { k: 'Materials, costed', d: 'Add what you buy with its cost per unit. Benchstock tracks what you have on hand and warns you before you run out.' },
+  { k: 'Materials, costed', d: 'Add what you buy with its cost per unit. BenchStock tracks what you have on hand and warns you before you run out.' },
   { k: 'True cost, instantly', d: 'Build a product from its materials. See exactly what it costs to make — materials, labor, overhead — and a suggested price.' },
   { k: 'Plan a run', d: '“How many can I make right now?” and “for this order, what do I need to buy?” — a supplier-grouped shopping list with an estimated total.' },
-  { k: 'Buy in lb, use in oz', d: 'Stock wax by the pound, write the recipe in ounces — Benchstock converts automatically. Offline, on your phone, no account.' },
+  { k: 'Buy in lb, use in oz', d: 'Stock wax by the pound, write the recipe in ounces — BenchStock converts automatically. Offline, on your phone, no account.' },
 ]
 
 const TIERS = [
   { name: 'Free', price: '$0', interval: 'forever', tagline: 'Cost your first products.', cta: 'Start free', features: ['20 materials', '10 products', 'Live BOM costing', 'Works offline'] },
-  { name: 'Monthly', price: '$7', interval: 'per month', tagline: 'The full app, month to month.', cta: 'Get Benchstock', features: ['Unlimited materials & products', 'Low-stock alerts', 'Inventory value', 'CSV export'] },
-  { name: 'Annual', price: '$59', interval: 'per year', secondary: '~$4.92/mo · save 30%', tagline: 'Most chosen.', cta: 'Get Benchstock', highlight: true, features: ['Unlimited materials & products', 'Low-stock alerts', 'Inventory value', 'CSV export'] },
+  { name: 'Monthly', price: '$7', interval: 'per month', tagline: 'The full app, month to month.', cta: 'Get BenchStock', features: ['Unlimited materials & products', 'Low-stock alerts', 'Inventory value', 'CSV export'] },
+  { name: 'Annual', price: '$59', interval: 'per year', secondary: '~$4.92/mo · save 30%', tagline: 'Most chosen.', cta: 'Get BenchStock', highlight: true, features: ['Unlimited materials & products', 'Low-stock alerts', 'Inventory value', 'CSV export'] },
   { name: 'Lifetime', price: '$99', interval: 'one-time', tagline: 'Buy it once. Updates forever.', cta: 'Get the lifetime deal', features: ['Everything in Annual', 'Pay once, no renewals', 'Founding-user pricing', 'A thank-you from a maker'] },
 ]
 
 const FAQS = [
-  { q: 'How is this different from Craftybase?', a: 'Same core job — materials, true cost, inventory — but simpler, mobile-first, offline, and a fraction of the price. Benchstock is built for the maker who wants the answer, not an accounting course.' },
-  { q: 'Where does my data live?', a: 'On your device. Benchstock is a client-side app — no account, no server, no central database of your business to leak. Export a JSON backup anytime.' },
+  { q: 'How is this different from Craftybase?', a: 'Same core job — materials, true cost, inventory — but simpler, mobile-first, offline, and a fraction of the price. BenchStock is built for the maker who wants the answer, not an accounting course.' },
+  { q: 'Where does my data live?', a: 'On your device. BenchStock is a client-side app — no account, no server, no central database of your business to leak. Export a JSON backup anytime.' },
   { q: 'Do I need to be online?', a: 'No. It runs entirely on your phone and works fully offline. Install it to your home screen and it behaves like a native app.' },
-  { q: 'Can I import my spreadsheet?', a: 'Yes — paste or upload a CSV of your materials (name, unit, cost, on-hand, supplier) and Benchstock maps the columns for you.' },
+  { q: 'Can I import my spreadsheet?', a: 'Yes — paste or upload a CSV of your materials (name, unit, cost, on-hand, supplier) and BenchStock maps the columns for you.' },
 ]
 
 export default function BenchstockPage() {
-  usePageTitle('Benchstock — true cost & materials for makers · Bennett Studio')
+  usePageTitle('BenchStock — true cost & materials for makers · Bennett Studio')
   return (
     <>
       <SiteNav cta={{ label: 'Start free →', href: APP }} />
@@ -46,7 +46,7 @@ export default function BenchstockPage() {
             This <span className="text-copper-light">$24 candle</span> costs you <span className="text-copper-light">$9.80</span> to make.
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
-            Benchstock is the materials + true-cost app for makers. Know what every product
+            BenchStock is the materials + true-cost app for makers. Know what every product
             actually costs, what to charge, and never run out of materials mid-order.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
@@ -102,10 +102,10 @@ export default function BenchstockPage() {
       </section>
 
       <Contact
-        app="Benchstock"
-        eyebrow="Benchstock · available now"
+        app="BenchStock"
+        eyebrow="BenchStock · available now"
         title={<>Know your numbers{' '}<span className="italic font-medium">before you price.</span></>}
-        body="Benchstock is available now — start free, no account. Cost your products, track your materials, and plan your next run from your phone."
+        body="BenchStock is available now — start free, no account. Cost your products, track your materials, and plan your next run from your phone."
         reassurance={['Offline-first', 'No account, no login', 'Founding lifetime price', 'No data sold, ever']}
         actions={
           <div className="mx-auto mt-12 flex max-w-md flex-col items-center justify-center gap-3 sm:flex-row">

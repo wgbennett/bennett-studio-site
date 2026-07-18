@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 
 // The honest "apps" band. Studio-level, sits right under the hero.
-// FOUR real apps (MarginPrint, MarketDay, Benchstock, Maker Books — all
+// FOUR real apps (MarginPrint, MarketDay, BenchStock, MakerBooks — all
 // available now), shown at equal weight — each links to its own dedicated
 // page. None is positioned above the others. Do not add unbuilt app names here.
 const APPS = [
@@ -27,23 +27,23 @@ const APPS = [
   },
   {
     index: 'App 03',
-    name: 'Benchstock',
+    name: 'BenchStock',
     to: '/benchstock',
     status: 'Available now',
     blurb:
       'Materials inventory and true-cost for makers — know what every product actually costs to make, what to charge, and never run out of materials mid-order. The costing brain for any maker, not just 3D.',
     points: ['Materials & stock', 'BOM true cost', 'Production planner', 'Buy in lb, use in oz'],
-    cta: 'Explore Benchstock',
+    cta: 'Explore BenchStock',
   },
   {
     index: 'App 04',
-    name: 'Maker Books',
+    name: 'MakerBooks',
     to: '/maker-books',
     status: 'Available now',
     blurb:
       'Dead-simple bookkeeping and tax readiness for makers — log income and expenses, see your real profit, set aside for taxes, and keep Schedule-C-ready records. Never dread tax season again.',
     points: ['Income & expenses', 'Real profit dashboard', 'Tax set-aside', 'Schedule C ready'],
-    cta: 'Explore Maker Books',
+    cta: 'Explore MakerBooks',
   },
 ]
 

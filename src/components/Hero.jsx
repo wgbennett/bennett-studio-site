@@ -46,9 +46,9 @@ export default function Hero() {
             Bennett Studio is four focused, mobile-first apps for people who
             sell what they make — <span className="font-semibold text-ink">MarginPrint</span> for
             3D-print shops, <span className="font-semibold text-ink">MarketDay</span> for
-            in-person selling, <span className="font-semibold text-ink">Benchstock</span> for
+            in-person selling, <span className="font-semibold text-ink">BenchStock</span> for
             materials &amp; true cost, and{' '}
-            <span className="font-semibold text-ink">Maker Books</span> for the
+            <span className="font-semibold text-ink">MakerBooks</span> for the
             books. All four are{' '}
             <span className="text-copper">available now</span>.
           </p>
@@ -100,7 +100,7 @@ export default function Hero() {
               <span className="ml-1.5 inline-block h-2 w-2 align-middle bg-copper" />
             </div>
             <div>MarginPrint · MarketDay</div>
-            <div>Benchstock · Maker Books</div>
+            <div>BenchStock · MakerBooks</div>
           </div>
 
           {/* Scale (not resize) on short viewports: the stack is a fixed

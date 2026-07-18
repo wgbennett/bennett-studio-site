@@ -70,7 +70,7 @@ export default function MarketDayWhat() {
             <div className="border border-ink/10 bg-bone p-7 shadow-[0_2px_0_rgba(26,26,26,0.04)]">
               <p className="text-[15px] leading-relaxed text-ink/75">
                 MarketDay is the in-person selling piece of Bennett Studio —
-                alongside MarginPrint, Benchstock, and Maker Books. Every app
+                alongside MarginPrint, BenchStock, and MakerBooks. Every app
                 shares the same local-first storage, backup, and offline
                 foundations, so use MarketDay on its own or with the rest.
               </p>

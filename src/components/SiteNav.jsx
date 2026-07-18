@@ -10,8 +10,8 @@ import { Menu, X } from 'lucide-react'
 const NAV_LINKS = [
   { label: 'MarginPrint', to: '/marginprint' },
   { label: 'MarketDay', to: '/marketday' },
-  { label: 'Benchstock', to: '/benchstock' },
-  { label: 'Maker Books', to: '/maker-books' },
+  { label: 'BenchStock', to: '/benchstock' },
+  { label: 'MakerBooks', to: '/maker-books' },
   { label: 'About', to: '/#about' },
 ]
 

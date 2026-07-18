@@ -112,7 +112,7 @@ const FEATURES = [
   {
     Icon: IconHandoff,
     title: 'A Bennett Studio app',
-    body: 'MarketDay shares its storage, backup, and offline foundations with the other Bennett Studio apps — MarginPrint, Benchstock, and Maker Books. Use it on its own, or alongside the rest of the studio.',
+    body: 'MarketDay shares its storage, backup, and offline foundations with the other Bennett Studio apps — MarginPrint, BenchStock, and MakerBooks. Use it on its own, or alongside the rest of the studio.',
     spec: 'Shared studio foundations',
   },
 ]
