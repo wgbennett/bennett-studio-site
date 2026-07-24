@@ -4,9 +4,9 @@
 // (captured to /public/screenshots/) tracing the core loop: pack the night
 // before → ring up sales offline → close to a profit summary.
 const SLOTS = [
-  { src: '/screenshots/marketday-pack.png',    label: 'Pack list',    note: 'Built the night before' },
-  { src: '/screenshots/marketday-sell.png',    label: 'Quick sale',   note: 'One tap — cash or card' },
-  { src: '/screenshots/marketday-summary.png', label: 'Show summary', note: 'What the day earned' },
+  { src: '/screenshots/marketday-packlist.png',    label: 'Pack list',    note: 'Built the night before' },
+  { src: '/screenshots/marketday-quicksale.png',   label: 'Quick sale',   note: 'One tap — cash or card' },
+  { src: '/screenshots/marketday-showsummary.png', label: 'Show summary', note: 'What the day earned' },
 ]
 
 export default function MarketDayIntro() {
