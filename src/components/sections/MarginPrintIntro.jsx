@@ -4,9 +4,9 @@
 // (captured to /public/screenshots/). The §01–§04 sections below are
 // MarginPrint's chapters.
 const SHOTS = [
-  { src: '/screenshots/queue.png',             label: 'The queue',   note: "What's printing, queued, owed" },
-  { src: '/screenshots/calculator-result.png', label: 'True cost',   note: 'Profit, margin, full breakdown' },
-  { src: '/screenshots/ai-analysis.png',       label: 'AI analysis', note: 'Pricing advice from Claude' },
+  { src: '/screenshots/queue.png',             label: 'The queue',  note: "What's printing, queued, owed" },
+  { src: '/screenshots/calculator-result.png', label: 'True cost',  note: 'Profit, margin, full breakdown' },
+  { src: '/screenshots/stats.png',             label: 'Your stats', note: 'Revenue, profit, top sellers' },
 ]
 
 export default function MarginPrintIntro() {

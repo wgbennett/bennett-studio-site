@@ -61,6 +61,25 @@ export default function BenchstockPage() {
             </a>
           </div>
         </div>
+
+        {/* Device trio — real screenshots */}
+        <div className="relative mx-auto mt-16 flex max-w-7xl flex-wrap items-end justify-center gap-6 lg:gap-10">
+          {[
+            { src: '/screenshots/benchstock-dashboard.png', label: 'Dashboard',  note: 'Inventory value + best margins' },
+            { src: '/screenshots/benchstock-materials.png', label: 'Materials',   note: 'Cost, stock, low-stock alerts' },
+            { src: '/screenshots/benchstock-plan.png',      label: 'Plan a run',  note: 'A supplier-grouped shopping list' },
+          ].map((s, i) => (
+            <figure key={s.src} className={`flex flex-col items-center ${i === 1 ? 'lg:-translate-y-5' : ''}`}>
+              <div className="rounded-[28px] border border-bone/15 bg-[#0d0d10] p-2 shadow-[0_30px_60px_-24px_rgba(0,0,0,0.7)]">
+                <img src={s.src} alt={`BenchStock — ${s.label}`} loading="lazy" className="block w-[180px] rounded-[22px] sm:w-[210px]" />
+              </div>
+              <figcaption className="mt-4 text-center">
+                <div className="font-mono text-[11px] uppercase tracking-wider text-bone">{s.label}</div>
+                <div className="mt-1 text-[12px] text-bone/50">{s.note}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       {/* What it does */}

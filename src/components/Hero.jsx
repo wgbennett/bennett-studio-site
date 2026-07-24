@@ -69,7 +69,7 @@ export default function Hero() {
             </a>
             <a
               href="#about"
-              className="group inline-flex items-center gap-2.5 border border-ink/25 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink transition-colors hover:border-copper hover:text-copper"
+              className="group inline-flex items-center gap-2.5 border border-ink/25 bg-white px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-ink shadow-sm transition-colors hover:border-copper hover:text-copper"
             >
               About the maker
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>

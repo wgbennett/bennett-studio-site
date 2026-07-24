@@ -24,6 +24,8 @@ export default function App() {
           <Route path="/marketday" element={<MarketDayPage />} />
           <Route path="/benchstock" element={<BenchstockPage />} />
           <Route path="/maker-books" element={<MakerBooksPage />} />
+          {/* Alias: the app's own spelling / subdomain is "makerbooks" (no hyphen). */}
+          <Route path="/makerbooks" element={<Navigate to="/maker-books" replace />} />
           {/* Unknown paths fall back to the studio landing. */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

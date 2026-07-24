@@ -60,6 +60,25 @@ export default function MakerBooksPage() {
             </a>
           </div>
         </div>
+
+        {/* Device trio — real screenshots */}
+        <div className="relative mx-auto mt-16 flex max-w-7xl flex-wrap items-end justify-center gap-6 lg:gap-10">
+          {[
+            { src: '/screenshots/makerbooks-dashboard.png',    label: 'Dashboard',    note: 'Profit, tax set-aside, trends' },
+            { src: '/screenshots/makerbooks-schedulec.png',    label: 'Schedule C',   note: 'Organized for your accountant' },
+            { src: '/screenshots/makerbooks-transactions.png', label: 'Transactions', note: 'Income & expenses, categorized' },
+          ].map((s, i) => (
+            <figure key={s.src} className={`flex flex-col items-center ${i === 1 ? 'lg:-translate-y-5' : ''}`}>
+              <div className="rounded-[28px] border border-bone/15 bg-[#0d0d10] p-2 shadow-[0_30px_60px_-24px_rgba(0,0,0,0.7)]">
+                <img src={s.src} alt={`MakerBooks — ${s.label}`} loading="lazy" className="block w-[180px] rounded-[22px] sm:w-[210px]" />
+              </div>
+              <figcaption className="mt-4 text-center">
+                <div className="font-mono text-[11px] uppercase tracking-wider text-bone">{s.label}</div>
+                <div className="mt-1 text-[12px] text-bone/50">{s.note}</div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
       </section>
 
       <section className="relative border-t border-ink/10 bg-bone px-8 py-24 lg:py-32">
