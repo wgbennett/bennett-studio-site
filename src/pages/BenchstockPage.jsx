@@ -1,4 +1,7 @@
 import SiteNav from '../components/SiteNav.jsx'
+import BenchStockIntro from '../components/sections/BenchStockIntro.jsx'
+import BenchStockWhat from '../components/sections/BenchStockWhat.jsx'
+import BenchStockFeatures from '../components/sections/BenchStockFeatures.jsx'
 import Contact from '../components/sections/Contact.jsx'
 import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
@@ -6,13 +9,6 @@ import { Star } from 'lucide-react'
 import usePageTitle from '../hooks/usePageTitle.js'
 
 const APP = 'https://benchstock.bennettstudio.dev'
-
-const FEATURES = [
-  { k: 'Materials, costed', d: 'Add what you buy with its cost per unit. BenchStock tracks what you have on hand and warns you before you run out.' },
-  { k: 'True cost, instantly', d: 'Build a product from its materials. See exactly what it costs to make — materials, labor, overhead — and a suggested price.' },
-  { k: 'Plan a run', d: '“How many can I make right now?” and “for this order, what do I need to buy?” — a supplier-grouped shopping list with an estimated total.' },
-  { k: 'Buy in lb, use in oz', d: 'Stock wax by the pound, write the recipe in ounces — BenchStock converts automatically. Offline, on your phone, no account.' },
-]
 
 const TIERS = [
   { name: 'Free', price: '$0', interval: 'forever', tagline: 'Cost your first products.', cta: 'Start free', features: ['20 materials', '10 products', 'Live BOM costing', 'Works offline'] },
@@ -33,79 +29,16 @@ export default function BenchstockPage() {
   return (
     <>
       <SiteNav cta={{ label: 'Start free →', href: APP }} />
-
-      {/* Hero (charcoal) */}
-      <section id="benchstock" className="relative overflow-hidden border-t border-ink/10 bg-charcoal px-8 py-28 text-bone lg:py-32">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[760px] w-[760px] -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ background: 'radial-gradient(circle, rgba(184,69,31,0.18), rgba(184,69,31,0) 62%)' }} />
-        <div className="relative mx-auto max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
-            <span>Materials &amp; true cost &nbsp;—&nbsp; app 03</span>
-          </div>
-          <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
-            This <span className="text-copper-light">$24 candle</span> costs you <span className="text-copper-light">$9.80</span> to make.
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
-            BenchStock is the materials + true-cost app for makers. Know what every product
-            actually costs, what to charge, and never run out of materials mid-order.
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
-            <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper-light">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-copper-light" /> Available now
-            </span>
-            <a href={APP} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[44px] items-center gap-2 bg-copper px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:bg-bone hover:text-ink">
-              Start free<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a href={`${APP}/?demo`} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-[44px] items-center gap-2 border border-bone/25 px-4 py-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light">
-              Try the live demo<span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Device trio — real screenshots */}
-        <div className="relative mx-auto mt-16 flex max-w-7xl flex-wrap items-end justify-center gap-6 lg:gap-10">
-          {[
-            { src: '/screenshots/benchstock-dashboard.png', label: 'Dashboard',  note: 'Inventory value + best margins' },
-            { src: '/screenshots/benchstock-materials.png', label: 'Materials',   note: 'Cost, stock, low-stock alerts' },
-            { src: '/screenshots/benchstock-plan.png',      label: 'Plan a run',  note: 'A supplier-grouped shopping list' },
-          ].map((s, i) => (
-            <figure key={s.src} className={`flex flex-col items-center ${i === 1 ? 'lg:-translate-y-5' : ''}`}>
-              <div className="rounded-[28px] border border-bone/15 bg-[#0d0d10] p-2 shadow-[0_30px_60px_-24px_rgba(0,0,0,0.7)]">
-                <img src={s.src} alt={`BenchStock — ${s.label}`} loading="lazy" className="block w-[180px] rounded-[22px] sm:w-[210px]" />
-              </div>
-              <figcaption className="mt-4 text-center">
-                <div className="font-mono text-[11px] uppercase tracking-wider text-bone">{s.label}</div>
-                <div className="mt-1 text-[12px] text-bone/50">{s.note}</div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
-
-      {/* What it does */}
-      <section className="relative border-t border-ink/10 bg-bone px-8 py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§01 — What it does</span>
-          </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {FEATURES.map((f) => (
-              <div key={f.k} className="border border-ink/10 bg-bone p-7">
-                <h3 className="text-lg font-bold text-ink">{f.k}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-ink/65">{f.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <BenchStockIntro />
+      <BenchStockWhat />
+      <BenchStockFeatures />
       <Pricing />
 
       {/* FAQ */}
       <section id="faq" className="relative border-t border-ink/10 bg-bone px-8 py-24 lg:py-32">
         <div className="mx-auto max-w-3xl">
           <div className="mb-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§03 — Questions</span>
+            <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§04 — Questions</span>
           </div>
           <div className="divide-y divide-ink/10 border-y border-ink/10">
             {FAQS.map((f) => (
@@ -146,7 +79,7 @@ function Pricing() {
     <section id="pricing" className="relative border-t border-ink/10 bg-bone px-8 py-24 lg:py-32">
       <div className="mx-auto mb-16 max-w-7xl">
         <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
-          <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§02 — Pricing</span>
+          <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§03 — Pricing</span>
         </div>
         <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
           A tenth of Craftybase.{' '}<span className="italic font-medium text-ink/55">Start free.</span>

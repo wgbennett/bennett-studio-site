@@ -1,0 +1,109 @@
+import CardEdgeHighlight from '../effects/CardEdgeHighlight.jsx'
+import { ChevronRight, PenLine, TrendingUp, PiggyBank, FileText, HardDrive, ArrowLeftRight } from 'lucide-react'
+
+// MakerBooks feature grid — mirrors MarginPrint / MarketDay / BenchStock
+// (charcoal, six cards) so the four app pages carry equal weight.
+const FEATURES = [
+  {
+    Icon: PenLine,
+    title: 'Log in seconds',
+    body: 'Add income or an expense with an amount, a date, and a category. Fast enough to do from the table right after a sale — no forms, no fuss.',
+    spec: 'Income · expenses',
+  },
+  {
+    Icon: TrendingUp,
+    title: 'Real profit, live',
+    body: 'The dashboard shows what you actually made — this month, year-to-date, and all-time net — with a running trend so you can see the business move.',
+    spec: 'Net profit trends',
+  },
+  {
+    Icon: PiggyBank,
+    title: 'Set aside for taxes',
+    body: 'MakerBooks estimates what to hold back for taxes from your profit and tracks the sales tax you\'ve collected, so April is never a surprise.',
+    spec: 'Tax set-aside',
+  },
+  {
+    Icon: FileText,
+    title: 'Schedule C, organized',
+    body: 'Every expense is mapped to its approximate Schedule C line — gross receipts, advertising, supplies, mileage — ready to hand to your accountant.',
+    spec: 'Approx. Schedule C',
+  },
+  {
+    Icon: HardDrive,
+    title: 'Yours, on your device',
+    body: 'No accounts, no backend, nothing sent anywhere. Every transaction lives in your browser storage, with a one-tap JSON backup from Settings.',
+    spec: 'Local-first · JSON backup',
+  },
+  {
+    Icon: ArrowLeftRight,
+    title: 'A Bennett Studio app',
+    body: 'MakerBooks shares its storage, backup, and offline foundations with the other Bennett Studio apps — MarginPrint, MarketDay, and BenchStock. Use it alone or with the rest.',
+    spec: 'Shared studio foundations',
+  },
+]
+
+export default function MakerBooksFeatures() {
+  return (
+    <section
+      id="features"
+      className="relative border-t border-ink/10 bg-charcoal px-8 py-28 lg:py-36 text-bone"
+    >
+      {/* Header */}
+      <div className="relative mx-auto mb-20 max-w-7xl">
+        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+          <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
+          <span>§02 &nbsp;—&nbsp; What's inside</span>
+        </div>
+        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-bone">
+          Six things built for the maker{' '}
+          <span className="italic font-medium text-bone/55">not the accountant.</span>
+        </h2>
+      </div>
+
+      {/* Feature grid */}
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-px bg-bone/10 border border-bone/10 md:grid-cols-2 lg:grid-cols-3">
+        {FEATURES.map((f, i) => (
+          <FeatureCard key={f.title} feature={f} index={i} />
+        ))}
+      </div>
+
+      {/* Honest status note */}
+      <div className="relative mx-auto mt-20 max-w-2xl border-l-2 border-copper/40 pl-6 text-center sm:text-left">
+        <p className="font-mono text-[12px] leading-relaxed text-bone/55">
+          The free tier is fully built and tested today — and the paid upgrades
+          (unlimited transactions, the tax set-aside, Schedule C export, CSV) are
+          live now. Start free; upgrade only when your books outgrow it.
+        </p>
+      </div>
+    </section>
+  )
+}
+
+function FeatureCard({ feature, index }) {
+  const Icon = feature.Icon
+  const number = String(index + 1).padStart(2, '0')
+  return (
+    <div className="group relative bg-charcoal p-8 transition-all duration-300 hover:-translate-y-0.5 hover:bg-charcoal/50">
+      <CardEdgeHighlight delay={index * 0.08} />
+
+      <div className="absolute right-7 top-7 font-mono text-[10px] uppercase tracking-wider text-bone/25 transition-colors group-hover:text-bone/45">
+        / {number}
+      </div>
+
+      <div className="flex h-9 w-9 items-center justify-center border border-bone/20 text-bone/85 transition-colors group-hover:border-copper group-hover:text-copper">
+        <Icon size={16} strokeWidth={1.5} />
+      </div>
+      <div className="mt-5 text-[17px] font-semibold leading-tight text-bone">
+        {feature.title}
+      </div>
+      <div className="mt-3 text-[14px] leading-relaxed text-bone/65">
+        {feature.body}
+      </div>
+
+      <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/35 transition-colors group-hover:text-bone/60">
+        <ChevronRight size={13} className="text-copper-light/70 group-hover:text-copper-light" />
+        <span>{feature.spec}</span>
+      </div>
+    </div>
+  )
+}
