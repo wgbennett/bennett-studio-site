@@ -9,11 +9,12 @@ import Contact from '../components/sections/Contact.jsx'
 import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
+import { metaFor } from '../site-meta.js'
 
 // MarginPrint — full product deep-dive on its own route. Same chapters that
 // used to live on the single-page site, now scoped to this app.
 export default function MarginPrintPage() {
-  usePageTitle('MarginPrint — mission control for 3D-print sellers · Bennett Studio')
+  usePageTitle(metaFor('/marginprint').title)
   return (
     <>
       <SiteNav cta={{ label: 'Start free →', href: 'https://app.bennettstudio.dev' }} />

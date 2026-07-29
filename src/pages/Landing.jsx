@@ -5,12 +5,13 @@ import PrintShowcase from '../components/sections/PrintShowcase.jsx'
 import Contact from '../components/sections/Contact.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
+import { metaFor } from '../site-meta.js'
 
 // Bennett Studio landing — studio-first. You arrive here, choose an app from
 // the equal four-app band, and the deep marketing for each app lives on its own
 // route. Keeps the landing short: hero → apps → about → prints → close.
 export default function Landing() {
-  usePageTitle('Bennett Studio — independent software for makers')
+  usePageTitle(metaFor('/').title)
   return (
     <>
       <Hero />

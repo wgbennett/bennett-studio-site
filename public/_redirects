@@ -1,5 +1,23 @@
-# Cloudflare Pages SPA fallback — Bennett Studio.
-# Pages Functions (/api/*) are evaluated BEFORE this file, so the waitlist
-# function still handles its own route. Everything else that isn't a real
-# static asset falls through to the client-side router in index.html.
-/*    /index.html    200
+# Cloudflare Pages routing — Bennett Studio.
+#
+# VERIFIED against `wrangler pages dev` (the real Pages asset pipeline), because
+# the precedence here is not intuitive:
+#
+#   /*  /index.html  200   → real static assets WIN over this rule. A request
+#                            for /marginprint serves the prerendered
+#                            dist/marginprint/index.html; only genuinely
+#                            unmatched paths fall through to index.html.
+#
+#   /*  /anything-else 200 → the rule wins over assets, and EVERY route serves
+#                            that one file. Pointing the catch-all at a
+#                            hand-rolled SPA shell therefore silently defeats
+#                            the entire prerender. Don't.
+#
+# So the catch-all must stay `/index.html`. index.html is the prerendered
+# landing page, which means an unmatched path is served landing markup; the
+# `*` route in App.jsx renders <Landing /> to match it and then corrects the
+# URL, so hydration stays clean.
+#
+# /api/* Pages Functions are evaluated before any of this.
+/makerbooks    /maker-books    301
+/*             /index.html     200

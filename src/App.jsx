@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react'
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import ScrollManager from './components/ScrollManager.jsx'
 import ScrollVignette from './components/effects/ScrollVignette.jsx'
 import Landing from './pages/Landing.jsx'
@@ -27,9 +27,24 @@ export default function App() {
           {/* Alias: the app's own spelling / subdomain is "makerbooks" (no hyphen). */}
           <Route path="/makerbooks" element={<Navigate to="/maker-books" replace />} />
           {/* Unknown paths fall back to the studio landing. */}
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
     </main>
   )
+}
+
+// Cloudflare Pages serves the prerendered index.html — i.e. landing markup —
+// for any path the router doesn't know (see public/_redirects). Rendering
+// <Navigate> here would return null on the first client render and mismatch
+// that markup, so React would throw the whole prerendered tree away and
+// re-render from scratch (error #422). Rendering <Landing /> matches what the
+// server sent, hydration succeeds, and the URL is corrected a tick later as an
+// ordinary client-side transition.
+function NotFound() {
+  const navigate = useNavigate()
+  useEffect(() => {
+    navigate('/', { replace: true })
+  }, [navigate])
+  return <Landing />
 }

@@ -8,12 +8,13 @@ import Contact from '../components/sections/Contact.jsx'
 import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
+import { metaFor } from '../site-meta.js'
 
 // MarketDay — equal-weight product page alongside MarginPrint. Offline-first
 // booth companion for market vendors; available now, free to start with paid
 // upgrades live (mirrors MarginPrint: §pricing section + Start free / See pricing).
 export default function MarketDayPage() {
-  usePageTitle('MarketDay — the offline-first booth companion · Bennett Studio')
+  usePageTitle(metaFor('/marketday').title)
   return (
     <>
       <SiteNav cta={{ label: 'Start free →', href: 'https://marketday.bennettstudio.dev' }} />

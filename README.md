@@ -17,9 +17,28 @@ Opens at http://localhost:5180
 ## Build
 
 ```bash
-npm run build   # outputs to dist/
+npm run build   # client build → SSR build → prerender; outputs to dist/
 npm test        # /api/waitlist Pages Function tests
 ```
+
+`build` runs three steps. `vite build` produces the client bundle;
+`build:ssr` bundles `src/entry-server.jsx` for Node; `scripts/prerender.mjs`
+renders every route in `PRERENDER_ROUTES` (`src/site-meta.js`) to real HTML and
+writes `dist/<route>.html`. The client hydrates that markup, so first paint is
+the finished page and crawlers never have to run JS.
+
+To preview exactly what Cloudflare serves — asset precedence, `_redirects`,
+`_headers` and `/api/*` Functions all included — use the real Pages runtime
+rather than `vite preview`:
+
+```bash
+npm run build && npx wrangler pages dev dist
+```
+
+Adding a route means adding it to `src/App.jsx` **and** `ROUTE_META` in
+`src/site-meta.js` — that table is where per-page `<title>`, description,
+canonical and OG tags come from, for both the prerender and `usePageTitle`.
+Anything not prerendered still works; it just falls back to a client render.
 
 ## Routes
 
@@ -28,10 +47,23 @@ npm test        # /api/waitlist Pages Function tests
 - `/marginprint` — MarginPrint product deep-dive.
 - `/marketday` — MarketDay product deep-dive.
 
-Client-side routing (React Router, `BrowserRouter`). `public/_redirects` gives
-Cloudflare Pages an SPA fallback (`/* /index.html 200`); `/api/*` Pages
-Functions still resolve first. `ScrollManager` handles scroll-to-top on route
-change and smooth scroll-to-hash for in-page anchors.
+Every route above is prerendered to a flat `dist/<route>.html`, which Cloudflare
+Pages serves ahead of the `public/_redirects` catch-all. Two non-obvious rules,
+both verified against `wrangler pages dev` — read the comments in
+`public/_redirects` before touching it:
+
+- The catch-all **must** target `/index.html`. Pointing it at any other file
+  makes the rule beat static assets, so every route serves that file and the
+  prerender silently stops working.
+- Output is flat `<route>.html`, not `<route>/index.html`, because Pages
+  canonicalises a directory to a trailing slash and would 308 `/marginprint`
+  → `/marginprint/`, disagreeing with the canonical tag and sitemap.
+
+Unmatched paths therefore receive the prerendered landing markup, which is why
+App.jsx's `*` route renders `<Landing />` and corrects the URL after mount
+instead of returning `<Navigate>`. `/api/*` Pages Functions still resolve first.
+`ScrollManager` handles scroll-to-top on route change and smooth scroll-to-hash
+for in-page anchors.
 
 > MarketDay copy is sourced from the `market-day` product README (offline-first
 > booth companion; free tier built, paid upgrades coming soon). Real screenshots

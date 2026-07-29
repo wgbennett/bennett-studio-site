@@ -7,6 +7,7 @@ import BackToStudio from '../components/sections/BackToStudio.jsx'
 import Footer from '../components/sections/Footer.jsx'
 import { Star } from 'lucide-react'
 import usePageTitle from '../hooks/usePageTitle.js'
+import { metaFor } from '../site-meta.js'
 
 const APP = 'https://benchstock.bennettstudio.dev'
 
@@ -25,7 +26,7 @@ const FAQS = [
 ]
 
 export default function BenchstockPage() {
-  usePageTitle('BenchStock — true cost & materials for makers · Bennett Studio')
+  usePageTitle(metaFor('/benchstock').title)
   return (
     <>
       <SiteNav cta={{ label: 'Start free →', href: APP }} />

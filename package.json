@@ -6,7 +6,9 @@
   "description": "Marketing site for MarginPrint, by Bennett Studio.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run build:ssr && node scripts/prerender.mjs",
+    "build:client": "vite build",
+    "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "preview": "vite preview",
     "test": "node functions/api/waitlist.test.mjs"
   },
