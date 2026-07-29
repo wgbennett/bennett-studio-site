@@ -19,7 +19,12 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative h-screen min-h-[720px] w-full overflow-hidden border-b border-ink/10 bg-bone"
+      // Desktop keeps the one-viewport composition. Phones do NOT: the copy
+      // column alone is taller than a small handset, so a fixed h-screen +
+      // overflow-hidden clipped the CTAs and all but the top of the print
+      // stack. Below lg the hero fills a viewport (svh, so mobile browser
+      // chrome doesn't steal height) and then grows with its content.
+      className="relative min-h-[100svh] w-full overflow-hidden border-b border-ink/10 bg-bone lg:h-screen lg:min-h-[720px]"
     >
       <GridBackdrop />
 
@@ -29,7 +34,10 @@ export default function Hero() {
       <SiteNav variant="overlay" cta={{ label: 'Start free →', href: '#apps' }} />
 
       {/* Main content grid */}
-      <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pt-0 short:pt-14">
+      {/* pb clears the absolutely-positioned section index at the hero's
+          bottom edge; on lg the grid is centred in a fixed-height hero and
+          needs none. */}
+      <div className="relative z-10 mx-auto grid h-full max-w-7xl grid-cols-1 items-center gap-12 px-8 pb-24 pt-28 lg:grid-cols-[1fr_1.15fr] lg:pb-0 lg:pt-0 short:pt-14">
         {/* Left — copy */}
         <div className="max-w-2xl">
           <div className="mb-7 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-ink/55">
@@ -77,10 +85,14 @@ export default function Hero() {
           </div>
 
           {/* Mobile-only print stack — keeps the hero from feeling empty on
-              phones, where the large animated column is hidden. CSS-only. */}
-          <div className="mt-14 flex justify-center lg:hidden">
-            <div className="w-full max-w-[260px] opacity-90">
-              <PrintStack />
+              phones, where the large animated column is hidden. CSS-only.
+              Sized to land above the fold on a typical handset: 48 layers is
+              192px tall against the desktop 170's 680px, and the 190px column
+              keeps the same ~1:1.05 silhouette. The 4px pitch is unchanged, so
+              the layer lines read identically at both sizes. */}
+          <div className="mt-10 flex justify-center lg:hidden">
+            <div className="w-full max-w-[190px] opacity-90">
+              <PrintStack layerCount={48} />
             </div>
           </div>
         </div>
@@ -127,8 +139,10 @@ export default function Hero() {
 }
 
 // Layered horizontal lines forming a vase-like silhouette — 3D print rising.
-function PrintStack() {
-  const layerCount = 170
+// Height is layerCount * 4px (1.5px line + 2.5px gap); the profile is
+// normalised over layerCount, so a smaller count is the same silhouette at a
+// smaller size rather than a cropped one.
+function PrintStack({ layerCount = 170 }) {
   const lines = Array.from({ length: layerCount }, (_, i) => {
     const t = i / (layerCount - 1) // 0 at top, 1 at bottom
     // Vase profile: narrowest at top, widest a touch above middle, gentle taper to bottom.
