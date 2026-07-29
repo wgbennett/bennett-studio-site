@@ -2,9 +2,20 @@
 # CSP scoped to what the site uses:
 #   style-src / font-src → Google Fonts (fonts.googleapis.com CSS + fonts.gstatic.com files)
 #   connect-src 'self'   → the /api/waitlist Pages Function (same origin)
-#   no inline scripts in the built HTML, so script-src stays strict 'self'.
+#   script-src           → 'self' plus static.cloudflareinsights.com, below.
+#   no inline scripts in the built HTML (the prerender injects markup only), so
+#   'unsafe-inline' is deliberately absent from script-src — keep it that way.
+#
+# Cloudflare Web Analytics: enabling it on the Pages project makes Cloudflare
+# inject its beacon at the edge, which is why static.cloudflareinsights.com is
+# allowed in script-src and cloudflareinsights.com in connect-src (the beacon
+# POSTs to /cdn-cgi/rum). These two allowances are inert until the toggle is on
+# — nothing loads from those hosts otherwise. Chosen over a script tag in
+# index.html so no analytics token lands in the repo, and over Plausible/GA
+# because it is free, cookieless, and collects no personal data, which is what
+# the site's own privacy copy promises.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

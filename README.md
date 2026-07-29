@@ -48,13 +48,15 @@ Anything not prerendered still works; it just falls back to a client render.
 - `/marketday` — MarketDay product deep-dive.
 
 Every route above is prerendered to a flat `dist/<route>.html`, which Cloudflare
-Pages serves ahead of the `public/_redirects` catch-all. Two non-obvious rules,
-both verified against `wrangler pages dev` — read the comments in
-`public/_redirects` before touching it:
+Pages matches directly. Two non-obvious behaviours, both verified against
+`wrangler pages dev` — read the comments in `public/_redirects` before touching
+it:
 
-- The catch-all **must** target `/index.html`. Pointing it at any other file
-  makes the rule beat static assets, so every route serves that file and the
-  prerender silently stops working.
+- There is **no `/*` catch-all**, on purpose. Valid redirect rules are evaluated
+  *before* static assets, so a `/* -> some-shell 200` line serves that one shell
+  for the whole site and silently defeats the prerender. Deep links work via
+  Pages' native index.html fallback instead (which is also why there must be no
+  `404.html`).
 - Output is flat `<route>.html`, not `<route>/index.html`, because Pages
   canonicalises a directory to a trailing slash and would 308 `/marginprint`
   → `/marginprint/`, disagreeing with the canonical tag and sitemap.

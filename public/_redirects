@@ -1,23 +1,23 @@
 # Cloudflare Pages routing — Bennett Studio.
 #
-# VERIFIED against `wrangler pages dev` (the real Pages asset pipeline), because
-# the precedence here is not intuitive:
+# There is deliberately NO `/*` catch-all here. How Pages actually behaves,
+# verified against `wrangler pages dev`:
 #
-#   /*  /index.html  200   → real static assets WIN over this rule. A request
-#                            for /marginprint serves the prerendered
-#                            dist/marginprint/index.html; only genuinely
-#                            unmatched paths fall through to index.html.
+#   1. Valid _redirects rules are evaluated BEFORE static assets. A rule like
+#      `/*  /some-shell  200` therefore wins over every prerendered file and
+#      serves that one shell for the entire site. Do not add one.
 #
-#   /*  /anything-else 200 → the rule wins over assets, and EVERY route serves
-#                            that one file. Pointing the catch-all at a
-#                            hand-rolled SPA shell therefore silently defeats
-#                            the entire prerender. Don't.
+#   2. The classic SPA line `/*  /index.html  200` is REJECTED by Pages as a
+#      self-referential loop ("Infinite loop detected in this rule and has been
+#      ignored") because Pages canonicalises /index.html back to /. It was in
+#      this file for months and never did anything.
 #
-# So the catch-all must stay `/index.html`. index.html is the prerendered
-# landing page, which means an unmatched path is served landing markup; the
-# `*` route in App.jsx renders <Landing /> to match it and then corrects the
-# URL, so hydration stays clean.
+#   3. Deep links work regardless: Pages natively falls back to index.html for
+#      any path that matches no asset, as long as no 404.html exists. That —
+#      not rule 2 — is what has always served /marginprint and friends, and it
+#      is why scripts/prerender.mjs writes flat <route>.html files that Pages
+#      can match directly.
 #
-# /api/* Pages Functions are evaluated before any of this.
+# So the only rule needed is the alias below. /api/* Pages Functions are
+# evaluated before any of this.
 /makerbooks    /maker-books    301
-/*             /index.html     200
