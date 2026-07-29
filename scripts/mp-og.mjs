@@ -1,8 +1,12 @@
-import pw from '/Users/williambennett/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
-const { chromium } = pw;
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { loadPlaywright } from './playwright-env.mjs';
 
-const OUT = '/Users/williambennett/print-calc/bennett-studio-site/site/public/og.png';
-const browser = await chromium.launch();
+const { launch } = await loadPlaywright();
+const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+const OUT = path.join(siteRoot, 'public/og.png');
+const browser = await launch();
 const ctx = await browser.newContext({
   viewport: { width: 1200, height: 630 },
   deviceScaleFactor: 2,            // 2400×1260 actual — crisp; platforms downscale to 1200×630

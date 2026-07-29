@@ -12,16 +12,32 @@ change.
   intercepts the Anthropic call with a representative SSE stream, and captures
   `queue.png`, `calculator.png`, `calculator-result.png`, `ai-analysis.png`
   into `public/screenshots/`.
-- `mp-og.mjs` + `og-template.html` — render the 1200×630 `public/og.png`
-  (two real phones on the brand canvas).
+- `og-shots.mjs` + `og-template.html` — render one 1200×630 OG card **per
+  route** (`public/og.png` plus `og-<app>.png`), each with that app's real
+  screenshots. Filenames must match `ogImage` in `src/site-meta.js`, which
+  `scripts/prerender.mjs` bakes into the per-route `og:image`. The renderer
+  audits every card and fails on an unexpected headline wrap, a
+  headline/subhead collision, or text running under the phone mockups.
+- `mp-og.mjs` — the older single-card renderer, superseded by `og-shots.mjs`.
+- `playwright-env.mjs` — shared Playwright resolution (see below).
 
 ## Running them
 These need **Playwright** + a Chromium browser, and the **app dev server**
-running (for the screenshot scripts). Playwright is not a repo dependency —
-install on demand:
+running (for the screenshot scripts). Playwright is deliberately not a repo
+dependency: it would put a ~300MB browser download in front of every
+`npm install` and every Cloudflare Pages build, to support scripts that run by
+hand a few times a year.
+
+So it is resolved at run time, and two env vars let you point at an existing
+install instead of a fresh one:
+
+| var | purpose |
+| --- | --- |
+| `PLAYWRIGHT_PATH` | path to a playwright entry point, if not installed locally |
+| `PLAYWRIGHT_CHROMIUM` | path to a specific Chromium binary, if Playwright's own lookup misses |
 
 ```sh
-npx playwright install chromium
+npm i -D playwright && npx playwright install chromium
 # app dev server (from repo root) for screenshots:
 npm run dev          # serves the app at http://localhost:5173
 # then, from this folder:

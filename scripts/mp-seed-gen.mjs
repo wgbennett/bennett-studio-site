@@ -2,8 +2,14 @@
 // Uses the app's OWN createJob/calcAll so seeded jobs are byte-identical to
 // what the real UI would produce. Outputs /tmp/mp-seed.json:
 //   { storage: { 'pp-*': <object> }, aiText: "<markdown>" }
-import { createJob, markPaid } from '/Users/williambennett/print-calc/src/utils/jobs.js';
-import { calcAll } from '/Users/williambennett/print-calc/src/utils/calculations.js';
+// Reaches into the MarginPrint app's own logic so seeded demo data is computed
+// by the real cost math. Override APP_SRC when the app lives elsewhere (this
+// site is also published as a standalone repo, where it is not a sibling).
+const APP_SRC = process.env.APP_SRC
+  ? new URL(process.env.APP_SRC + '/utils/', 'file://')
+  : new URL('../../../src/utils/', import.meta.url);
+const { createJob, markPaid } = await import(new URL('jobs.js', APP_SRC).href);
+const { calcAll } = await import(new URL('calculations.js', APP_SRC).href);
 import { writeFileSync } from 'node:fs';
 
 const NOW = Date.now();

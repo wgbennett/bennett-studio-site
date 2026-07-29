@@ -1,9 +1,9 @@
-import pw from '/Users/williambennett/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js';
-const { chromium } = pw;
+import { loadPlaywright } from './playwright-env.mjs';
+const { chromium, launch } = await loadPlaywright();
 import { readFileSync, mkdirSync } from 'node:fs';
 
 const BASE = process.env.BASE_URL || 'http://localhost:5173';
-const OUT  = '/Users/williambennett/print-calc/bennett-studio-site/site/public/screenshots';
+const OUT  = new URL('../public/screenshots', import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 
 const { storage, aiText } = JSON.parse(readFileSync('/tmp/mp-seed.json', 'utf8'));
@@ -31,7 +31,7 @@ function sseStream(text) {
   return body;
 }
 
-const browser = await chromium.launch();
+const browser = await launch();
 const context = await browser.newContext({
   viewport: { width: 390, height: 844 },   // iPhone 14 logical size
   deviceScaleFactor: 3,                      // crisp @3x for retina/marketing

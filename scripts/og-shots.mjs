@@ -11,15 +11,15 @@
 // Re-run this after any UI refresh that makes the screenshots in
 // public/screenshots/ look dated (those are captured by mp-shots.mjs).
 //
-// Playwright is imported from the npx cache by absolute path, matching the
-// other scripts in this directory; the browser binary is resolved the same way.
+// Playwright is resolved at run time via scripts/playwright-env.mjs (it is not a
+// dependency of the site — see that file for why, and for PLAYWRIGHT_PATH).
 
 import { readFile, writeFile, unlink } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import pw from '/Users/williambennett/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js'
+import { loadPlaywright } from './playwright-env.mjs'
 
-const { chromium } = pw
+const { launch } = await loadPlaywright()
 const here = path.dirname(fileURLToPath(import.meta.url))
 const siteRoot = path.resolve(here, '..')
 const shotsDir = path.join(siteRoot, 'public/screenshots')
@@ -94,10 +94,7 @@ const CARDS = [
 
 const template = await readFile(path.join(here, 'og-template.html'), 'utf8')
 
-const browser = await chromium.launch({
-  executablePath:
-    '/Users/williambennett/Library/Caches/ms-playwright/chromium-1223/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',
-})
+const browser = await launch()
 const ctx = await browser.newContext({
   viewport: { width: 1200, height: 630 },
   deviceScaleFactor: 2, // 2400×1260 actual — crisp; platforms downscale to 1200×630
