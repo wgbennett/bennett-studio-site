@@ -6,8 +6,8 @@
 //
 // For every route in PRERENDER_ROUTES it renders the real React tree to HTML,
 // injects it into the built index.html, rewrites the head for that route, and
-// writes dist/<route>/index.html. Cloudflare Pages serves those files directly;
-// unmatched paths still fall through to public/_redirects → the SPA shell.
+// writes a flat dist/<route>.html. Cloudflare Pages matches those files
+// directly; unmatched paths fall back to index.html natively.
 //
 // The client hydrates this markup (see src/main.jsx), so a visitor sees the
 // finished page on first paint and crawlers never need to run JS.
@@ -53,6 +53,10 @@ function rewriteHead(html, route, meta) {
   const title = esc(meta.title)
   const description = esc(meta.description)
   const ogTitle = esc(meta.ogTitle ?? meta.title)
+  // Absolute, not the root-relative path index.html carries: several scrapers
+  // (and every email client) refuse to resolve a relative og:image.
+  const ogImage = `${SITE_ORIGIN}/${meta.ogImage}`
+  const ogImageAlt = esc(meta.ogImageAlt ?? meta.title)
 
   const swaps = [
     [/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`],
@@ -63,6 +67,9 @@ function rewriteHead(html, route, meta) {
     [/(<meta property="og:description" content=")[\s\S]*?(" \/>)/, `$1${description}$2`],
     [/(<meta name="twitter:title" content=")[\s\S]*?(" \/>)/, `$1${ogTitle}$2`],
     [/(<meta name="twitter:description" content=")[\s\S]*?(" \/>)/, `$1${description}$2`],
+    [/(<meta property="og:image" content=")[^"]*(" \/>)/, `$1${ogImage}$2`],
+    [/(<meta property="og:image:alt" content=")[\s\S]*?(" \/>)/, `$1${ogImageAlt}$2`],
+    [/(<meta name="twitter:image" content=")[^"]*(" \/>)/, `$1${ogImage}$2`],
   ]
 
   let out = html
@@ -110,13 +117,12 @@ for (const route of PRERENDER_ROUTES) {
   console.log(`  ✓ ${route.padEnd(14)} → ${path.relative(siteRoot, outFile)}  (${(html.length / 1024).toFixed(0)} kB)`)
 }
 
-// No separate SPA fallback file is emitted on purpose. Cloudflare Pages only
-// lets real static assets take precedence over the `_redirects` catch-all when
-// that catch-all targets /index.html; aiming it at a dedicated shell makes the
-// rule win instead, serving that shell for every route and defeating this
-// whole script. See public/_redirects. Unmatched paths therefore get the
-// prerendered landing markup, and App.jsx's `*` route is written to hydrate
-// against it cleanly.
+// No separate SPA fallback file is emitted on purpose. Valid _redirects rules
+// are evaluated BEFORE static assets on Pages, so any `/* -> some-shell 200`
+// catch-all would serve that shell for every route and defeat this script
+// entirely. Pages instead falls back to index.html natively for unmatched
+// paths, which means those get the prerendered landing markup — hence App.jsx's
+// `*` route renders <Landing /> so hydration matches. See public/_redirects.
 
 // The SSR bundle is a build artifact, not something to deploy.
 await rm(ssrDir, { recursive: true, force: true })
