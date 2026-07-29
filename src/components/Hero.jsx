@@ -84,17 +84,10 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Mobile-only print stack — keeps the hero from feeling empty on
-              phones, where the large animated column is hidden. CSS-only.
-              Sized to land above the fold on a typical handset: 48 layers is
-              192px tall against the desktop 170's 680px, and the 190px column
-              keeps the same ~1:1.05 silhouette. The 4px pitch is unchanged, so
-              the layer lines read identically at both sizes. */}
-          <div className="mt-10 flex justify-center lg:hidden">
-            <div className="w-full max-w-[190px] opacity-90">
-              <PrintStack layerCount={48} />
-            </div>
-          </div>
+          {/* No print stack on phones, deliberately. It used to render here at
+              a reduced size, but the mark only earns its space at the scale it
+              gets on desktop; shrunk to fit a phone it read as clutter under
+              the CTAs. The mobile hero closes on the buttons instead. */}
         </div>
 
         {/* Right — animated print stack */}
@@ -139,10 +132,10 @@ export default function Hero() {
 }
 
 // Layered horizontal lines forming a vase-like silhouette — 3D print rising.
-// Height is layerCount * 4px (1.5px line + 2.5px gap); the profile is
-// normalised over layerCount, so a smaller count is the same silhouette at a
-// smaller size rather than a cropped one.
-function PrintStack({ layerCount = 170 }) {
+// 170 layers at a 4px pitch (1.5px line + 2.5px gap) = 680px tall, which is why
+// this renders on lg and up only.
+function PrintStack() {
+  const layerCount = 170
   const lines = Array.from({ length: layerCount }, (_, i) => {
     const t = i / (layerCount - 1) // 0 at top, 1 at bottom
     // Vase profile: narrowest at top, widest a touch above middle, gentle taper to bottom.
