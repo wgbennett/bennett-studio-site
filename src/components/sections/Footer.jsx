@@ -54,7 +54,7 @@ export default function Footer() {
 
         {/* Bottom row — copyright + Privacy. The privacy page is a real,
             honest "your data stays on your device" statement at
-            /privacy.html (static, served from public/). It doubles as the
+            /privacy (static, served from public/). It doubles as the
             policy link Lemon Squeezy checkout asks for. */}
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/40 md:flex-row md:items-center">
           <div>
@@ -62,13 +62,13 @@ export default function Footer() {
           </div>
           <div className="flex flex-wrap items-center gap-5">
             <a
-              href="/privacy.html"
+              href="/privacy"
               className="transition-colors hover:text-bone/70"
             >
               Privacy &amp; data
             </a>
             <a
-              href="/terms.html"
+              href="/terms"
               className="transition-colors hover:text-bone/70"
             >
               Terms
