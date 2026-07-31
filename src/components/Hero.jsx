@@ -21,7 +21,7 @@ export default function Hero() {
       <PhotoBackdrop
         slug="home"
         priority
-        alt="A maker's workbench under warm light, a print in progress."
+        alt="A row of 3D printers running in a small print farm."
       />
 
       <SiteNav variant="overlay" cta={{ label: 'Start free →', href: '#apps' }} />

@@ -15,7 +15,7 @@ export default function MarketDayWhat() {
           <span>§01 &nbsp;—&nbsp; What it does</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          Pack, sell,{' '}
+          Sell with{' '}
           <span className="accent text-ink/55">no signal.</span>
         </h2>
       </div>

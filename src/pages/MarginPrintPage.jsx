@@ -38,8 +38,8 @@ export default function MarginPrintPage() {
         eyebrow="MarginPrint · available now"
         title={
           <>
-            Run your shop{' '}
-            <span className="accent">from one screen.</span>
+            Your shop,{' '}
+            <span className="accent">one screen.</span>
           </>
         }
         body="MarginPrint is available now — start free, no account, no login. Upgrade to the full app whenever you're ready; lock the founding lifetime price before it goes up."

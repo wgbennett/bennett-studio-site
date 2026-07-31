@@ -11,8 +11,8 @@ const DEFAULTS = {
   eyebrow: 'Now shipping',
   title: (
     <>
-      Four apps.{' '}
-      <span className="accent">Pick your bench.</span>
+      Pick one.{' '}
+      <span className="accent">Start free.</span>
     </>
   ),
   body: "All four apps are live — start free, no account, no login. Pick the bench that fits how you sell and run your next order, show, or month from your phone.",

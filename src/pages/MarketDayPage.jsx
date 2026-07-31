@@ -37,8 +37,8 @@ export default function MarketDayPage() {
         eyebrow="MarketDay · available now"
         title={
           <>
-            Run the booth{' '}
-            <span className="accent">from your phone.</span>
+            Your booth,{' '}
+            <span className="accent">one phone.</span>
           </>
         }
         body="MarketDay is available now — start free, no account. Upgrade for unlimited shows and the season view whenever you're ready; lock the founding lifetime price before it goes up."

@@ -16,7 +16,7 @@
 
 export const PHOTOS = {
   // Landing hero.
-  // home: { src: '/photos/hero-workshop.webp', alt: 'A maker’s workbench under warm light, a print in progress.' },
+  // home: { src: '/photos/hero-workshop.webp', alt: 'A row of 3D printers running in a small print farm.' },
   home: null,
 
   // Each app's photograph is used TWICE — on its card in the landing grid and
@@ -29,9 +29,9 @@ export const PHOTOS = {
   // marketday: { src: '/photos/app-marketday.webp', alt: 'A craft market stall laid out with handmade goods.' },
   marketday: null,
 
-  // benchstock: { src: '/photos/app-benchstock.webp', alt: 'Shelves of filament spools and workshop supplies.' },
+  // benchstock: { src: '/photos/app-benchstock.webp', alt: 'A wall of filing drawers, ordered and labelled.' },
   benchstock: null,
 
-  // makerbooks: { src: '/photos/app-makerbooks.webp', alt: 'Receipts and a notebook on a desk in warm light.' },
+  // makerbooks: { src: '/photos/app-makerbooks.webp', alt: 'A ledger and receipts on a desk in warm light.' },
   makerbooks: null,
 }

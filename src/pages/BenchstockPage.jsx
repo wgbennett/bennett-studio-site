@@ -66,7 +66,7 @@ export default function BenchstockPage() {
       <Contact
         app="BenchStock"
         eyebrow="BenchStock · available now"
-        title={<>Know your numbers{' '}<span className="accent">before you price.</span></>}
+        title={<>Know your{' '}<span className="accent">real numbers.</span></>}
         body="BenchStock is available now — start free, no account. Cost your products, track your materials, and plan your next run from your phone."
         reassurance={['Offline-first', 'No account, no login', 'Founding lifetime price', 'No data sold, ever']}
         actions={
