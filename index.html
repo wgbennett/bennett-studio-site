@@ -35,12 +35,20 @@
          /tmp/mp-og.mjs (regenerate after a UI refresh). og.svg kept as a
          vector fallback. -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Type is SELF-HOSTED (public/fonts/fonts.css). It used to come from
+         fonts.googleapis.com via a render-blocking stylesheet, which put a
+         third-party origin in the critical path: with that request hanging,
+         the browser paints nothing at all. Now it is the same origin as the
+         HTML — no extra DNS, no extra TLS.
+
+         Only the two faces above the fold are preloaded. Anton draws the
+         hero headline, so it is fetched in parallel with the CSS rather than
+         after it; Inter is the body face and appears everywhere. Instrument
+         Serif is deliberately NOT preloaded — it decorates copy further down
+         and swaps in without anyone noticing. -->
+    <link rel="stylesheet" href="/fonts/fonts.css" />
+    <link rel="preload" href="/fonts/anton-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <div id="root"></div>

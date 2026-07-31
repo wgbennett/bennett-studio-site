@@ -31,3 +31,60 @@
     outline: none;
   }
 }
+
+/* ── Type system ──────────────────────────────────────────────────────────
+   One place where every heading on the site is defined. Sections use these
+   classes rather than their own font/size/tracking stacks, because the old
+   arrangement — each section picking its own `text-5xl font-bold` — is how a
+   site ends up with six slightly different h2s and no hierarchy.
+
+   Anton is a single-weight condensed face: it carries at large sizes and
+   turns to mud below ~20px, so `display-*` is for headlines ONLY. Its natural
+   line-height is loose for a condensed face, hence the tight leading; and it
+   has no lowercase personality worth keeping, hence uppercase.
+
+   `accent` is the serif clause inside a headline — the reference sets the
+   second half of a title in a contrasting face, which is what stops a big
+   headline reading as a wall. Use it on part of a line, never the whole one. */
+@layer components {
+  .display-hero {
+    @apply font-display uppercase;
+    font-size: clamp(2.75rem, 8.5vw, 6.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.015em;
+  }
+  .display-section {
+    @apply font-display uppercase;
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.012em;
+  }
+  .display-sub {
+    @apply font-display uppercase;
+    font-size: clamp(1.375rem, 2.6vw, 1.875rem);
+    line-height: 1.05;
+    letter-spacing: -0.008em;
+  }
+  /* The serif counter-voice. Italic reads as editorial rather than decorative;
+     the size bump compensates for Instrument Serif running small next to
+     Anton's tall caps. */
+  .accent {
+    @apply font-serif italic normal-case;
+    font-size: 1.06em;
+    letter-spacing: -0.01em;
+  }
+  /* Mono label above a section or card. Tracking is doing the work here — at
+     11px, letter-spacing is what makes it read as a label and not as small
+     body copy. */
+  .eyebrow {
+    @apply font-mono uppercase;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
+  .lede {
+    @apply font-sans;
+    font-size: clamp(1rem, 1.6vw, 1.1875rem);
+    line-height: 1.65;
+  }
+}

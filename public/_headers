@@ -1,6 +1,9 @@
 # Cloudflare Pages security headers — Bennett Studio marketing site.
 # CSP scoped to what the site uses:
-#   style-src / font-src → Google Fonts (fonts.googleapis.com CSS + fonts.gstatic.com files)
+#   style-src / font-src → 'self' ONLY. Type is self-hosted from /fonts (see
+#     public/fonts/fonts.css); the Google Fonts origins were removed from this
+#     allowlist when that landed. If a font ever 404s, the fix is a missing
+#     file in public/fonts — do NOT re-add a third-party origin here.
 #   connect-src 'self'   → the /api/waitlist Pages Function (same origin)
 #   script-src           → 'self' plus static.cloudflareinsights.com, below.
 #   no inline scripts in the built HTML (the prerender injects markup only), so
@@ -15,7 +18,7 @@
 # because it is free, cookieless, and collects no personal data, which is what
 # the site's own privacy copy promises.
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

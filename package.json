@@ -10,7 +10,9 @@
     "build:client": "vite build",
     "build:ssr": "vite build --ssr src/entry-server.jsx --outDir dist-ssr",
     "preview": "vite preview",
-    "test": "node functions/api/waitlist.test.mjs"
+    "test": "node functions/api/waitlist.test.mjs",
+    "check:contrast": "node scripts/check-contrast.mjs",
+    "photos": "node scripts/photos.mjs"
   },
   "dependencies": {
     "fflate": "^0.8.3",

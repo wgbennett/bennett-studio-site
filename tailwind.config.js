@@ -22,7 +22,13 @@ export default {
         charcoal: '#1F1B17',
       },
       fontFamily: {
+        // Four faces, four jobs. The rule that matters: `sans` (Inter) is for
+        // BODY COPY. Inter doing headline duty is the single loudest signal of
+        // a templated site — it is what every default-Tailwind page looks like.
+        // Headlines go to `display`; the serif is for the accent clause.
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['Anton', 'Inter', 'ui-sans-serif', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'Times New Roman', 'serif'],
         mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       letterSpacing: {
