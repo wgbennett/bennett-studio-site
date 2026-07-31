@@ -1,4 +1,4 @@
-import SiteNav from '../components/SiteNav.jsx'
+import AppHero from '../components/AppHero.jsx'
 import MakerBooksIntro from '../components/sections/MakerBooksIntro.jsx'
 import MakerBooksWhat from '../components/sections/MakerBooksWhat.jsx'
 import MakerBooksFeatures from '../components/sections/MakerBooksFeatures.jsx'
@@ -29,7 +29,16 @@ export default function MakerBooksPage() {
   usePageTitle(metaFor('/maker-books').title)
   return (
     <>
-      <SiteNav cta={{ label: 'Start free →', href: APP }} />
+      <AppHero
+        slug="makerbooks"
+        index="04"
+        kicker="Bookkeeping"
+        name="MakerBooks"
+        tagline="keeps the books."
+        sub="Dead-simple bookkeeping and tax readiness for makers — real profit, tax set-aside, and Schedule-C-ready records all year."
+        cta={{ label: 'Start free →', href: APP }}
+        secondaryCta={{ label: 'Open MakerBooks', href: APP }}
+      />
       <MakerBooksIntro />
       <MakerBooksWhat />
       <MakerBooksFeatures />

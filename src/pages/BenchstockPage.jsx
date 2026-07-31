@@ -1,4 +1,4 @@
-import SiteNav from '../components/SiteNav.jsx'
+import AppHero from '../components/AppHero.jsx'
 import BenchStockIntro from '../components/sections/BenchStockIntro.jsx'
 import BenchStockWhat from '../components/sections/BenchStockWhat.jsx'
 import BenchStockFeatures from '../components/sections/BenchStockFeatures.jsx'
@@ -29,7 +29,16 @@ export default function BenchstockPage() {
   usePageTitle(metaFor('/benchstock').title)
   return (
     <>
-      <SiteNav cta={{ label: 'Start free →', href: APP }} />
+      <AppHero
+        slug="benchstock"
+        index="03"
+        kicker="Inventory & cost"
+        name="BenchStock"
+        tagline="knows the cost."
+        sub="Materials inventory and true-cost for makers — what every product actually costs to make, what to charge, and never running out mid-order."
+        cta={{ label: 'Start free →', href: APP }}
+        secondaryCta={{ label: 'Open BenchStock', href: APP }}
+      />
       <BenchStockIntro />
       <BenchStockWhat />
       <BenchStockFeatures />

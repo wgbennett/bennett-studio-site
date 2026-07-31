@@ -1,4 +1,4 @@
-import SiteNav from '../components/SiteNav.jsx'
+import AppHero from '../components/AppHero.jsx'
 import MarketDayIntro from '../components/sections/MarketDayIntro.jsx'
 import MarketDayWhat from '../components/sections/MarketDayWhat.jsx'
 import MarketDayFeatures from '../components/sections/MarketDayFeatures.jsx'
@@ -17,7 +17,16 @@ export default function MarketDayPage() {
   usePageTitle(metaFor('/marketday').title)
   return (
     <>
-      <SiteNav cta={{ label: 'Start free →', href: 'https://marketday.bennettstudio.dev' }} />
+      <AppHero
+        slug="marketday"
+        index="02"
+        kicker="Market sales"
+        name="MarketDay"
+        tagline="works the booth."
+        sub="The offline-first booth companion for market vendors — pack smarter, sell faster, and know exactly what every show earned you."
+        cta={{ label: 'Start free →', href: 'https://marketday.bennettstudio.dev' }}
+        secondaryCta={{ label: 'Open MarketDay', href: 'https://marketday.bennettstudio.dev' }}
+      />
       <MarketDayIntro />
       <MarketDayWhat />
       <MarketDayFeatures />

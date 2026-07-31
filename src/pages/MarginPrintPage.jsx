@@ -1,4 +1,4 @@
-import SiteNav from '../components/SiteNav.jsx'
+import AppHero from '../components/AppHero.jsx'
 import MarginPrintIntro from '../components/sections/MarginPrintIntro.jsx'
 import WhatItDoes from '../components/sections/WhatItDoes.jsx'
 import Flow from '../components/sections/Flow.jsx'
@@ -17,7 +17,16 @@ export default function MarginPrintPage() {
   usePageTitle(metaFor('/marginprint').title)
   return (
     <>
-      <SiteNav cta={{ label: 'Start free →', href: 'https://app.bennettstudio.dev' }} />
+      <AppHero
+        slug="marginprint"
+        index="01"
+        kicker="Production queue"
+        name="MarginPrint"
+        tagline="runs the shop."
+        sub="Mission control for small 3D-print sellers — the production queue, true costs, and your customers on one mobile screen."
+        cta={{ label: 'Start free →', href: 'https://app.bennettstudio.dev' }}
+        secondaryCta={{ label: 'Open MarginPrint', href: 'https://app.bennettstudio.dev' }}
+      />
       <MarginPrintIntro />
       <WhatItDoes />
       <Flow />

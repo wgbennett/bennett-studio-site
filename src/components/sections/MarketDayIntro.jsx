@@ -27,18 +27,9 @@ export default function MarketDayIntro() {
       <div className="relative mx-auto max-w-7xl">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-3 eyebrow text-copper-light">
-            <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
-            <span>The booth companion &nbsp;—&nbsp; app 02</span>
-          </div>
-          <h1 className="display-section">
-            Meet <span className="text-bone">MarketDay</span>
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
-            The offline-first booth companion for market vendors. Pack smarter,
-            sell faster, and know exactly what every show earned you — all on
-            your phone, all on your device.
-          </p>
+          <h2 className="display-section text-bone">
+            The screens you&rsquo;ll live in <span className="accent text-bone/55">in MarketDay.</span>
+          </h2>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
             <span className="inline-flex items-center gap-1.5 border border-copper/40 bg-copper/10 px-2.5 py-1 font-mono text-[9px] font-semibold uppercase tracking-wider text-copper-light">
