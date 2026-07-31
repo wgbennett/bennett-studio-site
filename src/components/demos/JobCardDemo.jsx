@@ -16,7 +16,7 @@ const STATE_META = {
   quoted: {
     label: 'Quoted',
     stripe: 'bg-ink/20',
-    pillText: 'text-ink/55',
+    pillText: 'text-ink/70',
     action: 'Accept',
   },
   queued: {
@@ -142,7 +142,7 @@ export default function JobCardDemo({
 
             {/* Natural inline text flow — wraps as a paragraph instead of as
                 a flex column of one-word rows when space is tight. */}
-            <div className="mt-1 font-mono text-[11px] leading-relaxed text-ink/55">
+            <div className="mt-1 font-mono text-[11px] leading-relaxed text-ink/70">
               <span>{job.customer}</span>
               <span className="mx-1.5 text-ink/20">·</span>
               <span>{job.printer}</span>
@@ -157,7 +157,7 @@ export default function JobCardDemo({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-ink/35"
+                className="mt-0.5 font-mono text-[10px] uppercase tracking-wider text-ink/70"
               >
                 {detail.stamp}
               </motion.div>
@@ -169,7 +169,7 @@ export default function JobCardDemo({
             <div className="font-mono text-[14px] font-semibold text-ink tabular-nums">
               ${job.price.toFixed(2)}
             </div>
-            <div className="mt-1 font-mono text-[9px] uppercase tracking-wider text-ink/30">
+            <div className="mt-1 font-mono text-[9px] uppercase tracking-wider text-ink/70">
               {job.paid ? <span className="inline-flex items-center gap-1"><Check size={11} /> paid</span> : 'unpaid'}
             </div>
           </div>
@@ -206,10 +206,10 @@ export default function JobCardDemo({
             </motion.span>
           </AnimatePresence>
 
-          <span className="ml-auto whitespace-nowrap font-mono text-[11px] text-ink/40 leading-none select-none">
+          <span className="ml-auto whitespace-nowrap font-mono text-[11px] text-ink/70 leading-none select-none">
             {job.jobId}
           </span>
-          <span className="font-mono text-[14px] text-ink/35 leading-none select-none px-1">
+          <span className="font-mono text-[14px] text-ink/70 leading-none select-none px-1">
             ⋯
           </span>
         </div>

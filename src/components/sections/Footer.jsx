@@ -34,10 +34,10 @@ export default function Footer() {
                 BENNETT STUDIO
               </span>
             </Link>
-            <div className="mt-2 eyebrow text-bone/45">
+            <div className="mt-2 eyebrow text-bone/60">
               Independent software for makers
             </div>
-            <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/55">
+            <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/60">
               One maker building focused, mobile-first tools for people who sell
               what they make. Built solo, one app at a time —{' '}
               <span className="text-bone/80">four apps</span> are out now.
@@ -56,7 +56,7 @@ export default function Footer() {
             honest "your data stays on your device" statement at
             /privacy (static, served from public/). It doubles as the
             policy link Lemon Squeezy checkout asks for. */}
-        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/40 md:flex-row md:items-center">
+        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/60 md:flex-row md:items-center">
           <div>
             © {YEAR} Bennett Studio · Independent software for makers
           </div>
@@ -84,7 +84,7 @@ export default function Footer() {
 function FooterColumn({ title, links, external = false }) {
   return (
     <div>
-      <div className="mb-4 font-mono text-[10px] uppercase tracking-wider text-bone/40">
+      <div className="mb-4 font-mono text-[10px] uppercase tracking-wider text-bone/60">
         {title}
       </div>
       <ul className="space-y-2.5">
@@ -111,7 +111,7 @@ function FooterLink({ link, external }) {
       {external && (
         <span
           aria-hidden
-          className="text-[9px] text-bone/40 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          className="text-[9px] text-bone/60 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
         >
           ↗
         </span>

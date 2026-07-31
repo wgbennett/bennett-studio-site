@@ -52,7 +52,7 @@ export default function Hero() {
           </p>
 
           {/* Honest studio-level trust signal — no metrics, no logos. */}
-          <p className="mt-5 max-w-md font-mono text-[11px] leading-relaxed text-bone/55">
+          <p className="mt-5 max-w-md font-mono text-[11px] leading-relaxed text-bone/60">
             Built by a working maker running a real 3D-print shop — the same
             tools I use behind my own table.
           </p>
@@ -83,7 +83,7 @@ export default function Hero() {
       {/* Bottom — section index. Hairline over the photo rather than a filled
           bar; the backdrop's bottom fade already separates it from what follows. */}
       <div className="absolute inset-x-0 bottom-0 z-10 border-t border-bone/15 px-8 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between font-mono text-[10px] uppercase tracking-wider text-bone/55">
+        <div className="mx-auto flex max-w-7xl items-center justify-between font-mono text-[10px] uppercase tracking-wider text-bone/60">
           <span>— Scroll · learn more below</span>
           <div className="hidden gap-7 md:flex">
             <a href="#apps" className="hover:text-bone"><span className="text-bone/30">01</span>&nbsp;&nbsp;The apps</a>

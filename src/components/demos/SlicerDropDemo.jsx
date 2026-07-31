@@ -167,7 +167,7 @@ export default function SlicerDropDemo() {
                   ? 'Drop to parse'
                   : 'Drop a .gcode or .3mf'}
               </div>
-              <div className="mt-1.5 eyebrow text-ink/45">
+              <div className="mt-1.5 eyebrow text-ink/70">
                 from PrusaSlicer · OrcaSlicer · Bambu Studio
               </div>
               <button
@@ -190,7 +190,7 @@ export default function SlicerDropDemo() {
               className="flex flex-col items-center justify-center px-6 py-14 text-center"
             >
               <ParseSpinner />
-              <div className="mt-5 font-mono text-[12px] uppercase tracking-wider text-ink/65">
+              <div className="mt-5 font-mono text-[12px] uppercase tracking-wider text-ink/70">
                 Reading slicer metadata…
               </div>
             </motion.div>
@@ -239,7 +239,7 @@ export default function SlicerDropDemo() {
         </AnimatePresence>
       </div>
 
-      <div className="mt-2.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-ink/35">
+      <div className="mt-2.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-ink/70">
         <span>Live parser · uses your file, never uploads</span>
         <span>fflate · client-side</span>
       </div>
@@ -253,7 +253,7 @@ function DropIcon({ active }) {
       animate={{ y: active ? -3 : 0, scale: active ? 1.04 : 1 }}
       transition={{ type: 'spring', stiffness: 280, damping: 18 }}
       className={`flex h-14 w-14 items-center justify-center border ${
-        active ? 'border-copper text-copper' : 'border-ink/30 text-ink/55'
+        active ? 'border-copper text-copper' : 'border-ink/30 text-ink/70'
       }`}
     >
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -304,7 +304,7 @@ function ResultView({ result, onReset }) {
           <div className="truncate font-semibold text-ink">
             {result.name || 'Untitled file'}
           </div>
-          <div className="mt-0.5 eyebrow text-ink/55">
+          <div className="mt-0.5 eyebrow text-ink/70">
             <span className="text-copper">imported</span>
             <span className="text-ink/25"> · </span>
             <span>{sourceLabel}</span>
@@ -316,7 +316,7 @@ function ResultView({ result, onReset }) {
             e.stopPropagation()
             onReset()
           }}
-          className="font-mono text-[10px] uppercase tracking-wider text-ink/45 hover:text-ink"
+          className="font-mono text-[10px] uppercase tracking-wider text-ink/70 hover:text-ink"
         >
           <span className="inline-flex items-center gap-1"><X size={11} /> reset</span>
         </button>
@@ -360,7 +360,7 @@ function ResultView({ result, onReset }) {
 function Metric({ label, value }) {
   return (
     <div>
-      <div className="font-mono text-[9px] uppercase tracking-wider text-ink/40">
+      <div className="font-mono text-[9px] uppercase tracking-wider text-ink/70">
         {label}
       </div>
       <div className="mt-1 font-mono text-[15px] font-semibold tabular-nums text-ink">

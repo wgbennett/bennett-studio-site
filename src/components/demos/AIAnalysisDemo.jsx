@@ -82,7 +82,7 @@ export default function AIAnalysisDemo() {
             <div className="text-[13px] font-semibold leading-tight text-ink">
               AI analysis
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-wider text-ink/45 leading-tight">
+            <div className="font-mono text-[10px] uppercase tracking-wider text-ink/70 leading-tight">
               Claude · personalized take
             </div>
           </div>
@@ -100,7 +100,7 @@ export default function AIAnalysisDemo() {
           <button
             type="button"
             onClick={stop}
-            className="font-mono text-[10px] uppercase tracking-wider text-ink/50 hover:text-ink"
+            className="font-mono text-[10px] uppercase tracking-wider text-ink/70 hover:text-ink"
           >
             <span className="inline-flex items-center gap-1"><Square size={10} /> stop</span>
           </button>
@@ -134,7 +134,7 @@ export default function AIAnalysisDemo() {
               >
                 <Sparkles size={12} /> Run AI analysis
               </button>
-              <div className="mt-3 font-mono text-[10px] uppercase tracking-wider text-ink/35">
+              <div className="mt-3 font-mono text-[10px] uppercase tracking-wider text-ink/70">
                 demo · canned response · no key needed
               </div>
             </motion.div>
@@ -179,7 +179,7 @@ function Markdown({ text }) {
       nodes.push(
         <h4
           key={`h${i}`}
-          className="mt-5 mb-2 eyebrow text-ink/55 first:mt-0"
+          className="mt-5 mb-2 eyebrow text-ink/70 first:mt-0"
         >
           {renderInline(trimmed.slice(4))}
         </h4>,

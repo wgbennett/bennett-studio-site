@@ -113,7 +113,7 @@ export default function MarketDayPricing() {
       </div>
 
       {/* Footnote */}
-      <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/45">
+      <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/70">
         Cancel anytime · no account, no login. Payments run through Lemon Squeezy —
         your card details never touch us, and refunds go through them. Offline-first:
         your sales data stays on your device. No data sold. No ads. Ever.
@@ -144,7 +144,7 @@ function TierCard({ tier }) {
       {/* Tier name */}
       <div
         className={`eyebrow ${
-          isHighlight ? 'text-bone/70' : 'text-ink/55'
+          isHighlight ? 'text-bone/70' : 'text-ink/70'
         }`}
       >
         {tier.name}
@@ -161,7 +161,7 @@ function TierCard({ tier }) {
         </div>
         <div
           className={`font-mono text-[12px] ${
-            isHighlight ? 'text-bone/55' : 'text-ink/50'
+            isHighlight ? 'text-bone/60' : 'text-ink/70'
           }`}
         >
           {tier.interval}
@@ -171,7 +171,7 @@ function TierCard({ tier }) {
       {tier.secondary && (
         <div
           className={`mt-1.5 font-mono text-[11px] ${
-            isHighlight ? 'text-bone/45' : 'text-ink/40'
+            isHighlight ? 'text-bone/60' : 'text-ink/70'
           }`}
         >
           {tier.secondary}

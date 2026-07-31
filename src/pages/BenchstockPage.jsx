@@ -102,12 +102,12 @@ function Pricing() {
         {TIERS.map((t) => (
           <div key={t.name} className={t.highlight ? 'relative flex flex-col bg-ink p-8 text-bone lg:scale-[1.02]' : 'relative flex flex-col border border-ink/10 bg-bone p-8 text-ink'}>
             {t.highlight && <div className="absolute -top-3 left-8 inline-flex items-center gap-1.5 bg-copper px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-bone"><Star size={11} className="fill-current" aria-hidden /> Most chosen</div>}
-            <div className={`eyebrow ${t.highlight ? 'text-bone/70' : 'text-ink/55'}`}>{t.name}</div>
+            <div className={`eyebrow ${t.highlight ? 'text-bone/70' : 'text-ink/70'}`}>{t.name}</div>
             <div className="mt-3 flex items-baseline gap-2">
               <div className={`font-mono text-[44px] font-bold leading-none tracking-tight tabular-nums ${t.highlight ? 'text-bone' : 'text-ink'}`}>{t.price}</div>
-              <div className={`font-mono text-[12px] ${t.highlight ? 'text-bone/55' : 'text-ink/50'}`}>{t.interval}</div>
+              <div className={`font-mono text-[12px] ${t.highlight ? 'text-bone/60' : 'text-ink/70'}`}>{t.interval}</div>
             </div>
-            {t.secondary && <div className={`mt-1.5 font-mono text-[11px] ${t.highlight ? 'text-bone/45' : 'text-ink/40'}`}>{t.secondary}</div>}
+            {t.secondary && <div className={`mt-1.5 font-mono text-[11px] ${t.highlight ? 'text-bone/60' : 'text-ink/70'}`}>{t.secondary}</div>}
             <p className={`mt-5 text-[14px] leading-relaxed ${t.highlight ? 'text-bone/75' : 'text-ink/65'}`}>{t.tagline}</p>
             <ul className={`mt-7 space-y-2.5 border-t pt-6 ${t.highlight ? 'border-bone/15' : 'border-ink/[0.08]'}`}>
               {t.features.map((x) => (
@@ -123,7 +123,7 @@ function Pricing() {
           </div>
         ))}
       </div>
-      <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/45">
+      <div className="mx-auto mt-14 max-w-3xl text-center font-mono text-[11px] leading-relaxed text-ink/70">
         Cancel anytime · no account, no login. Payments run through Lemon Squeezy — your card never touches us. Your data stays on your device. No data sold. Ever.
       </div>
     </section>

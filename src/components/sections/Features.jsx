@@ -156,7 +156,7 @@ export default function Features() {
           <p className="mt-5 text-[15px] leading-relaxed text-bone/70">
             The AI feature reads your numbers — material, fees, margin, platform, even the failure rate you put in — and writes a few short paragraphs on what to change. Not a pitch deck. A pair of eyes from someone who has seen a thousand listings.
           </p>
-          <p className="mt-4 font-mono text-[12px] leading-relaxed text-bone/45">
+          <p className="mt-4 font-mono text-[12px] leading-relaxed text-bone/60">
             Written by Claude, an AI assistant from Anthropic (think ChatGPT). You connect your own free Anthropic account — a two-minute setup, with $5 of starter credit good for hundreds of analyses. Your numbers stay on your device; only the analysis request is sent.
           </p>
         </div>
@@ -178,7 +178,7 @@ function FeatureCard({ feature, index }) {
       <CardEdgeHighlight delay={index * 0.08} />
 
       {/* Mono identifier — workshop-tag in the top-right corner */}
-      <div className="absolute right-7 top-7 font-mono text-[10px] uppercase tracking-wider text-bone/25 transition-colors group-hover:text-bone/45">
+      <div className="absolute right-7 top-7 font-mono text-[10px] uppercase tracking-wider text-bone/60 transition-colors group-hover:text-bone/60">
         / {number}
       </div>
 
@@ -193,7 +193,7 @@ function FeatureCard({ feature, index }) {
       </div>
 
       {/* Spec footer — adds a concrete factual layer + visual rhythm */}
-      <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/35 transition-colors group-hover:text-bone/60">
+      <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/60 transition-colors group-hover:text-bone/60">
         <ChevronRight size={13} className="text-copper-light/70 group-hover:text-copper-light" />
         <span>{feature.spec}</span>
       </div>

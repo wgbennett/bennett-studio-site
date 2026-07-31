@@ -144,7 +144,7 @@ export default function MarketDayFeatures() {
 
       {/* Honest status note */}
       <div className="relative mx-auto mt-20 max-w-2xl border-l-2 border-copper/40 pl-6 text-center sm:text-left">
-        <p className="font-mono text-[12px] leading-relaxed text-bone/55">
+        <p className="font-mono text-[12px] leading-relaxed text-bone/60">
           The free tier is fully built and tested today — and the paid upgrades
           (unlimited shows, season analytics, CSV, multi-day events) are live now.
           Start free; upgrade only when a show outgrows it.
@@ -161,7 +161,7 @@ function FeatureCard({ feature, index }) {
     <div className="group relative bg-charcoal p-8 transition-all duration-300 hover:-translate-y-0.5 hover:bg-charcoal/50">
       <CardEdgeHighlight delay={index * 0.08} />
 
-      <div className="absolute right-7 top-7 font-mono text-[10px] uppercase tracking-wider text-bone/25 transition-colors group-hover:text-bone/45">
+      <div className="absolute right-7 top-7 font-mono text-[10px] uppercase tracking-wider text-bone/60 transition-colors group-hover:text-bone/60">
         / {number}
       </div>
 
@@ -175,7 +175,7 @@ function FeatureCard({ feature, index }) {
         {feature.body}
       </div>
 
-      <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/35 transition-colors group-hover:text-bone/60">
+      <div className="mt-6 flex items-center gap-2 border-t border-bone/[0.08] pt-4 font-mono text-[10px] uppercase tracking-wider text-bone/60 transition-colors group-hover:text-bone/60">
         <ChevronRight size={13} className="text-copper-light/70 group-hover:text-copper-light" />
         <span>{feature.spec}</span>
       </div>

@@ -43,7 +43,7 @@ export default function Flow() {
         <h2 className="max-w-4xl display-section text-ink">
           File to <span className="accent text-ink/55">paid job.</span>
         </h2>
-        <p className="mt-7 max-w-xl font-mono text-[13px] leading-relaxed text-ink/55">
+        <p className="mt-7 max-w-xl font-mono text-[13px] leading-relaxed text-ink/70">
           MarginPrint is a tool for the moments between slicing and shipping.
           Here is what the day looks like.
         </p>
@@ -64,7 +64,7 @@ function FlowStep({ step }) {
     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-20">
       {/* Copy */}
       <div className="max-w-md">
-        <div className="mb-4 eyebrow text-ink/40">
+        <div className="mb-4 eyebrow text-ink/70">
           Step {step.index}
         </div>
         <h3 className="display-sub text-ink">
@@ -95,10 +95,10 @@ function DemoPlaceholder({ label, note }) {
   return (
     <div className="relative flex h-[200px] w-full max-w-[440px] items-center justify-center border border-dashed border-ink/15 bg-ink/[0.02]">
       <div className="text-center">
-        <div className="eyebrow text-ink/35">
+        <div className="eyebrow text-ink/70">
           {label}
         </div>
-        <div className="mt-1.5 font-mono text-[10px] text-ink/30">
+        <div className="mt-1.5 font-mono text-[10px] text-ink/70">
           {note}
         </div>
       </div>

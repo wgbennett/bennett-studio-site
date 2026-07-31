@@ -121,7 +121,7 @@ function AppCard({ app }) {
 
         <p className="mt-5 text-[15px] leading-relaxed text-bone/70">{app.blurb}</p>
 
-        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/40">
+        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/60">
           {app.points.map((p) => (
             <li key={p}>— {p}</li>
           ))}

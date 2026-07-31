@@ -83,12 +83,12 @@ export default function CalculatorDemo() {
       className="w-full max-w-[480px] font-sans border border-ink/10 bg-bone shadow-[0_2px_0_rgba(26,26,26,0.04)]"
     >
       {/* Slicer file source — appears as if it just got dropped */}
-      <div className="flex items-center gap-2 border-b border-ink/10 px-5 py-3 eyebrow text-ink/55">
+      <div className="flex items-center gap-2 border-b border-ink/10 px-5 py-3 eyebrow text-ink/70">
         <span className="h-1.5 w-1.5 rounded-full bg-copper" />
         <span>imported</span>
         <span className="text-ink/25">·</span>
         <span className="truncate text-ink/75">{SOURCE.filename}</span>
-        <span className="ml-auto text-ink/45">
+        <span className="ml-auto text-ink/70">
           {SOURCE.printTime} · {SOURCE.filamentGrams}g · {SOURCE.layers} layers
         </span>
       </div>
@@ -97,7 +97,7 @@ export default function CalculatorDemo() {
       <div className="px-5 py-6">
         <div className="flex items-baseline justify-between gap-4">
           <div>
-            <div className="font-mono text-[10px] uppercase tracking-wider text-ink/45">
+            <div className="font-mono text-[10px] uppercase tracking-wider text-ink/70">
               Profit per unit
             </div>
             <div className="mt-1 font-mono text-[44px] font-semibold leading-none tracking-tight text-ink tabular-nums">
@@ -105,7 +105,7 @@ export default function CalculatorDemo() {
             </div>
           </div>
           <div className="text-right">
-            <div className="font-mono text-[10px] uppercase tracking-wider text-ink/45">
+            <div className="font-mono text-[10px] uppercase tracking-wider text-ink/70">
               Margin
             </div>
             <div className="mt-1 inline-flex items-baseline gap-0.5 bg-copper px-2.5 py-1 font-mono text-[18px] font-semibold leading-none tracking-tight text-bone tabular-nums">
@@ -126,7 +126,7 @@ export default function CalculatorDemo() {
           />
         </div>
 
-        <div className="mt-4 flex justify-between font-mono text-[10px] uppercase tracking-wider text-ink/45">
+        <div className="mt-4 flex justify-between font-mono text-[10px] uppercase tracking-wider text-ink/70">
           <span>
             Revenue&nbsp;
             <span className="text-ink/70">${result.revenue.toFixed(2)}</span>
@@ -141,8 +141,8 @@ export default function CalculatorDemo() {
       {/* Cost breakdown */}
       <div className="border-t border-ink/10 px-5 py-5">
         <div className="mb-3.5 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider">
-          <span className="text-ink/45">Cost breakdown</span>
-          <span className="text-ink/35">per unit · live calcAll()</span>
+          <span className="text-ink/70">Cost breakdown</span>
+          <span className="text-ink/70">per unit · live calcAll()</span>
         </div>
 
         <ul className="space-y-2.5">

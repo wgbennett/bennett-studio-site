@@ -37,10 +37,10 @@ export default function About() {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="absolute inset-0 flex flex-col items-center justify-center eyebrow text-ink/35">
+            <div className="absolute inset-0 flex flex-col items-center justify-center eyebrow text-ink/70">
               <div className="h-12 w-12 border border-ink/15" />
               <div className="mt-4">Photo · placeholder</div>
-              <div className="mt-1 text-[10px] text-ink/25">4:5 · ~1000×1250</div>
+              <div className="mt-1 text-[10px] text-ink/70">4:5 · ~1000×1250</div>
             </div>
           )}
         </div>
@@ -67,7 +67,7 @@ export default function About() {
           </p>
 
           {/* Studio note */}
-          <div className="mt-8 border-l-2 border-copper/40 pl-5 font-mono text-[12px] leading-relaxed text-ink/55">
+          <div className="mt-8 border-l-2 border-copper/40 pl-5 font-mono text-[12px] leading-relaxed text-ink/70">
             Bennett Studio is the personal studio brand. The same hands that
             wrote this code wrote this page. The same person picks up the
             phone if something breaks.

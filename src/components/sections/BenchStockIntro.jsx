@@ -79,14 +79,14 @@ export default function BenchStockIntro() {
                 <div className="eyebrow text-bone">
                   {s.label}
                 </div>
-                <div className="mt-1 text-[12px] text-bone/50">{s.note}</div>
+                <div className="mt-1 text-[12px] text-bone/60">{s.note}</div>
               </figcaption>
             </figure>
           ))}
         </div>
 
         {/* lead-in to the deep dive */}
-        <div className="mt-16 text-center font-mono text-[10px] uppercase tracking-wider text-bone/40">
+        <div className="mt-16 text-center font-mono text-[10px] uppercase tracking-wider text-bone/60">
           — The full tour below
         </div>
       </div>

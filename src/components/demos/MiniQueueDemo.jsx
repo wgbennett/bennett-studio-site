@@ -60,7 +60,7 @@ function QueueHeader() {
     <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 border-b border-ink/10 pb-3">
       <div className="flex items-baseline gap-2.5">
         <div className="font-semibold text-ink text-lg leading-none">Queue</div>
-        <span className="font-mono text-[10px] uppercase tracking-wider text-ink/60">
+        <span className="font-mono text-[10px] uppercase tracking-wider text-ink/70">
           · today
         </span>
       </div>
@@ -73,9 +73,9 @@ function QueueHeader() {
           1 printing
         </span>
         <span className="mx-1.5 text-ink/45">·</span>
-        <span className="text-ink/55">1 queued</span>
+        <span className="text-ink/70">1 queued</span>
         <span className="mx-1.5 text-ink/45">·</span>
-        <span className="text-ink/55">1 ready</span>
+        <span className="text-ink/70">1 ready</span>
       </div>
     </div>
   )
@@ -83,7 +83,7 @@ function QueueHeader() {
 
 function QueueFooter() {
   return (
-    <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-t border-ink/10 pt-3 font-mono text-[10px] uppercase tracking-wider text-ink/60">
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-t border-ink/10 pt-3 font-mono text-[10px] uppercase tracking-wider text-ink/70">
       <span>3 active · $134.50 owed</span>
       <span className="inline-flex items-center gap-1">filter <ChevronDown size={11} /></span>
     </div>

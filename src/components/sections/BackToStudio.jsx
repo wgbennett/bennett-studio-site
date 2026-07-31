@@ -7,7 +7,7 @@ export default function BackToStudio() {
   return (
     <section className="relative border-t border-ink/10 bg-bone px-8 py-16 text-center">
       <div className="mx-auto max-w-3xl">
-        <div className="mb-6 eyebrow text-ink/45">
+        <div className="mb-6 eyebrow text-ink/70">
           One of four apps from Bennett Studio
         </div>
         <Link

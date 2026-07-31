@@ -65,7 +65,7 @@ export default function MakerBooksWhat() {
         {/* Companion note — places MakerBooks within the studio without ranking apps */}
         <div className="flex justify-center lg:justify-end">
           <div className="w-full lg:max-w-[480px]">
-            <div className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ink/40">
+            <div className="mb-3 font-mono text-[10px] uppercase tracking-wider text-ink/70">
               One of four Bennett Studio apps
             </div>
             <div className="border border-ink/10 bg-bone p-7 shadow-[0_2px_0_rgba(26,26,26,0.04)]">
@@ -75,7 +75,7 @@ export default function MakerBooksWhat() {
                 shares the same local-first storage, backup, and offline
                 foundations, so use MakerBooks on its own or with the rest.
               </p>
-              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-ink/55">
+              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-ink/70">
                 <span>— Income &amp; expenses</span>
                 <span>— Real profit</span>
                 <span>— Tax set-aside</span>

@@ -46,7 +46,7 @@ export default function Contact(props) {
         {actions ?? <WaitlistForm app={app} />}
 
         {/* Tiny reassurance row */}
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-wider text-ink/60">
+        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 font-mono text-[10px] uppercase tracking-wider text-ink/70">
           {reassurance.map((r, i) => (
             <span key={r} className="flex items-center gap-6">
               {i > 0 && <span aria-hidden>·</span>}
@@ -144,7 +144,7 @@ export function WaitlistForm({ app = '', wrapperClass = 'mx-auto mt-12 max-w-md'
           }}
           placeholder="you@yourshop.com"
           aria-label="Email address"
-          className="flex-1 border border-ink/20 bg-bone px-4 py-3.5 font-mono text-[13px] text-ink placeholder:text-ink/40 focus:border-copper focus:outline-none"
+          className="flex-1 border border-ink/20 bg-bone px-4 py-3.5 font-mono text-[13px] text-ink placeholder:text-ink/70 focus:border-copper focus:outline-none"
         />
         <button
           type="submit"
