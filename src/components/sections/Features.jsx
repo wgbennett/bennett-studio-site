@@ -127,13 +127,13 @@ export default function Features() {
     >
       {/* Header */}
       <div className="relative mx-auto mb-20 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper-light">
           <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
           <span>§03 &nbsp;—&nbsp; What's inside</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-bone">
+        <h2 className="max-w-4xl display-section text-bone">
           Six things that separate this from a calculator{' '}
-          <span className="italic font-medium text-bone/55">that closes on Save.</span>
+          <span className="accent text-bone/55">that closes on Save.</span>
         </h2>
       </div>
 
@@ -147,10 +147,10 @@ export default function Features() {
       {/* AI deep-dive */}
       <div className="relative mx-auto mt-28 grid max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
         <div className="max-w-lg">
-          <div className="mb-4 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+          <div className="mb-4 eyebrow text-copper-light">
             Try it · the AI feature
           </div>
-          <h3 className="text-[clamp(1.75rem,3vw,2.75rem)] font-semibold leading-[1.1] tracking-tight text-bone">
+          <h3 className="display-sub text-bone">
             A second opinion on every quote.
           </h3>
           <p className="mt-5 text-[15px] leading-relaxed text-bone/70">

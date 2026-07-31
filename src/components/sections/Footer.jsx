@@ -34,7 +34,7 @@ export default function Footer() {
                 BENNETT STUDIO
               </span>
             </Link>
-            <div className="mt-2 font-mono text-[11px] uppercase tracking-wider text-bone/45">
+            <div className="mt-2 eyebrow text-bone/45">
               Independent software for makers
             </div>
             <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/55">

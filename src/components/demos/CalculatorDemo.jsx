@@ -83,7 +83,7 @@ export default function CalculatorDemo() {
       className="w-full max-w-[480px] font-sans border border-ink/10 bg-bone shadow-[0_2px_0_rgba(26,26,26,0.04)]"
     >
       {/* Slicer file source — appears as if it just got dropped */}
-      <div className="flex items-center gap-2 border-b border-ink/10 px-5 py-3 font-mono text-[11px] uppercase tracking-wider text-ink/55">
+      <div className="flex items-center gap-2 border-b border-ink/10 px-5 py-3 eyebrow text-ink/55">
         <span className="h-1.5 w-1.5 rounded-full bg-copper" />
         <span>imported</span>
         <span className="text-ink/25">·</span>

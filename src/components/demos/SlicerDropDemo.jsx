@@ -167,13 +167,13 @@ export default function SlicerDropDemo() {
                   ? 'Drop to parse'
                   : 'Drop a .gcode or .3mf'}
               </div>
-              <div className="mt-1.5 font-mono text-[11px] uppercase tracking-wider text-ink/45">
+              <div className="mt-1.5 eyebrow text-ink/45">
                 from PrusaSlicer · OrcaSlicer · Bambu Studio
               </div>
               <button
                 type="button"
                 onClick={trySample}
-                className="mt-6 font-mono text-[11px] uppercase tracking-wider text-copper underline-offset-4 hover:underline"
+                className="mt-6 eyebrow text-copper underline-offset-4 hover:underline"
               >
                 or try a sample →
               </button>
@@ -218,7 +218,7 @@ export default function SlicerDropDemo() {
               transition={{ duration: 0.18 }}
               className="flex flex-col items-center justify-center px-6 py-12 text-center"
             >
-              <div className="font-mono text-[11px] uppercase tracking-wider text-red-600/80">
+              <div className="eyebrow text-red-600/80">
                 Parse failed
               </div>
               <p className="mt-2 max-w-xs text-[13px] leading-relaxed text-ink/70">
@@ -230,7 +230,7 @@ export default function SlicerDropDemo() {
                   e.stopPropagation()
                   reset()
                 }}
-                className="mt-5 font-mono text-[11px] uppercase tracking-wider text-copper underline-offset-4 hover:underline"
+                className="mt-5 eyebrow text-copper underline-offset-4 hover:underline"
               >
                 ← Try again
               </button>
@@ -304,7 +304,7 @@ function ResultView({ result, onReset }) {
           <div className="truncate font-semibold text-ink">
             {result.name || 'Untitled file'}
           </div>
-          <div className="mt-0.5 font-mono text-[11px] uppercase tracking-wider text-ink/55">
+          <div className="mt-0.5 eyebrow text-ink/55">
             <span className="text-copper">imported</span>
             <span className="text-ink/25"> · </span>
             <span>{sourceLabel}</span>
@@ -349,7 +349,7 @@ function ResultView({ result, onReset }) {
       {/* Action */}
       <button
         type="button"
-        className="mt-5 w-full bg-ink px-4 py-2.5 text-center font-mono text-[11px] uppercase tracking-wider text-bone hover:bg-copper transition-colors"
+        className="mt-5 w-full bg-ink px-4 py-2.5 text-center eyebrow text-bone hover:bg-copper transition-colors"
       >
         Add to queue → cost auto-fills
       </button>

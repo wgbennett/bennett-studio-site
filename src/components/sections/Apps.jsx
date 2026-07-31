@@ -57,13 +57,13 @@ export default function Apps() {
 
       {/* Header */}
       <div className="relative mx-auto mb-16 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>01 &nbsp;—&nbsp; What&rsquo;s on the bench</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest text-ink">
+        <h2 className="max-w-4xl display-section text-ink">
           Four apps, built in the open.{' '}
-          <span className="italic font-medium text-ink/55">Pick your bench.</span>
+          <span className="accent text-ink/55">Pick your bench.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[16px] leading-relaxed text-ink/65">
           Bennett Studio is one maker shipping focused software for people who
@@ -101,7 +101,7 @@ export default function Apps() {
                 {app.blurb}
               </p>
 
-              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink/55">
+              <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-ink/55">
                 {app.points.map((p) => (
                   <li key={p}>— {p}</li>
                 ))}

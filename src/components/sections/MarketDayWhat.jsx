@@ -10,13 +10,13 @@ export default function MarketDayWhat() {
 
       {/* Header */}
       <div className="relative mx-auto mb-20 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>§01 &nbsp;—&nbsp; What it does</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest text-ink">
+        <h2 className="max-w-4xl display-section text-ink">
           Pack the night before.{' '}
-          <span className="italic font-medium text-ink/55">Sell with no signal.</span>
+          <span className="accent text-ink/55">Sell with no signal.</span>
         </h2>
       </div>
 
@@ -74,7 +74,7 @@ export default function MarketDayWhat() {
                 shares the same local-first storage, backup, and offline
                 foundations, so use MarketDay on its own or with the rest.
               </p>
-              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] uppercase tracking-wider text-ink/55">
+              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-ink/55">
                 <span>— Pack list</span>
                 <span>— One-tap checkout</span>
                 <span>— Profit summary</span>

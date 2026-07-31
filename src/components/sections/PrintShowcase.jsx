@@ -50,7 +50,7 @@ export default function PrintShowcase() {
       {/* Header */}
       <div className="mx-auto mb-12 max-w-7xl px-8 lg:mb-14">
         <div className="mb-5 flex items-center justify-between gap-3">
-          <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+          <div className="flex items-center gap-3 eyebrow text-copper-light">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>From the bench</span>
           </div>
@@ -63,7 +63,7 @@ export default function PrintShowcase() {
             <span className="inline-flex items-center gap-1.5">{paused ? <><Play size={11} /> Play</> : <><Pause size={11} /> Pause</>}</span>
           </button>
         </div>
-        <h2 className="max-w-3xl text-[clamp(1.6rem,4vw,3rem)] font-bold leading-[1.05] tracking-tightest text-bone">
+        <h2 className="max-w-3xl display-section text-bone">
           A few things I&rsquo;ve printed.
         </h2>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/55">

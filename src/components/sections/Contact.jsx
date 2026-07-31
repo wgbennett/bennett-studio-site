@@ -12,7 +12,7 @@ const DEFAULTS = {
   title: (
     <>
       Four apps.{' '}
-      <span className="italic font-medium">Pick your bench.</span>
+      <span className="accent">Pick your bench.</span>
     </>
   ),
   body: "All four apps are live — start free, no account, no login. Pick the bench that fits how you sell and run your next order, show, or month from your phone.",
@@ -29,13 +29,13 @@ export default function Contact(props) {
       className="relative border-t border-ink/10 bg-bone px-8 py-32 lg:py-44"
     >
       <div className="mx-auto max-w-5xl text-center">
-        <div className="mb-6 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-6 inline-flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>{eyebrow}</span>
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
         </div>
 
-        <h2 className="text-[clamp(2.25rem,6vw,5.5rem)] font-bold leading-[0.98] tracking-tightest text-ink">
+        <h2 className="display-hero text-ink">
           {title}
         </h2>
 

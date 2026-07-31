@@ -10,13 +10,13 @@ export default function WhatItDoes() {
 
       {/* Header */}
       <div className="relative mx-auto mb-20 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>§01 &nbsp;—&nbsp; What it does</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest text-ink">
+        <h2 className="max-w-4xl display-section text-ink">
           The queue is the screen{' '}
-          <span className="italic font-medium text-ink/55">you open all day.</span>
+          <span className="accent text-ink/55">you open all day.</span>
         </h2>
       </div>
 

@@ -15,13 +15,13 @@ export default function About() {
     >
       {/* Header */}
       <div className="mx-auto mb-20 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>02 &nbsp;—&nbsp; About the maker</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
+        <h2 className="max-w-4xl display-section text-ink">
           One person, behind four apps.{' '}
-          <span className="italic font-medium text-ink/55">All of them.</span>
+          <span className="accent text-ink/55">All of them.</span>
         </h2>
       </div>
 
@@ -37,7 +37,7 @@ export default function About() {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="absolute inset-0 flex flex-col items-center justify-center font-mono text-[11px] uppercase tracking-wider text-ink/35">
+            <div className="absolute inset-0 flex flex-col items-center justify-center eyebrow text-ink/35">
               <div className="h-12 w-12 border border-ink/15" />
               <div className="mt-4">Photo · placeholder</div>
               <div className="mt-1 text-[10px] text-ink/25">4:5 · ~1000×1250</div>
@@ -79,7 +79,7 @@ export default function About() {
               <a
                 key={s.label}
                 href={s.href}
-                className="group inline-flex items-center gap-2 border border-ink/15 px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-ink/70 transition-colors hover:border-ink hover:text-ink"
+                className="group inline-flex items-center gap-2 border border-ink/15 px-4 py-2 eyebrow text-ink/70 transition-colors hover:border-ink hover:text-ink"
               >
                 <span>{s.label}</span>
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">

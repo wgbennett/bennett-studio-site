@@ -29,7 +29,7 @@ export default function MarketDayPage() {
         title={
           <>
             Run the booth{' '}
-            <span className="italic font-medium">from your phone.</span>
+            <span className="accent">from your phone.</span>
           </>
         }
         body="MarketDay is available now — start free, no account. Upgrade for unlimited shows and the season view whenever you're ready; lock the founding lifetime price before it goes up."

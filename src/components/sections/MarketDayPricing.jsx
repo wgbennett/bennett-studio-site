@@ -86,20 +86,20 @@ export default function MarketDayPricing() {
     >
       {/* Header */}
       <div className="mx-auto mb-20 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>§03 &nbsp;—&nbsp; Pricing</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
+        <h2 className="max-w-4xl display-section text-ink">
           Honest pricing. The Sell screen{' '}
-          <span className="italic font-medium text-ink/55">is never paywalled.</span>
+          <span className="accent text-ink/55">is never paywalled.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ink/65">
           Start free — a couple of shows a month, no account. Upgrade for unlimited
           shows and the season view whenever you&rsquo;re ready. A free-tier limit
           never blocks a sale mid-show.
         </p>
-        <p className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <p className="mt-4 inline-flex items-center gap-2 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           Launch pricing — lock the founding lifetime price before it goes up
         </p>
@@ -143,7 +143,7 @@ function TierCard({ tier }) {
 
       {/* Tier name */}
       <div
-        className={`font-mono text-[11px] uppercase tracking-wider ${
+        className={`eyebrow ${
           isHighlight ? 'text-bone/70' : 'text-ink/55'
         }`}
       >

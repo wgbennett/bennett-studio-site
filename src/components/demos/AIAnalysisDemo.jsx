@@ -130,7 +130,7 @@ export default function AIAnalysisDemo() {
               <button
                 type="button"
                 onClick={start}
-                className="mt-6 inline-flex items-center gap-2 bg-ink px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-bone hover:bg-copper transition-colors"
+                className="mt-6 inline-flex items-center gap-2 bg-ink px-4 py-2 eyebrow text-bone hover:bg-copper transition-colors"
               >
                 <Sparkles size={12} /> Run AI analysis
               </button>
@@ -179,7 +179,7 @@ function Markdown({ text }) {
       nodes.push(
         <h4
           key={`h${i}`}
-          className="mt-5 mb-2 font-mono text-[11px] uppercase tracking-wider text-ink/55 first:mt-0"
+          className="mt-5 mb-2 eyebrow text-ink/55 first:mt-0"
         >
           {renderInline(trimmed.slice(4))}
         </h4>,

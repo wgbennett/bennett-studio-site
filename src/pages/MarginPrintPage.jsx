@@ -30,7 +30,7 @@ export default function MarginPrintPage() {
         title={
           <>
             Run your shop{' '}
-            <span className="italic font-medium">from one screen.</span>
+            <span className="accent">from one screen.</span>
           </>
         }
         body="MarginPrint is available now — start free, no account, no login. Upgrade to the full app whenever you're ready; lock the founding lifetime price before it goes up."

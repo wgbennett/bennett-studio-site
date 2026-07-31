@@ -186,7 +186,7 @@ export default function JobCardDemo({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 4 }}
               transition={{ duration: 0.18 }}
-              className="inline-flex items-center gap-1.5 whitespace-nowrap bg-ink px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-bone hover:bg-copper transition-colors"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap bg-ink px-3 py-1.5 eyebrow text-bone hover:bg-copper transition-colors"
             >
               {meta.action}
               <span aria-hidden>→</span>

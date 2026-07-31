@@ -50,7 +50,11 @@
   .display-hero {
     @apply font-display uppercase;
     font-size: clamp(2.75rem, 8.5vw, 6.5rem);
-    line-height: 0.94;
+    /* 0.97, not the 0.94 a pure-Anton headline would take. These headlines mix
+       in an italic serif clause, and Instrument Serif's descenders hang well
+       below Anton's baseline — at 0.94 the "g" of a word like "making" landed
+       on the cap-height of the line beneath it. */
+    line-height: 0.97;
     letter-spacing: -0.015em;
   }
   .display-section {
@@ -70,7 +74,10 @@
      Anton's tall caps. */
   .accent {
     @apply font-serif italic normal-case;
-    font-size: 1.06em;
+    /* Optically matched, not mathematically. Instrument Serif's lowercase next
+       to Anton's caps needs a lift to hold equal weight, but past ~1.02em its
+       descenders start driving the line-height of the whole headline. */
+    font-size: 1.02em;
     letter-spacing: -0.01em;
   }
   /* Mono label above a section or card. Tracking is doing the work here — at

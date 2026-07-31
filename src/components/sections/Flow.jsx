@@ -36,11 +36,11 @@ export default function Flow() {
 
       {/* Header */}
       <div className="relative mx-auto mb-24 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
           <span>§02 &nbsp;—&nbsp; The flow</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
+        <h2 className="max-w-4xl display-section text-ink">
           Three steps from a sliced file to a paid job.
         </h2>
         <p className="mt-7 max-w-xl font-mono text-[13px] leading-relaxed text-ink/55">
@@ -64,10 +64,10 @@ function FlowStep({ step }) {
     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-20">
       {/* Copy */}
       <div className="max-w-md">
-        <div className="mb-4 font-mono text-[11px] uppercase tracking-wider text-ink/40">
+        <div className="mb-4 eyebrow text-ink/40">
           Step {step.index}
         </div>
-        <h3 className="text-[clamp(1.5rem,2.5vw,2.5rem)] font-semibold leading-[1.1] tracking-tight text-ink">
+        <h3 className="display-sub text-ink">
           {step.title}
         </h3>
         <p className="mt-5 text-[15px] leading-relaxed text-ink/70">
@@ -95,7 +95,7 @@ function DemoPlaceholder({ label, note }) {
   return (
     <div className="relative flex h-[200px] w-full max-w-[440px] items-center justify-center border border-dashed border-ink/15 bg-ink/[0.02]">
       <div className="text-center">
-        <div className="font-mono text-[11px] uppercase tracking-wider text-ink/35">
+        <div className="eyebrow text-ink/35">
           {label}
         </div>
         <div className="mt-1.5 font-mono text-[10px] text-ink/30">

@@ -29,11 +29,11 @@ export default function MakerBooksIntro() {
       <div className="relative mx-auto max-w-7xl">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-5 inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper-light">
+          <div className="mb-5 inline-flex items-center gap-3 eyebrow text-copper-light">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
             <span>Bookkeeping &amp; taxes &nbsp;—&nbsp; app 04</span>
           </div>
-          <h1 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.02] tracking-tightest">
+          <h1 className="display-section">
             Meet <span className="text-bone">MakerBooks</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-bone/70">
@@ -84,7 +84,7 @@ export default function MakerBooksIntro() {
                 />
               </div>
               <figcaption className="mt-4 text-center">
-                <div className="font-mono text-[11px] uppercase tracking-wider text-bone">
+                <div className="eyebrow text-bone">
                   {s.label}
                 </div>
                 <div className="mt-1 text-[12px] text-bone/50">{s.note}</div>

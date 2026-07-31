@@ -38,7 +38,7 @@ export default function MakerBooksPage() {
       {/* FAQ */}
       <section id="faq" className="relative border-t border-ink/10 bg-bone px-8 py-24 lg:py-32">
         <div className="mx-auto max-w-3xl">
-          <div className="mb-10 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+          <div className="mb-10 flex items-center gap-3 eyebrow text-copper">
             <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§04 — Questions</span>
           </div>
           <div className="divide-y divide-ink/10 border-y border-ink/10">
@@ -57,7 +57,7 @@ export default function MakerBooksPage() {
       <Contact
         app="MakerBooks"
         eyebrow="MakerBooks · available now"
-        title={<>Stop dreading{' '}<span className="italic font-medium">tax season.</span></>}
+        title={<>Stop dreading{' '}<span className="accent">tax season.</span></>}
         body="MakerBooks is available now — start free, no account. Log income and expenses, see your real profit, and keep records ready for your accountant."
         reassurance={['Offline-first', 'No account, no login', 'Not tax advice · records only', 'No data sold, ever']}
         actions={
@@ -79,13 +79,13 @@ function Pricing() {
   return (
     <section id="pricing" className="relative border-t border-ink/10 bg-bone px-8 py-24 lg:py-32">
       <div className="mx-auto mb-16 max-w-7xl">
-        <div className="mb-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§03 — Pricing</span>
         </div>
-        <h2 className="max-w-4xl text-[clamp(2rem,5vw,4.25rem)] font-bold leading-[1.02] tracking-tightest text-ink">
-          Peace of mind, priced for makers.{' '}<span className="italic font-medium text-ink/55">Start free.</span>
+        <h2 className="max-w-4xl display-section text-ink">
+          Peace of mind, priced for makers.{' '}<span className="accent text-ink/55">Start free.</span>
         </h2>
-        <p className="mt-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-copper">
+        <p className="mt-4 inline-flex items-center gap-2 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />Founding lifetime price before it goes up
         </p>
       </div>
@@ -93,7 +93,7 @@ function Pricing() {
         {TIERS.map((t) => (
           <div key={t.name} className={t.highlight ? 'relative flex flex-col bg-ink p-8 text-bone lg:scale-[1.02]' : 'relative flex flex-col border border-ink/10 bg-bone p-8 text-ink'}>
             {t.highlight && <div className="absolute -top-3 left-8 inline-flex items-center gap-1.5 bg-copper px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-bone"><Star size={11} className="fill-current" aria-hidden /> Most chosen</div>}
-            <div className={`font-mono text-[11px] uppercase tracking-wider ${t.highlight ? 'text-bone/70' : 'text-ink/55'}`}>{t.name}</div>
+            <div className={`eyebrow ${t.highlight ? 'text-bone/70' : 'text-ink/55'}`}>{t.name}</div>
             <div className="mt-3 flex items-baseline gap-2">
               <div className={`font-mono text-[44px] font-bold leading-none tracking-tight tabular-nums ${t.highlight ? 'text-bone' : 'text-ink'}`}>{t.price}</div>
               <div className={`font-mono text-[12px] ${t.highlight ? 'text-bone/55' : 'text-ink/50'}`}>{t.interval}</div>
