@@ -43,13 +43,20 @@
    line-height is loose for a condensed face, hence the tight leading; and it
    has no lowercase personality worth keeping, hence uppercase.
 
+   SIZES ARE DELIBERATELY MODEST. The first pass ran to 6.5rem, which suits a
+   headline of one or two words and shouts at anything longer — a full sentence
+   in 100px condensed caps is the billboard look that reads as generated. Every
+   headline on this site is now four words or fewer (see the sections), so the
+   type can be smaller AND land harder. If a headline needs more than four
+   words, shorten the headline rather than the type.
+
    `accent` is the serif clause inside a headline — the reference sets the
    second half of a title in a contrasting face, which is what stops a big
    headline reading as a wall. Use it on part of a line, never the whole one. */
 @layer components {
   .display-hero {
     @apply font-display uppercase;
-    font-size: clamp(2.75rem, 8.5vw, 6.5rem);
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
     /* 0.97, not the 0.94 a pure-Anton headline would take. These headlines mix
        in an italic serif clause, and Instrument Serif's descenders hang well
        below Anton's baseline — at 0.94 the "g" of a word like "making" landed
@@ -59,13 +66,13 @@
   }
   .display-section {
     @apply font-display uppercase;
-    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-size: clamp(1.75rem, 3.6vw, 2.75rem);
     line-height: 0.98;
     letter-spacing: -0.012em;
   }
   .display-sub {
     @apply font-display uppercase;
-    font-size: clamp(1.375rem, 2.6vw, 1.875rem);
+    font-size: clamp(1.25rem, 2.1vw, 1.5rem);
     line-height: 1.05;
     letter-spacing: -0.008em;
   }

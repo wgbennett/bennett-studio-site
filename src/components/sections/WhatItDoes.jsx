@@ -15,8 +15,8 @@ export default function WhatItDoes() {
           <span>§01 &nbsp;—&nbsp; What it does</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          The queue is the screen{' '}
-          <span className="accent text-ink/55">you open all day.</span>
+          The queue,{' '}
+          <span className="accent text-ink/55">all day.</span>
         </h2>
       </div>
 

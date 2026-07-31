@@ -130,8 +130,8 @@ export default function MarketDayFeatures() {
           <span>§02 &nbsp;—&nbsp; What's inside</span>
         </div>
         <h2 className="max-w-4xl display-section text-bone">
-          Six things built for the table{' '}
-          <span className="accent text-bone/55">not the desk.</span>
+          Built for{' '}
+          <span className="accent text-bone/55">the table.</span>
         </h2>
       </div>
 

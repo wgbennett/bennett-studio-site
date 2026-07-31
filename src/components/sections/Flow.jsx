@@ -41,7 +41,7 @@ export default function Flow() {
           <span>§02 &nbsp;—&nbsp; The flow</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          Three steps from a sliced file to a paid job.
+          File to <span className="accent text-ink/55">paid job.</span>
         </h2>
         <p className="mt-7 max-w-xl font-mono text-[13px] leading-relaxed text-ink/55">
           MarginPrint is a tool for the moments between slicing and shipping.

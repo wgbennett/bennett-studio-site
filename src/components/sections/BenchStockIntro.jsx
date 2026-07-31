@@ -30,7 +30,8 @@ export default function BenchStockIntro() {
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="display-section text-bone">
-            The screens you&rsquo;ll live in <span className="accent text-bone/55">in BenchStock.</span>
+            Screens you&rsquo;ll{' '}
+            <span className="accent text-bone/55">live in.</span>
           </h2>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-3">

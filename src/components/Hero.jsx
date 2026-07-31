@@ -36,8 +36,8 @@ export default function Hero() {
           </div>
 
           <h1 className="display-hero text-bone">
-            The business side{' '}
-            <span className="accent">of making,</span> handled.
+            The business side,{' '}
+            <span className="accent">handled.</span>
           </h1>
 
           <p className="lede mt-8 max-w-lg text-bone/80">

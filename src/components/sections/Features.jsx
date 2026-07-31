@@ -132,8 +132,8 @@ export default function Features() {
           <span>§03 &nbsp;—&nbsp; What's inside</span>
         </div>
         <h2 className="max-w-4xl display-section text-bone">
-          Six things that separate this from a calculator{' '}
-          <span className="accent text-bone/55">that closes on Save.</span>
+          More than{' '}
+          <span className="accent text-bone/55">a calculator.</span>
         </h2>
       </div>
 
@@ -151,7 +151,7 @@ export default function Features() {
             Try it · the AI feature
           </div>
           <h3 className="display-sub text-bone">
-            A second opinion on every quote.
+            A second opinion.
           </h3>
           <p className="mt-5 text-[15px] leading-relaxed text-bone/70">
             The AI feature reads your numbers — material, fees, margin, platform, even the failure rate you put in — and writes a few short paragraphs on what to change. Not a pitch deck. A pair of eyes from someone who has seen a thousand listings.

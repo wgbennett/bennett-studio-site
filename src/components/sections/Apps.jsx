@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { PHOTOS } from '../../photos.js'
 
 // The honest "apps" band. Studio-level, sits right under the hero.
 // FOUR real apps (MarginPrint, MarketDay, BenchStock, MakerBooks — all
@@ -13,18 +14,23 @@ import { Link } from 'react-router-dom'
 // rhythm, and it makes this section read as the site's centrepiece instead of
 // as more page.
 //
-// `shot` is a phone screenshot (1170×2532). They are framed top-aligned in a
-// fixed-height window rather than scaled whole: at card width a full 2532px-tall
-// screen renders every UI element too small to read, which defeats the point of
-// showing it. The top of each screen is the part that identifies the app.
+// Each card carries a PHOTOGRAPH, not an app screenshot. Screenshots belong in
+// the demos further down each app's own page, where there is room to read them;
+// at card size a phone capture is unreadable, and four of them in a grid make
+// the landing page look like a press kit. The photograph says what the app is
+// FOR — a workbench, a market stall, a shelf of spools — which is the question
+// a first-time visitor actually has.
+//
+// The image is keyed by slug from src/photos.js and is the SAME file the app's
+// own page hero uses, so a card and the page it opens are recognisably one
+// thing. Null until the photography lands; the placeholder is designed.
 const APPS = [
   {
     index: '01',
     kicker: 'Production queue',
     name: 'MarginPrint',
+    slug: 'marginprint',
     to: '/marginprint',
-    shot: '/screenshots/queue.png',
-    shotAlt: 'The MarginPrint production queue on a phone, showing jobs and their state.',
     blurb:
       'Mission control for small 3D-print sellers — the production queue, live costs, and the customer list on one mobile screen. The app you open 5–15 times a day, not once per print.',
     points: ['Production queue', 'Slicer file import', 'True cost & pricing', 'AI analysis'],
@@ -34,9 +40,8 @@ const APPS = [
     index: '02',
     kicker: 'Market sales',
     name: 'MarketDay',
+    slug: 'marketday',
     to: '/marketday',
-    shot: '/screenshots/marketday-quicksale.png',
-    shotAlt: 'The MarketDay quick-sale grid on a phone, priced items ready to tap.',
     blurb:
       'The offline-first booth companion for market vendors — pack smarter, sell faster, and know exactly what every show earned you. Built for craft fairs, farmers markets, and pop-ups.',
     points: ['Pack list', 'One-tap checkout', 'Offline-first PWA', 'Profit summary'],
@@ -46,9 +51,8 @@ const APPS = [
     index: '03',
     kicker: 'Inventory & cost',
     name: 'BenchStock',
+    slug: 'benchstock',
     to: '/benchstock',
-    shot: '/screenshots/benchstock-dashboard.png',
-    shotAlt: 'The BenchStock dashboard on a phone, showing stock levels and costs.',
     blurb:
       'Materials inventory and true-cost for makers — know what every product actually costs to make, what to charge, and never run out of materials mid-order. The costing brain for any maker, not just 3D.',
     points: ['Materials & stock', 'BOM true cost', 'Production planner', 'Buy in lb, use in oz'],
@@ -58,9 +62,9 @@ const APPS = [
     index: '04',
     kicker: 'Bookkeeping',
     name: 'MakerBooks',
+    // Keys src/photos.js — NOT the route ('/maker-books' vs 'makerbooks').
+    slug: 'makerbooks',
     to: '/maker-books',
-    shot: '/screenshots/makerbooks-dashboard.png',
-    shotAlt: 'The MakerBooks profit dashboard on a phone, income and expenses summarised.',
     blurb:
       'Dead-simple bookkeeping and tax readiness for makers — log income and expenses, see your real profit, set aside for taxes, and keep Schedule-C-ready records. Never dread tax season again.',
     points: ['Income & expenses', 'Real profit dashboard', 'Tax set-aside', 'Schedule C ready'],
@@ -80,8 +84,8 @@ export default function Apps() {
           <span>01 &nbsp;—&nbsp; What&rsquo;s on the bench</span>
         </div>
         <h2 className="max-w-4xl display-section text-bone">
-          Four apps, built in the open.{' '}
-          <span className="accent text-bone/55">Pick your bench.</span>
+          Four apps.{' '}
+          <span className="accent text-bone/55">Pick yours.</span>
         </h2>
         <p className="lede mt-7 max-w-xl text-bone/65">
           Bennett Studio is one maker shipping focused software for people who
@@ -91,7 +95,7 @@ export default function Apps() {
         </p>
       </div>
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-px bg-bone/10 lg:grid-cols-2">
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-7">
         {APPS.map((app) => (
           <AppCard key={app.name} app={app} />
         ))}
@@ -100,61 +104,82 @@ export default function Apps() {
   )
 }
 
-// Cards sit on a 1px bone/10 grid gap, so the dividing lines between them are
-// the background showing through rather than four separate borders that double
-// up where cards meet.
+// Four separate tiles with real space between them, not a single block divided
+// by hairlines. Each app is its own product with its own page; a continuous
+// grid read as one table of contents, which is not what four independent things
+// should look like.
 function AppCard({ app }) {
   return (
     <Link
       to={app.to}
-      className="group relative flex flex-col bg-charcoal p-8 transition-colors hover:bg-ink lg:p-10"
+      className="group relative flex flex-col overflow-hidden border border-bone/12 bg-charcoal transition-colors hover:border-copper/50 hover:bg-ink"
     >
-      <div className="mb-6 flex items-baseline justify-between gap-4">
-        <span className="font-mono text-[13px] font-medium text-copper-light">{app.index}</span>
-        <span className="eyebrow text-bone/45">{app.kicker}</span>
-      </div>
+      <CardPhoto slug={app.slug} index={app.index} kicker={app.kicker} />
 
-      <h3 className="display-sub text-bone">{app.name}</h3>
+      <div className="flex flex-1 flex-col p-8 lg:p-9">
+        <h3 className="display-sub text-bone">{app.name}</h3>
 
-      {/* Device window. Fixed height so all four cards frame the same slice and
-          the rows stay level.
+        <p className="mt-5 text-[15px] leading-relaxed text-bone/70">{app.blurb}</p>
 
-          object-position is 8% down, not 0%. At the top of the frame every
-          screenshot shows its app header — name and a settings gear — which is
-          chrome, identical across the four, and says nothing about what the app
-          does. 8% clears it and lands on the screen title plus the headline
-          figure ("Queue / 2 jobs printing", "$346.23 materials on hand"). Past
-          ~16% the crop starts slicing through those titles; compared at 8 / 16 /
-          24 / 32% before choosing. */}
-      <div className="relative mt-7 h-52 overflow-hidden border border-bone/10 bg-ink lg:h-60">
-        <img
-          src={app.shot}
-          alt={app.shotAlt}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          style={{ objectPosition: '50% 8%' }}
-        />
-        {/* Fades the cut-off bottom edge into the card instead of ending on a
-            hard slice through the UI. */}
-        <div aria-hidden className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-charcoal to-transparent" />
-      </div>
+        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/40">
+          {app.points.map((p) => (
+            <li key={p}>— {p}</li>
+          ))}
+        </ul>
 
-      <p className="mt-7 text-[15px] leading-relaxed text-bone/70">{app.blurb}</p>
-
-      <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/40">
-        {app.points.map((p) => (
-          <li key={p}>— {p}</li>
-        ))}
-      </ul>
-
-      {/* mt-auto pins the CTA to the bottom so all four align despite blurbs of
-          different lengths. */}
-      <div className="mt-auto pt-9 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors group-hover:text-copper-light">
-        {app.cta}
-        <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+        {/* mt-auto pins the CTA to the bottom so all four align despite blurbs
+            of different lengths. */}
+        <div className="mt-auto pt-8 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors group-hover:text-copper-light">
+          {app.cta}
+          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+        </div>
       </div>
     </Link>
+  )
+}
+
+// The card's photograph, with the index and kicker laid over its lower edge —
+// the label belongs ON the image the way a plate caption does, and it keeps the
+// card's text block starting at the app name.
+//
+// Fixed 16:10 so all four cards line up regardless of source crop. Placeholder
+// mirrors PhotoBackdrop's: charcoal, the studio grid, a copper wash.
+function CardPhoto({ slug, index, kicker }) {
+  const photo = PHOTOS[slug] ?? null
+  return (
+    <div className="relative aspect-[16/10] w-full overflow-hidden bg-ink">
+      {photo ? (
+        <img
+          src={photo.src}
+          alt={photo.alt}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+        />
+      ) : (
+        <div aria-hidden className="absolute inset-0">
+          <div
+            className="absolute inset-0 opacity-[0.10]"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, #F5F1EA 1px, transparent 1px), linear-gradient(to bottom, #F5F1EA 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+            }}
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'radial-gradient(70% 60% at 38% 40%, rgba(184,69,31,0.20), rgba(184,69,31,0) 72%)' }}
+          />
+        </div>
+      )}
+
+      {/* Scrim only where the label sits, so the photograph stays a photograph. */}
+      <div aria-hidden className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/90 to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-4 px-8 pb-5 lg:px-9">
+        <span className="font-mono text-[13px] font-medium text-copper-light">{index}</span>
+        <span className="eyebrow text-bone/70">{kicker}</span>
+      </div>
+    </div>
   )
 }
 

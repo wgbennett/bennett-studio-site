@@ -16,8 +16,8 @@ export default function MakerBooksWhat() {
           <span>§01 &nbsp;—&nbsp; What it does</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          Know your real profit.{' '}
-          <span className="accent text-ink/55">Dread tax season no more.</span>
+          Know your{' '}
+          <span className="accent text-ink/55">real profit.</span>
         </h2>
       </div>
 

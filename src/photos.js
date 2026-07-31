@@ -19,6 +19,10 @@ export const PHOTOS = {
   // home: { src: '/photos/hero-workshop.webp', alt: 'A maker’s workbench under warm light, a print in progress.' },
   home: null,
 
+  // Each app's photograph is used TWICE — on its card in the landing grid and
+  // as the backdrop of its own page hero. One image per app, not two: the photo
+  // becomes that app's visual identity, so a card and the page it opens are
+  // recognisably the same thing.
   // marginprint: { src: '/photos/app-marginprint.webp', alt: 'A 3D printer nozzle laying down a layer, close up.' },
   marginprint: null,
 

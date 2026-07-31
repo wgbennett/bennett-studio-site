@@ -91,8 +91,8 @@ export default function Pricing() {
           <span>§04 &nbsp;—&nbsp; Pricing</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          Honest pricing. No tiers{' '}
-          <span className="accent text-ink/55">that hide a feature.</span>
+          Honest pricing,{' '}
+          <span className="accent text-ink/55">no tiers.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ink/65">
           Start free with one printer. Upgrade for the full app whenever you're

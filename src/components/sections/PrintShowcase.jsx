@@ -64,7 +64,7 @@ export default function PrintShowcase() {
           </button>
         </div>
         <h2 className="max-w-3xl display-section text-bone">
-          A few things I&rsquo;ve printed.
+          Things I&rsquo;ve <span className="accent text-bone/55">printed.</span>
         </h2>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/55">
           Real prints off my own printers — the kind of work Bennett Studio's

@@ -15,8 +15,8 @@ export default function BenchStockWhat() {
           <span>§01 &nbsp;—&nbsp; What it does</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          This $24 candle costs you{' '}
-          <span className="accent text-ink/55">$9.80 to make.</span>
+          What it{' '}
+          <span className="accent text-ink/55">really costs.</span>
         </h2>
       </div>
 

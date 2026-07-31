@@ -20,8 +20,8 @@ export default function About() {
           <span>02 &nbsp;—&nbsp; About the maker</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          One person, behind four apps.{' '}
-          <span className="accent text-ink/55">All of them.</span>
+          One person.{' '}
+          <span className="accent text-ink/55">Four apps.</span>
         </h2>
       </div>
 

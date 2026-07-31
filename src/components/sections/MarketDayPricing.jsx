@@ -91,8 +91,8 @@ export default function MarketDayPricing() {
           <span>§03 &nbsp;—&nbsp; Pricing</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          Honest pricing. The Sell screen{' '}
-          <span className="accent text-ink/55">is never paywalled.</span>
+          Honest pricing,{' '}
+          <span className="accent text-ink/55">always.</span>
         </h2>
         <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-ink/65">
           Start free — a couple of shows a month, no account. Upgrade for unlimited

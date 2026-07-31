@@ -92,7 +92,7 @@ function Pricing() {
           <span className="h-1.5 w-1.5 rounded-full bg-copper" /><span>§03 — Pricing</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
-          A tenth of Craftybase.{' '}<span className="accent text-ink/55">Start free.</span>
+          A tenth of{' '}<span className="accent text-ink/55">Craftybase.</span>
         </h2>
         <p className="mt-4 inline-flex items-center gap-2 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />Founding lifetime price before it goes up
