@@ -16,22 +16,17 @@
 
 export const PHOTOS = {
   // Landing hero.
-  // home: { src: '/photos/hero-workshop.webp', alt: 'A row of 3D printers running in a small print farm.' },
-  home: null,
+  home: { src: '/photos/hero-workshop.webp', alt: 'A workshop bench with a 3D printer mid-print, spools and finished parts around it.' },
 
   // Each app's photograph is used TWICE — on its card in the landing grid and
   // as the backdrop of its own page hero. One image per app, not two: the photo
   // becomes that app's visual identity, so a card and the page it opens are
   // recognisably the same thing.
-  // marginprint: { src: '/photos/app-marginprint.webp', alt: 'A 3D printer nozzle laying down a layer, close up.' },
-  marginprint: null,
+  marginprint: { src: '/photos/app-marginprint.webp', alt: 'A 3D printer hot-end laying down a layer, close up.' },
 
-  // marketday: { src: '/photos/app-marketday.webp', alt: 'A craft market stall laid out with handmade goods.' },
-  marketday: null,
+  marketday: { src: '/photos/app-marketday.webp', alt: 'A market stall table covered with handmade goods for sale.' },
 
-  // benchstock: { src: '/photos/app-benchstock.webp', alt: 'A wall of filing drawers, ordered and labelled.' },
-  benchstock: null,
+  benchstock: { src: '/photos/app-benchstock.webp', alt: 'A wall of old wooden index drawers, each one labelled.' },
 
-  // makerbooks: { src: '/photos/app-makerbooks.webp', alt: 'A ledger and receipts on a desk in warm light.' },
-  makerbooks: null,
+  makerbooks: { src: '/photos/app-makerbooks.webp', alt: 'An open notebook, calculator and printed figures on a desk.' },
 }

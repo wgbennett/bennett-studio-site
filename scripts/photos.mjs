@@ -1,5 +1,5 @@
-// Turns the raw shots in bennett-studio-site/photo-assets/ into web-ready
-// assets in public/photos/.
+// Turns the raw shots in bennett-studio-site/photo-assets/ (or the repo-root
+// bennettstudiophotos/ folder) into web-ready assets in public/photos/.
 //
 //   PLAYWRIGHT_PATH=... node scripts/photos.mjs
 //
@@ -36,12 +36,28 @@ import { loadPlaywright } from './playwright-env.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
 const siteRoot = path.resolve(here, '..')
-const srcDir = path.resolve(siteRoot, '../photo-assets')
+// Two search roots so the originals can live in either place.
+const srcDirs = [
+  path.resolve(siteRoot, '../photo-assets'),
+  path.resolve(siteRoot, '../../bennettstudiophotos'),
+]
 const outDir = path.join(siteRoot, 'public/photos')
 
-// Global grade. Tweak here, not per-job, so the set stays coherent.
+// Grade DEFAULTS. Every one is overridable per job, because a single global
+// grade cannot make this set cohere — measured on the originals:
+//
+//   photo          luminance   chroma
+//   marginprint      0.107      0.317   dark, hard teal/orange gel lighting
+//   benchstock       0.133      0.086   dark, warm, already close to target
+//   home             0.190      0.167   mid, warm workshop
+//   marketday        0.244      0.232   bright midday, very high chroma
+//   makerbooks       0.300      0.059   bright, COOL, almost no colour
+//
+// Three stops of luminance and a 5× chroma range. Turning that into one family
+// means solving each image toward a shared target rather than applying one
+// filter to all five and hoping.
 const SATURATE = 0.78
-const SEPIA = 0.12
+const SEPIA = 0.14
 
 // focalX/focalY are 0–1 positions kept in frame when cropping (0.5 = centre).
 // zoom scales beyond cover-fit so a crop can tighten on the subject instead of
@@ -56,62 +72,77 @@ const SEPIA = 0.12
 // whatever Unsplash hands over works without renaming.
 const JOBS = [
   {
-    // Landing hero. Look for a workbench receding into depth, warm light,
-    // and a calm LEFT third — that is where the headline sits.
-    src: 'hero-workshop',
+    // Landing hero — a workshop with the printer centre-right, which suits the
+    // left-heavy scrim: the headline sits over the darkest part and the machine
+    // stays visible. Source is already 3:2, so nothing is cropped at 2400×1600
+    // and focalX only matters for the 16:10 card crop.
+    src: '3d-print-farm-photo-home',
     out: 'hero-workshop',
     w: 2400, h: 1600,
     focalX: 0.55, focalY: 0.5,
     zoom: 1.06,
-    brightness: 0.86, // pulled down: bone copy sits on top
-    contrast: 1.08,
+    brightness: 0.86, saturate: 0.42, contrast: 1.06,
   },
 
   // ── App page heroes ───────────────────────────────────────────────────────
   {
-    src: 'app-marginprint',
+    // Hard teal-and-orange gel lighting — by far the most saturated source, and
+    // the one that would otherwise look like it came from a different website.
+    // Cut to a fifth of its colour; the shape and the glow do the work.
+    src: 'app-marginprint-photo',
     out: 'app-marginprint',
     w: 2400, h: 1600,
     focalX: 0.5, focalY: 0.48,
     zoom: 1.05,
-    brightness: 0.84,
-    contrast: 1.1,
+    // sepia well above the default: desaturating alone leaves the residual
+    // cyan reading GREEN next to four warm-brown frames. Chroma was already
+    // in band — the hue was the problem, so the tint does the correcting.
+    brightness: 1.14, saturate: 0.17, sepia: 0.40, contrast: 1.10,
   },
   {
-    src: 'app-marketday',
+    // Bright midday market. The crop is doing real work here, not just
+    // composition: the source has a stallholder's face top-right and readable
+    // VISA / Mastercard signage bottom-right. Zoomed in hard and pushed left so
+    // both are outside the frame — the table of goods was the subject anyway.
+    // Verify after any change to zoom or focalX; this is the one photo where a
+    // looser crop reintroduces a person and two trademarks.
+    src: 'app-marketday-photo',
     out: 'app-marketday',
     w: 2400, h: 1600,
-    focalX: 0.5, focalY: 0.5,
-    zoom: 1.05,
-    brightness: 0.82, // market shots are usually bright daylight
-    contrast: 1.1,
+    focalX: 0.10, focalY: 0.42,
+    zoom: 1.95,
+    brightness: 0.83, saturate: 0.28, contrast: 1.12,
   },
   {
-    src: 'app-benchstock',
+    // Closest to the target already: dark, warm timber. Barely touched.
+    src: 'app-benchstock-photos',
     out: 'app-benchstock',
     w: 2400, h: 1600,
-    focalX: 0.5, focalY: 0.5,
+    focalX: 0.55, focalY: 0.5,
     zoom: 1.05,
-    brightness: 0.86,
-    contrast: 1.08,
+    brightness: 1.04, saturate: 0.72, contrast: 1.06,
   },
   {
-    src: 'app-makerbooks',
+    // The opposite outlier: bright, cool, almost colourless. Needs darkening
+    // rather than desaturating — its saturate stays high so the sepia has
+    // something to warm, otherwise it grades to flat grey.
+    src: 'app-makerbooks-photo',
     out: 'app-makerbooks',
     w: 2400, h: 1600,
-    focalX: 0.5, focalY: 0.5,
-    zoom: 1.05,
-    brightness: 0.86,
-    contrast: 1.08,
+    focalX: 0.5, focalY: 0.52,
+    zoom: 1.06,
+    brightness: 0.67, saturate: 1.00, sepia: 0.34, contrast: 1.10,
   },
 ]
 
 const EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG']
 
 async function resolveSource(base) {
-  for (const ext of EXTS) {
-    const p = path.join(srcDir, base + ext)
-    try { await access(p); return p } catch { /* try the next extension */ }
+  for (const dir of srcDirs) {
+    for (const ext of EXTS) {
+      const p = path.join(dir, base + ext)
+      try { await access(p); return p } catch { /* keep looking */ }
+    }
   }
   return null
 }
@@ -156,6 +187,8 @@ for (const job of resolved) {
       c.width = w
       c.height = h
       const ctx = c.getContext('2d')
+      // Order matters: desaturate FIRST so sepia tints a neutral image rather
+      // than compounding whatever hue was already there.
       ctx.filter =
         `saturate(${saturate}) sepia(${sepia}) ` +
         `brightness(${brightness ?? 1}) contrast(${contrast ?? 1})`
@@ -168,7 +201,7 @@ for (const job of resolved) {
 
       return c.toDataURL('image/webp', 0.82).split(',')[1]
     },
-    { dataUrl, ...job, saturate: SATURATE, sepia: SEPIA },
+    { dataUrl, saturate: SATURATE, sepia: SEPIA, ...job },
   )
 
   const buf = Buffer.from(webpB64, 'base64')
