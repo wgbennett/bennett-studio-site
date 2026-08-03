@@ -68,8 +68,8 @@ export default function About() {
 
           {/* Studio note */}
           <div className="mt-8 border-l-2 border-copper/40 pl-5 font-mono text-[12px] leading-relaxed text-ink/70">
-            Bennett Studio is the personal studio brand. The same hands that
-            wrote this code wrote this page. The same person picks up the
+            I'm the only person here. I wrote the code and this page, and I
+            answer the
             phone if something breaks.
           </div>
 
@@ -79,7 +79,7 @@ export default function About() {
               <a
                 key={s.label}
                 href={s.href}
-                className="group inline-flex items-center gap-2 border border-ink/15 px-4 py-2 eyebrow text-ink/70 transition-colors hover:border-ink hover:text-ink"
+                className="group inline-flex min-h-[44px] items-center gap-2 border border-ink/15 px-4 py-2.5 eyebrow text-ink/70 transition-colors hover:border-ink hover:text-ink"
               >
                 <span>{s.label}</span>
                 <span aria-hidden className="transition-transform group-hover:translate-x-0.5">

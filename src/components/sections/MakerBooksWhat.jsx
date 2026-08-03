@@ -35,8 +35,8 @@ export default function MakerBooksWhat() {
           </p>
 
           <p className="mt-7 text-[15px] leading-relaxed text-ink/65">
-            A shoebox of receipts tells you nothing until April. MakerBooks
-            answers the questions you have <em>all year</em>:
+            MakerBooks keeps income and expenses in one place, so the numbers
+            you need in April <em>already exist</em>:
           </p>
 
           <ul className="mt-6 space-y-3 border-l-2 border-copper/40 pl-5">
@@ -56,7 +56,7 @@ export default function MakerBooksWhat() {
           </ul>
 
           <p className="mt-8 text-[15px] leading-relaxed text-ink/65">
-            It&rsquo;s a client-side PWA — no accounts, no backend. Every
+            There is no account and no server. Every
             transaction lives on your device, with a one-tap JSON backup whenever
             you want one. Your books never touch someone else&rsquo;s server.
           </p>

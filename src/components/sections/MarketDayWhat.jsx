@@ -33,8 +33,8 @@ export default function MarketDayWhat() {
           </p>
 
           <p className="mt-7 text-[15px] leading-relaxed text-ink/65">
-            A cash box and a notebook only tell you the total, and only once
-            you&rsquo;re home. MarketDay answers the questions you actually have
+            A cash box gives you one number at the end of the night. MarketDay
+            gives you the rest
             <em> at the table</em>:
           </p>
 
@@ -55,7 +55,7 @@ export default function MarketDayWhat() {
           </ul>
 
           <p className="mt-8 text-[15px] leading-relaxed text-ink/65">
-            It&rsquo;s a client-side PWA — no accounts, no backend. Every sale,
+            There is no account and no server. Every sale,
             pack list, and total lives on your device, with a one-tap JSON
             backup whenever you want one.
           </p>

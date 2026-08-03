@@ -25,16 +25,15 @@ export default function WhatItDoes() {
         {/* Copy column */}
         <div className="max-w-xl">
           <p className="text-[18px] leading-relaxed text-ink/80">
-            MarginPrint runs the queue, the costs, and the customer list from
-            one screen. Mobile-first. Built solo, by a maker who needed it.
-            <span className="font-medium text-ink"> It opens 5–15 times a day.</span>{' '}
-            That is the bar.
+            MarginPrint keeps the queue, the costs, and your customer list on
+            one screen.
+            <span className="font-medium text-ink"> Most people open it 5–15 times a day</span>,
+            so it is built for that rather than for a once-a-print visit.
           </p>
 
           <p className="mt-7 text-[15px] leading-relaxed text-ink/65">
-            Most "3D print cost" apps get opened once per print and forgotten.
-            That's because they answer one question — "what does this cost?" —
-            and stop. MarginPrint answers the others too:
+            A cost calculator answers one question and closes. These are the
+            other questions that come up between slicing and shipping:
           </p>
 
           <ul className="mt-6 space-y-3 border-l-2 border-copper/40 pl-5">
@@ -54,8 +53,8 @@ export default function WhatItDoes() {
           </ul>
 
           <p className="mt-8 text-[15px] leading-relaxed text-ink/65">
-            One screen, on your phone, next to the printer. Not a desktop
-            dashboard. Not a calculator that closes when you tap save.
+            It runs on your phone, next to the printer, and keeps your place
+            when you switch away.
           </p>
         </div>
 

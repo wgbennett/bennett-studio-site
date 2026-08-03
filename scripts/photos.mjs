@@ -133,11 +133,49 @@ const JOBS = [
     zoom: 1.06,
     brightness: 0.67, saturate: 1.00, sepia: 0.34, contrast: 1.10,
   },
+  // ── Studio photography already in public/ ────────────────────────────────
+  // ⚠ NOT IDEMPOTENT. These jobs read from public/ and write back to the SAME
+  // path, so running the script twice grades an already-graded file and the
+  // effect compounds. Originals are in git — `git checkout` the files before
+  // re-running if you change these numbers.
+  //
+  // These predate the pipeline and were the loudest inconsistency on the site:
+  // the About shot measured luminance 0.213 / chroma 0.161 and the print
+  // marquee 0.260 / 0.088, against a graded set sitting at 0.146 / 0.069. Two
+  // thirds of the page's photography was ignoring the grade.
+  //
+  // They are read from public/ and written back to public/ — the only jobs
+  // that do, because the originals ARE the shipped files. `passthrough` keeps
+  // the source path and extension so nothing else has to change.
+  {
+    src: 'about-workshop', out: 'about-workshop', ext: '.jpg', inPublic: true,
+    w: 1400, h: 1750,          // 4:5, matching the slot it fills
+    focalX: 0.5, focalY: 0.5,
+    brightness: 0.80, saturate: 0.46, contrast: 1.06,
+  },
+  ...Array.from({ length: 16 }, (_, i) => {
+    const n = String(i + 1).padStart(2, '0')
+    return {
+      src: `prints/print-${n}`, out: `prints/print-${n}`, ext: '.jpg', inPublic: true,
+      w: 800, h: 1000,         // 4:5 tiles in the marquee
+      focalX: 0.5, focalY: 0.5,
+      // Shot on a print bed under LED strips: bright, high-chroma, and each
+      // one lit slightly differently. Pulled hard toward the set.
+      // Lifted from 0.72 after measuring: these are lit figures on a dark
+      // bed, so pulling the whole frame down sank the subject into the
+      // background — one print measured 0.072 against a 0.146 set.
+      brightness: 0.86, saturate: 0.55, contrast: 1.05,
+    }
+  }),
 ]
 
 const EXTS = ['.jpg', '.jpeg', '.png', '.webp', '.JPG', '.JPEG', '.PNG']
 
-async function resolveSource(base) {
+async function resolveSource(base, job) {
+  if (job?.inPublic) {
+    const p = path.join(siteRoot, 'public', base + (job.ext ?? '.jpg'))
+    try { await access(p); return p } catch { return null }
+  }
   for (const dir of srcDirs) {
     for (const ext of EXTS) {
       const p = path.join(dir, base + ext)
@@ -156,7 +194,7 @@ await mkdir(outDir, { recursive: true })
 const resolved = []
 const missing = []
 for (const job of JOBS) {
-  const file = await resolveSource(job.src)
+  const file = await resolveSource(job.src, job)
   if (file) resolved.push({ ...job, file })
   else missing.push(job.src)
 }
@@ -178,7 +216,7 @@ for (const job of resolved) {
   const dataUrl = `data:${MIME[ext] ?? 'image/jpeg'};base64,${bytes.toString('base64')}`
 
   const webpB64 = await page.evaluate(
-    async ({ dataUrl, w, h, focalX, focalY, contrast, brightness, zoom, saturate, sepia }) => {
+    async ({ dataUrl, w, h, focalX, focalY, contrast, brightness, zoom, saturate, sepia, mime }) => {
       const img = new Image()
       img.src = dataUrl
       await img.decode()
@@ -199,14 +237,18 @@ for (const job of resolved) {
       const dh = img.naturalHeight * scale
       ctx.drawImage(img, (w - dw) * focalX, (h - dh) * focalY, dw, dh)
 
-      return c.toDataURL('image/webp', 0.82).split(',')[1]
+      return c.toDataURL(mime ?? 'image/webp', 0.82).split(',')[1]
     },
-    { dataUrl, saturate: SATURATE, sepia: SEPIA, ...job },
+    { dataUrl, saturate: SATURATE, sepia: SEPIA, ...job, mime: job.inPublic ? 'image/jpeg' : 'image/webp' },
   )
 
   const buf = Buffer.from(webpB64, 'base64')
-  await writeFile(path.join(outDir, `${job.out}.webp`), buf)
-  console.log(`  ✓ ${path.basename(job.file).padEnd(26)} → photos/${job.out}.webp  ${job.w}×${job.h}  ${(buf.length / 1024).toFixed(0)} kB`)
+  const dest = job.inPublic
+    ? path.join(siteRoot, 'public', `${job.out}${job.ext ?? '.jpg'}`)
+    : path.join(outDir, `${job.out}.webp`)
+  await mkdir(path.dirname(dest), { recursive: true })
+  await writeFile(dest, buf)
+  console.log(`  ✓ ${path.basename(job.file).padEnd(26)} → ${path.relative(path.join(siteRoot, 'public'), dest)}  ${job.w}×${job.h}  ${(buf.length / 1024).toFixed(0)} kB`)
 }
 
 await browser.close()

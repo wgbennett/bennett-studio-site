@@ -88,10 +88,9 @@ export default function Apps() {
           <span className="accent text-bone/55">Pick yours.</span>
         </h2>
         <p className="lede mt-7 max-w-xl text-bone/65">
-          Bennett Studio is one maker shipping focused software for people who
-          sell what they make — pricing, selling, costing, and the books. All four
-          are available now, each with its own page below. What&rsquo;s real shows
-          up here. What isn&rsquo;t, doesn&rsquo;t.
+          I build one app per job rather than one app that does everything
+          badly. All four are live and free to start. Each has its own page
+          below.
         </p>
       </div>
 
@@ -177,7 +176,13 @@ function CardPhoto({ slug, index, kicker }) {
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/90 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-4 px-8 pb-5 lg:px-9">
         <span className="font-mono text-[13px] font-medium text-copper-light">{index}</span>
-        <span className="eyebrow text-bone/70">{kicker}</span>
+        <span className="flex items-center gap-3 eyebrow text-bone/70">
+          {kicker}
+          {/* The landing page previously never said "free" anywhere — a visitor
+              had to reach the closing block, four cards down, to learn there
+              was a free tier at all. */}
+          <span className="border border-copper-light/40 px-2 py-0.5 text-copper-light">Free to start</span>
+        </span>
       </div>
     </div>
   )

@@ -38,7 +38,7 @@ export default function SiteNav({ variant = 'solid', cta = { label: 'Explore the
   return (
     <header className={wrap}>
       <div className={`mx-auto flex max-w-7xl items-center justify-between px-8 py-5 eyebrow ${t.base}`}>
-        <Link to="/" className="flex items-center gap-2.5">
+        <Link to="/" className="-my-2 flex min-h-[44px] items-center gap-2.5 py-2">
           <Mark onDark={overlay} />
           <span className={`font-semibold ${t.strong}`}>BENNETT STUDIO</span>
         </Link>

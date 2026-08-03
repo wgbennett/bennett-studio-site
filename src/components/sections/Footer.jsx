@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 md:grid-cols-[1fr_2fr]">
           {/* Wordmark — studio-first */}
           <div>
-            <Link to="/" className="flex items-center gap-2.5">
+            <Link to="/" className="-my-2 flex min-h-[44px] items-center gap-2.5 py-2">
               <Mark />
               <span className="font-semibold tracking-tight text-bone">
                 BENNETT STUDIO
@@ -38,8 +38,8 @@ export default function Footer() {
               Independent software for makers
             </div>
             <p className="mt-5 max-w-xs text-[13px] leading-relaxed text-bone/60">
-              One maker building focused, mobile-first tools for people who sell
-              what they make. Built solo, one app at a time —{' '}
+              Four apps for people who sell what they make, built one at a
+              time —{' '}
               <span className="text-bone/80">four apps</span> are out now.
             </p>
           </div>
@@ -63,17 +63,17 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-5">
             <a
               href="/privacy"
-              className="transition-colors hover:text-bone/70"
+              className="inline-flex min-h-[44px] items-center py-2 transition-colors hover:text-bone/70"
             >
               Privacy &amp; data
             </a>
             <a
               href="/terms"
-              className="transition-colors hover:text-bone/70"
+              className="inline-flex min-h-[44px] items-center py-2 transition-colors hover:text-bone/70"
             >
               Terms
             </a>
-            <span>Made with care, not haste.</span>
+            <span>One person, four apps.</span>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ function FooterColumn({ title, links, external = false }) {
 
 function FooterLink({ link, external }) {
   const cls =
-    'group inline-flex items-center gap-1.5 font-mono text-[12px] text-bone/70 transition-colors hover:text-bone'
+    'group inline-flex min-h-[44px] items-center gap-1.5 py-2 font-mono text-[12px] text-bone/70 transition-colors hover:text-bone'
   // Internal route (no hash, no protocol) → client-side Link; everything else
   // (hash anchors, mailto, external) stays a plain anchor.
   const isRoute = link.href.startsWith('/') && !link.href.includes('#') && !link.href.endsWith('.html')

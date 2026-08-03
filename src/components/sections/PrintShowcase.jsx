@@ -58,7 +58,7 @@ export default function PrintShowcase() {
             type="button"
             onClick={() => setPaused(p => !p)}
             aria-pressed={paused}
-            className="relative z-20 border border-bone/20 px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider text-bone/70 transition-colors hover:border-bone/40 hover:text-bone"
+            className="relative z-20 inline-flex min-h-[44px] items-center border border-bone/20 px-4 py-2.5 font-mono text-[10px] uppercase tracking-wider text-bone/70 transition-colors hover:border-bone/40 hover:text-bone"
           >
             <span className="inline-flex items-center gap-1.5">{paused ? <><Play size={11} /> Play</> : <><Pause size={11} /> Pause</>}</span>
           </button>
@@ -67,8 +67,9 @@ export default function PrintShowcase() {
           Things I&rsquo;ve <span className="accent text-bone/55">printed.</span>
         </h2>
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/55">
-          Real prints off my own printers — the kind of work Bennett Studio's
-          apps were built to cost, queue, sell, and keep track of.
+          Personal prints off my own machines — fan pieces, test runs, gifts.
+          None of it for sale. Printing this stuff is how I worked out what a
+          print actually costs.
         </p>
       </div>
 

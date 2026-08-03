@@ -15,8 +15,8 @@ const DEFAULTS = {
       <span className="accent">Start free.</span>
     </>
   ),
-  body: "All four apps are live — start free, no account, no login. Pick the bench that fits how you sell and run your next order, show, or month from your phone.",
-  reassurance: ['Local-first · works offline', 'Founding lifetime price', 'No data sold, ever', 'Built solo, by a maker'],
+  body: "All four are free to start, with no account to make. Pick the one that matches how you sell.",
+  reassurance: ['Works offline', 'Your data stays on your device', 'Founding lifetime price'],
 }
 
 export default function Contact(props) {
@@ -112,7 +112,7 @@ export function WaitlistForm({ app = '', wrapperClass = 'mx-auto mt-12 max-w-md'
           <span className="inline-flex items-center gap-1.5"><Check size={13} /> You&rsquo;re on the list</span>
         </div>
         <p className="mt-2 text-[14px] text-ink/70">
-          I&rsquo;ll email you about new releases and early access. Thanks for being early.
+          I&rsquo;ll email you when there&rsquo;s a new release.
         </p>
       </div>
     )
@@ -169,7 +169,7 @@ export function WaitlistForm({ app = '', wrapperClass = 'mx-auto mt-12 max-w-md'
           </p>
         )}
         {status === 'idle' && (
-          <p className="text-ink/60">No spam. Just the occasional release note.</p>
+          <p className="text-ink/70">Release notes only, and not often.</p>
         )}
       </div>
     </div>

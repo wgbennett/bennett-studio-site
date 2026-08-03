@@ -33,8 +33,8 @@ export default function BenchStockWhat() {
           </p>
 
           <p className="mt-7 text-[15px] leading-relaxed text-ink/65">
-            A spreadsheet tells you what you paid last month. BenchStock answers
-            the questions you have <em>right now, at the bench</em>:
+            A spreadsheet shows what you spent. BenchStock shows what it costs
+            you to make <em>one of something</em>:
           </p>
 
           <ul className="mt-6 space-y-3 border-l-2 border-copper/40 pl-5">
@@ -54,7 +54,7 @@ export default function BenchStockWhat() {
           </ul>
 
           <p className="mt-8 text-[15px] leading-relaxed text-ink/65">
-            It&rsquo;s a client-side PWA — no accounts, no backend. Every
+            There is no account and no server. Every
             material, product, and count lives on your device, with a one-tap
             JSON backup whenever you want one.
           </p>

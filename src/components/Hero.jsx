@@ -41,20 +41,15 @@ export default function Hero() {
           </h1>
 
           <p className="lede mt-8 max-w-lg text-bone/80">
-            Bennett Studio is four focused, mobile-first apps for people who
-            sell what they make — <span className="font-semibold text-bone">MarginPrint</span> for
-            3D-print shops, <span className="font-semibold text-bone">MarketDay</span> for
-            in-person selling, <span className="font-semibold text-bone">BenchStock</span> for
-            materials &amp; true cost, and{' '}
-            <span className="font-semibold text-bone">MakerBooks</span> for the
+            Four apps for people who sell what they make: pricing and a
+            production queue, market-day sales, materials and cost, and the
             books. All four are{' '}
-            <span className="text-copper-light">available now</span>.
+            <span className="text-copper-light">free to start</span>.
           </p>
 
           {/* Honest studio-level trust signal — no metrics, no logos. */}
           <p className="mt-5 max-w-md font-mono text-[11px] leading-relaxed text-bone/60">
-            Built by a working maker running a real 3D-print shop — the same
-            tools I use behind my own table.
+            I run a small 3D-print shop. These are the tools I built for it.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-5">
