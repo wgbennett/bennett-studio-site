@@ -12,7 +12,8 @@
     "preview": "vite preview",
     "test": "node functions/api/waitlist.test.mjs",
     "check:contrast": "node scripts/check-contrast.mjs",
-    "photos": "node scripts/photos.mjs"
+    "photos": "node scripts/photos.mjs",
+    "og": "node scripts/og-cards.mjs"
   },
   "dependencies": {
     "fflate": "^0.8.3",

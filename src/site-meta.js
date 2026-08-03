@@ -23,35 +23,35 @@ export const ROUTE_META = {
     description: STUDIO_DESCRIPTION,
     ogTitle: 'Bennett Studio — software for makers',
     ogImage: 'og.png',
-    ogImageAlt: 'Bennett Studio — four mobile-first apps for people who sell what they make.',
+    ogImageAlt: 'A 3D printer running on a workshop bench, over the words “The business side, handled.”',
   },
   '/marginprint': {
     title: 'MarginPrint — mission control for 3D-print sellers · Bennett Studio',
     description:
       'MarginPrint is a mobile-first operations app for small 3D-print shops: a production queue, true per-print costs, quoting, and profit tracking. Works offline, no account needed. Free to start.',
     ogImage: 'og-marginprint.png',
-    ogImageAlt: 'MarginPrint — the production queue and profit breakdown on a phone.',
+    ogImageAlt: 'A 3D printer hot-end mid-print, over the words “MarginPrint runs the shop.”',
   },
   '/marketday': {
     title: 'MarketDay — the offline-first booth companion · Bennett Studio',
     description:
       'MarketDay runs your market booth offline: pack lists, one-tap sales, and a show summary that tells you which shows actually made money. Free to start, no account needed.',
     ogImage: 'og-marketday.png',
-    ogImageAlt: 'MarketDay — the quick-sale grid and show summary on a phone.',
+    ogImageAlt: 'A market stall of handmade goods, over the words “MarketDay works the booth.”',
   },
   '/benchstock': {
     title: 'BenchStock — true cost & materials for makers · Bennett Studio',
     description:
       'BenchStock tracks your materials and tells you what an item really costs to make — stock levels, reorder points, and landed cost. Mobile-first and offline. Free to start.',
     ogImage: 'og-benchstock.png',
-    ogImageAlt: 'BenchStock — the materials list and cost dashboard on a phone.',
+    ogImageAlt: 'A wall of labelled index drawers, over the words “BenchStock knows the cost.”',
   },
   '/maker-books': {
     title: 'MakerBooks — bookkeeping & tax readiness for makers · Bennett Studio',
     description:
       'MakerBooks is bookkeeping built for makers: income and expenses in, a Schedule C view out, ready before tax season. No spreadsheets, works offline. Free to start.',
     ogImage: 'og-makerbooks.png',
-    ogImageAlt: 'MakerBooks — the profit dashboard and Schedule C view on a phone.',
+    ogImageAlt: 'A notebook and figures on a desk, over the words “MakerBooks keeps the books.”',
   },
 }
 
