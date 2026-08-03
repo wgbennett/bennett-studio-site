@@ -131,7 +131,7 @@ function AppCard({ app }) {
           </Link>
         </h3>
 
-        <p className="mt-5 text-[15px] leading-relaxed text-bone/70">{app.blurb}</p>
+        <p className="mt-5 max-w-[46ch] text-[15px] leading-relaxed text-bone/70">{app.blurb}</p>
 
         <ul className="mt-6 hidden flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/60 sm:flex">
           {app.points.map((p) => (
@@ -144,7 +144,7 @@ function AppCard({ app }) {
         <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-8">
           <span className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors group-hover:text-copper-light">
             {app.cta}
-            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+            <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none">→</span>
           </span>
 
           {/* relative + z-10 lifts this above the stretched link's ::after, so
@@ -189,7 +189,7 @@ function CardPhoto({ slug, index, kicker }) {
           alt={photo.alt}
           loading="lazy"
           decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
       ) : (
         <div aria-hidden className="absolute inset-0">

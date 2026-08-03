@@ -59,6 +59,15 @@ export default function Contact(props) {
   )
 }
 
+// ⚠ CURRENTLY UNREACHABLE. Contact renders `actions ?? <WaitlistForm/>`, and all
+// five pages now pass `actions` — so this never falls through. It is kept, not
+// deleted, because /api/waitlist is a live Pages Function with a KV namespace
+// bound to it and 9 passing tests; the wiring is one prop away if a waitlist is
+// ever wanted again (drop `actions` from a <Contact>).
+//
+// Its states are complete — ok / 422 invalid / 503+404 mailto fallback / network
+// catch — so there is nothing to fix here. Check this comment before "adding
+// error handling" to a form nobody can see.
 export function WaitlistForm({ app = '', wrapperClass = 'mx-auto mt-12 max-w-md' }) {
   const [email, setEmail] = useState('')
   // Honeypot: a hidden field humans never fill. The /api/waitlist function

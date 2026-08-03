@@ -133,6 +133,43 @@ const JOBS = [
     zoom: 1.06,
     brightness: 0.67, saturate: 1.00, sepia: 0.34, contrast: 1.10,
   },
+  // ── Portrait crops for phones ─────────────────────────────────────────────
+  // A 3:2 hero cropped by object-cover to a 9:19.5 screen keeps roughly the
+  // middle third of its width — on the landing shot that sliced the printer
+  // down the middle. These are separate 3:4 renders with their own focal
+  // points, served through <picture> above the 900px breakpoint. Same grade as
+  // their landscape twins so the two never look like different photographs.
+  {
+    src: '3d-print-farm-photo-home', out: 'hero-workshop-portrait',
+    w: 1200, h: 1600,
+    focalX: 0.62, focalY: 0.52, zoom: 1.02,
+    brightness: 0.86, saturate: 0.42, contrast: 1.06,
+  },
+  {
+    src: 'app-marginprint-photo', out: 'app-marginprint-portrait',
+    w: 1200, h: 1600,
+    focalX: 0.42, focalY: 0.46, zoom: 1.0,
+    brightness: 1.14, saturate: 0.17, sepia: 0.40, contrast: 1.10,
+  },
+  {
+    src: 'app-marketday-photo', out: 'app-marketday-portrait',
+    w: 1200, h: 1600,
+    focalX: 0.16, focalY: 0.55, zoom: 1.30,
+    brightness: 0.83, saturate: 0.28, contrast: 1.12,
+  },
+  {
+    src: 'app-benchstock-photos', out: 'app-benchstock-portrait',
+    w: 1200, h: 1600,
+    focalX: 0.62, focalY: 0.5, zoom: 1.0,
+    brightness: 1.04, saturate: 0.72, contrast: 1.06,
+  },
+  {
+    src: 'app-makerbooks-photo', out: 'app-makerbooks-portrait',
+    w: 1200, h: 1600,
+    focalX: 0.5, focalY: 0.55, zoom: 1.0,
+    brightness: 0.67, saturate: 1.00, sepia: 0.34, contrast: 1.10,
+  },
+
   // ── Studio photography already in public/ ────────────────────────────────
   // ⚠ NOT IDEMPOTENT. These jobs read from public/ and write back to the SAME
   // path, so running the script twice grades an already-graded file and the

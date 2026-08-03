@@ -8,6 +8,7 @@
 // one). Charcoal band = colorful prints pop.
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { Play, Pause } from 'lucide-react'
 
 const PRINTS = Array.from({ length: 16 }, (_, i) =>
@@ -69,8 +70,15 @@ export default function PrintShowcase() {
         <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-bone/55">
           Personal prints off my own machines — fan pieces, test runs, gifts.
           None of it for sale. Printing this stuff is how I worked out what a
-          print actually costs.
+          print actually costs, which is the sum MarginPrint does for you.
         </p>
+        <Link
+          to="/marginprint"
+          className="group mt-6 inline-flex min-h-[44px] items-center gap-2 border-b border-bone/25 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-copper-light hover:text-copper-light"
+        >
+          Explore MarginPrint
+          <span aria-hidden className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transition-none">→</span>
+        </Link>
       </div>
 
       {/* Two opposing marquee rows */}

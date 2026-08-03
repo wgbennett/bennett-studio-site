@@ -1,0 +1,12 @@
+
+/* The hero's scroll cue. A 6px drift, not a bounce — enough to catch the eye
+   against a still photograph without becoming the thing you look at. Held
+   still under reduced motion; the arrow still reads as direction on its own. */
+@keyframes scroll-cue {
+  0%, 100% { transform: translateY(0);   opacity: 0.55; }
+  50%      { transform: translateY(6px); opacity: 1; }
+}
+.scroll-cue { animation: scroll-cue 2.4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .scroll-cue { animation: none; opacity: 0.8; }
+}

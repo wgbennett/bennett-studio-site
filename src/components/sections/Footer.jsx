@@ -56,11 +56,25 @@ export default function Footer() {
             honest "your data stays on your device" statement at
             /privacy (static, served from public/). It doubles as the
             policy link Lemon Squeezy checkout asks for. */}
-        <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/60 md:flex-row md:items-center">
+        <ul className="mt-14 flex flex-wrap items-center gap-x-7 gap-y-2 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/60">
+          <li>No account required</li>
+          <li>Works offline</li>
+          <li>Your data stays on your device</li>
+          <li>
+            <a href="mailto:will@bennettstudio.dev" className="inline-flex min-h-[44px] items-center py-2 underline-offset-4 transition-colors hover:text-bone hover:underline">
+              Questions? Email me
+            </a>
+          </li>
+        </ul>
+
+        <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-bone/10 pt-8 font-mono text-[10px] uppercase tracking-wider text-bone/60 md:flex-row md:items-center">
           <div>
             © {YEAR} Bennett Studio · Independent software for makers
           </div>
           <div className="flex flex-wrap items-center gap-5">
+            {/* Real, automatic, and the closest thing to proof-of-life a site
+                with no users can honestly offer. */}
+            <span className="text-bone/50">Updated {__BUILD_DATE__}</span>
             <a
               href="/privacy"
               className="inline-flex min-h-[44px] items-center py-2 transition-colors hover:text-bone/70"
@@ -73,7 +87,6 @@ export default function Footer() {
             >
               Terms
             </a>
-            <span>One person, four apps.</span>
           </div>
         </div>
       </div>

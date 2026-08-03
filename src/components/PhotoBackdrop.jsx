@@ -34,16 +34,22 @@ export default function PhotoBackdrop({ slug, alt = '', priority = false }) {
   return (
     <>
       {photo ? (
-        <img
-          src={photo.src}
-          alt={alt || photo.alt}
-          // The hero image is the largest paint on the page; letting it load
-          // lazily guarantees a flash of empty scrim on first view.
-          loading={priority ? 'eager' : 'lazy'}
-          fetchpriority={priority ? 'high' : 'auto'}
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+        // <picture>, not a CSS background: the browser picks the source before
+        // it starts downloading, so a phone never fetches the 2400px landscape
+        // file it is not going to show.
+        <picture>
+          {photo.portrait && <source media="(max-width: 900px)" srcSet={photo.portrait} />}
+          <img
+            src={photo.src}
+            alt={alt || photo.alt}
+            // The hero image is the largest paint on the page; letting it load
+            // lazily guarantees a flash of empty scrim on first view.
+            loading={priority ? 'eager' : 'lazy'}
+            fetchpriority={priority ? 'high' : 'auto'}
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+        </picture>
       ) : (
         <div aria-hidden className="absolute inset-0 bg-charcoal">
           {/* Same blueprint grid the rest of the site uses, held well back. It

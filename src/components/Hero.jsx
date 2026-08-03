@@ -83,7 +83,10 @@ export default function Hero() {
           bar; the backdrop's bottom fade already separates it from what follows. */}
       <div className="absolute inset-x-0 bottom-0 z-10 border-t border-bone/15 px-8 py-4">
         <div className="mx-auto flex max-w-7xl items-center justify-between font-mono text-[10px] uppercase tracking-wider text-bone/60">
-          <span>— Scroll · learn more below</span>
+          <span className="inline-flex items-center gap-2.5">
+            <span aria-hidden className="scroll-cue inline-block">↓</span>
+            Scroll · more below
+          </span>
           <div className="hidden gap-7 md:flex">
             <a href="#apps" className="hover:text-bone"><span className="text-bone/30">01</span>&nbsp;&nbsp;The apps</a>
             <a href="#about" className="hover:text-bone"><span className="text-bone/30">02</span>&nbsp;&nbsp;About</a>

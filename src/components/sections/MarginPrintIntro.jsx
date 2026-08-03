@@ -13,7 +13,7 @@ export default function MarginPrintIntro() {
   return (
     <section
       id="marginprint"
-      className="relative overflow-hidden border-t border-ink/10 bg-charcoal px-8 py-28 text-bone lg:py-32"
+      className="relative overflow-hidden border-t border-bone/10 bg-charcoal px-8 pt-20 pb-28 text-bone lg:pt-24 lg:pb-32"
     >
       {/* warm copper glow behind the phones */}
       <div
