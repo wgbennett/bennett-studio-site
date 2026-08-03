@@ -35,7 +35,7 @@ function HomeCtas() {
         href="#apps"
         className="group inline-flex items-center gap-2.5 bg-ink px-8 py-4 font-mono text-[13px] uppercase tracking-wider text-bone transition-colors hover:bg-copper"
       >
-        Explore the four apps
+        Explore the apps
         <span aria-hidden className="transition-transform group-hover:translate-y-0.5">↓</span>
       </a>
     </div>

@@ -17,7 +17,7 @@ export default function About() {
       <div className="mx-auto mb-20 max-w-7xl">
         <div className="mb-5 flex items-center gap-3 eyebrow text-copper">
           <span className="h-1.5 w-1.5 rounded-full bg-copper" />
-          <span>02 &nbsp;—&nbsp; About the maker</span>
+          <span>About the maker</span>
         </div>
         <h2 className="max-w-4xl display-section text-ink">
           One person.{' '}

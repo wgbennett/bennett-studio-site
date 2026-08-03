@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Play } from 'lucide-react'
 import { PHOTOS } from '../../photos.js'
 
 // The honest "apps" band. Studio-level, sits right under the hero.
@@ -29,6 +30,7 @@ const APPS = [
     index: '01',
     kicker: 'Production queue',
     name: 'MarginPrint',
+    demo: 'https://app.bennettstudio.dev/?demo',
     slug: 'marginprint',
     to: '/marginprint',
     blurb:
@@ -40,6 +42,7 @@ const APPS = [
     index: '02',
     kicker: 'Market sales',
     name: 'MarketDay',
+    demo: 'https://marketday.bennettstudio.dev/?demo',
     slug: 'marketday',
     to: '/marketday',
     blurb:
@@ -51,6 +54,7 @@ const APPS = [
     index: '03',
     kicker: 'Inventory & cost',
     name: 'BenchStock',
+    demo: 'https://benchstock.bennettstudio.dev/?demo',
     slug: 'benchstock',
     to: '/benchstock',
     blurb:
@@ -62,6 +66,7 @@ const APPS = [
     index: '04',
     kicker: 'Bookkeeping',
     name: 'MakerBooks',
+    demo: 'https://makerbooks.bennettstudio.dev/?demo',
     // Keys src/photos.js — NOT the route ('/maker-books' vs 'makerbooks').
     slug: 'makerbooks',
     to: '/maker-books',
@@ -81,7 +86,7 @@ export default function Apps() {
       <div className="relative mx-auto mb-16 max-w-7xl">
         <div className="mb-5 flex items-center gap-3 eyebrow text-copper-light">
           <span className="h-1.5 w-1.5 rounded-full bg-copper-light" />
-          <span>01 &nbsp;—&nbsp; What&rsquo;s on the bench</span>
+          <span>What&rsquo;s on the bench</span>
         </div>
         <h2 className="max-w-4xl display-section text-bone">
           Four apps.{' '}
@@ -109,31 +114,62 @@ export default function Apps() {
 // should look like.
 function AppCard({ app }) {
   return (
-    <Link
-      to={app.to}
-      className="group relative flex flex-col overflow-hidden border border-bone/12 bg-charcoal transition-colors hover:border-copper/50 hover:bg-ink"
-    >
+    // A <div>, not a <Link>. The card carries TWO destinations now — the app's
+    // page and its live demo — and nesting an <a> inside an <a> is invalid HTML
+    // that browsers resolve unpredictably. So the primary link is stretched
+    // behind the content instead, and the demo link sits above it in the stack.
+    <div className="group relative flex flex-col overflow-hidden border border-bone/12 bg-charcoal transition-colors hover:border-copper/50 hover:bg-ink">
       <CardPhoto slug={app.slug} index={app.index} kicker={app.kicker} />
 
       <div className="flex flex-1 flex-col p-8 lg:p-9">
-        <h3 className="display-sub text-bone">{app.name}</h3>
+        <h3 className="display-sub text-bone">
+          {/* The stretched link. Making it the heading's child rather than a
+              bare overlay means the card has ONE accessible name that reads as
+              a link to the app's page, instead of an anonymous clickable box. */}
+          <Link to={app.to} className="after:absolute after:inset-0 after:content-['']">
+            {app.name}
+          </Link>
+        </h3>
 
         <p className="mt-5 text-[15px] leading-relaxed text-bone/70">{app.blurb}</p>
 
-        <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/60">
+        <ul className="mt-6 hidden flex-wrap gap-x-5 gap-y-2 eyebrow text-bone/60 sm:flex">
           {app.points.map((p) => (
             <li key={p}>— {p}</li>
           ))}
         </ul>
 
-        {/* mt-auto pins the CTA to the bottom so all four align despite blurbs
+        {/* mt-auto pins the row to the bottom so all four align despite blurbs
             of different lengths. */}
-        <div className="mt-auto pt-8 inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors group-hover:text-copper-light">
-          {app.cta}
-          <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+        <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 pt-8">
+          <span className="inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors group-hover:text-copper-light">
+            {app.cta}
+            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+          </span>
+
+          {/* relative + z-10 lifts this above the stretched link's ::after, so
+              it is genuinely clickable rather than covered by the card link. */}
+          {/* The landing page never said "free" anywhere before this — a visitor
+              had to reach the closing block, four cards down, to find out. It
+              sits with the actions rather than in the photo caption, where at
+              390px it wrapped onto two lines and collided with the kicker. */}
+          <span className="border border-copper-light/40 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-copper-light">
+            Free to start
+          </span>
+
+          <a
+            href={app.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative z-10 inline-flex min-h-[44px] items-center gap-2 border-b border-bone/25 font-mono text-[12px] uppercase tracking-wider text-bone/70 transition-colors hover:border-copper-light hover:text-copper-light"
+          >
+            <Play size={11} aria-hidden />
+            Try the demo
+            <span className="sr-only"> for {app.name} (opens in a new tab)</span>
+          </a>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 
@@ -176,13 +212,7 @@ function CardPhoto({ slug, index, kicker }) {
       <div aria-hidden className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/90 to-transparent" />
       <div className="absolute inset-x-0 bottom-0 flex items-baseline justify-between gap-4 px-8 pb-5 lg:px-9">
         <span className="font-mono text-[13px] font-medium text-copper-light">{index}</span>
-        <span className="flex items-center gap-3 eyebrow text-bone/70">
-          {kicker}
-          {/* The landing page previously never said "free" anywhere — a visitor
-              had to reach the closing block, four cards down, to learn there
-              was a free tier at all. */}
-          <span className="border border-copper-light/40 px-2 py-0.5 text-copper-light">Free to start</span>
-        </span>
+        <span className="eyebrow text-bone/70">{kicker}</span>
       </div>
     </div>
   )

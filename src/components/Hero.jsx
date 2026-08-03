@@ -66,7 +66,7 @@ export default function Hero() {
             </a>
             <a
               href="#about"
-              className="group inline-flex items-center gap-2.5 border border-bone/35 px-6 py-3.5 font-mono text-[12px] uppercase tracking-wider text-bone transition-colors hover:border-bone hover:bg-bone/10"
+              className="group inline-flex min-h-[44px] items-center gap-2 border-b border-bone/25 font-mono text-[12px] uppercase tracking-wider text-bone/70 transition-colors hover:border-bone hover:text-bone"
             >
               About the maker
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -75,7 +75,11 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Bottom — section index. Hairline over the photo rather than a filled
+      {/* Bottom — section index. Its 01/02/03 are POSITIONS on this page;
+          the products are numbered 01–04 on the cards below. Those were the
+          same glyphs meaning two things, so the section eyebrows dropped theirs
+          and only this positional index keeps them.
+          Section index. Hairline over the photo rather than a filled
           bar; the backdrop's bottom fade already separates it from what follows. */}
       <div className="absolute inset-x-0 bottom-0 z-10 border-t border-bone/15 px-8 py-4">
         <div className="mx-auto flex max-w-7xl items-center justify-between font-mono text-[10px] uppercase tracking-wider text-bone/60">
